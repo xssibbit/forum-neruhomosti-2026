@@ -117,6 +117,11 @@ body{background:var(--paper);color:var(--ink)}.section-title span{color:#777168}
 .ticket-card.featured{background:var(--ink);border-color:var(--ink)}.featured-line{background:var(--signal)}.countdown-section,.footer{background:var(--ink)}.countdown strong{color:#c5a574}.location-card{box-shadow:18px 18px 0 rgba(169,130,79,.92)}.location-pin{background:var(--ink)}
 .final-cta{background:var(--ink);color:var(--paper);border-top:8px solid var(--signal)}.final-copy h2 span{color:#c5a574}.final-cta:after{color:rgba(243,238,228,.045)}.final-cta .section-kicker{color:#c5a574}.final-cta .button.light{background:var(--signal);border-color:var(--signal);color:#fff}.final-cta .contact-panel{border-color:rgba(243,238,228,.32)}.final-cta .contact-panel a{border-color:rgba(243,238,228,.22)}
 @media(max-width:760px){.site-header,.site-header.scrolled{background:rgba(28,28,26,.98)}.hero-meta,.location-card{box-shadow:10px 10px 0 rgba(169,130,79,.92)}.header-cta,.mobile-menu .button{background:var(--signal);border-color:var(--signal)}.final-cta .contact-panel{border-color:rgba(243,238,228,.3)}}
+
+/* Luxury editorial direction. */
+body{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:400}.section-title,.hero h1,.date-top>span,.price strong,.countdown strong,.final-copy h2{font-family:Georgia,"Times New Roman",serif;font-weight:400}.hero h1{letter-spacing:-.055em;line-height:.84}.hero h1 em{font-style:italic;font-weight:400}.section-title{letter-spacing:-.048em;line-height:.94}.section-kicker,.eyebrow,.tag,.mini-label,.ticket-badge,.featured-line{letter-spacing:.22em}.edition-stamp{display:flex;align-items:center;gap:12px;margin:0 0 22px;color:#c9b18b;font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}.edition-stamp:before{content:"";width:46px;height:1px;background:#a9824f}.hero-meta{border:1px solid rgba(201,177,139,.42);box-shadow:0 38px 90px rgba(0,0,0,.32)}.hero-meta:after{content:"";position:absolute;inset:14px;z-index:1;border:1px solid rgba(243,238,228,.18);pointer-events:none}.button{border-radius:0;letter-spacing:.08em;text-transform:uppercase;font-size:11px}.button.primary{box-shadow:0 16px 40px rgba(169,130,79,.17)}.speaker-image{border-color:rgba(201,177,139,.25)}.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:96px}.speaker-info h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.03em}.ticket-card{box-shadow:0 20px 60px rgba(28,28,26,.055)}.ticket-card.featured{box-shadow:0 34px 80px rgba(28,28,26,.2)}.location-card{box-shadow:0 38px 90px rgba(28,28,26,.15)}.final-cta{border-top:1px solid rgba(201,177,139,.6)}.mobile-purchase{display:none}
+@media(max-width:1120px){.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:0}.speaker-card:nth-child(3n+2){margin-top:64px}}
+@media(max-width:760px){body{padding-bottom:74px}.hero{padding-top:106px}.hero-meta,.location-card{box-shadow:0 24px 54px rgba(0,0,0,.25)}.hero-meta:after{inset:9px}.edition-stamp{margin-bottom:18px}.hero h1{font-size:12.2vw;line-height:.86}.section-title{font-size:clamp(42px,12vw,56px)}.speaker-card:nth-child(3n+2){margin-top:0}.speaker-info h3{font-size:20px}.mobile-purchase{position:fixed;z-index:90;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));min-height:58px;padding:0 8px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(28,28,26,.96);color:var(--paper);border:1px solid rgba(201,177,139,.55);box-shadow:0 18px 50px rgba(0,0,0,.35);backdrop-filter:blur(18px)}.mobile-purchase span{display:flex;flex-direction:column;font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#c9b18b}.mobile-purchase strong{margin-top:3px;color:var(--paper);font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:400;letter-spacing:0;text-transform:none}.mobile-purchase b{display:grid;place-items:center;width:42px;height:42px;background:var(--signal);color:#fff;font-size:18px;font-weight:400}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
 </style>
@@ -163,6 +168,7 @@ body{background:var(--paper);color:var(--ink)}.section-title span{color:#777168}
       <div class="hero-orb orb-two" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
+          <div class="edition-stamp">Private business edition · 2026</div>
           <div class="eyebrow"><span class="live-dot"></span> 25–26 вересня · Вінниця</div>
           <h1><span>ФОРУМ</span><br><em>НЕРУХОМОСТІ</em></h1>
           <p class="hero-lead">Два дні для рієлторів, керівників агенцій і партнерів ринку: 10 виступів, 4 майстер-класи та професійний нетворкінг.</p>
@@ -414,6 +420,10 @@ body{background:var(--paper);color:var(--ink)}.section-title span{color:#777168}
       <div class="copyright">© 2026 Форум нерухомості</div>
     </div>
   </footer>
+
+  <a class="mobile-purchase" href="#tickets" aria-label="Перейти до купівлі квитка">
+    <span>Рання реєстрація<strong>від 2 500 ₴</strong></span><b>↗</b>
+  </a>
 
   <script>
 const header=document.querySelector('#header');
