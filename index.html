@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#1c1c1a" />
+  <meta name="description" content="Форум нерухомості 2026 — два дні практики, кейсів, нетворкінгу та майстер-класів у Вінниці." />
+  <title>Форум нерухомості 2026 — Вінниця</title>
+  <style>
+:root{
+  --bg:#07111f;--bg2:#0a1627;--surface:#0d1a2d;--line:rgba(255,255,255,.12);--text:#f5f7fb;--muted:#9aa7b8;--accent:#2d7fff;--accent2:#65a3ff;--warm:#dce9ff;--black:#05080d;--radius:28px;--pad:clamp(22px,4vw,64px);--max:1440px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}img{display:block;max-width:100%}::selection{background:var(--accent);color:#fff}
+body.menu-open{overflow:hidden}.container{width:min(var(--max),calc(100% - var(--pad) - var(--pad)));margin:0 auto}.section{position:relative;padding:clamp(90px,10vw,160px) 0}.noise{position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}.mouse-glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(45,127,255,.1),transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%)}
+.site-header{position:fixed;z-index:900;top:16px;left:50%;transform:translateX(-50%);width:min(1460px,calc(100% - 32px));height:74px;border:1px solid rgba(255,255,255,.12);background:rgba(7,17,31,.76);backdrop-filter:blur(20px);display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 14px 0 18px;border-radius:22px;transition:.35s ease;box-shadow:0 20px 60px rgba(0,0,0,.18)}.site-header.scrolled{top:8px;background:rgba(5,12,22,.92)}.brand{display:flex;gap:12px;align-items:center;min-width:220px}.brand-mark{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02))}.brand-mark svg{width:26px;stroke:#fff;stroke-width:1.7}.brand-text{display:flex;flex-direction:column;line-height:1}.brand-text b{font-size:14px;letter-spacing:.13em}.brand-text small{font-size:9px;color:var(--muted);letter-spacing:.14em;margin-top:5px}.desktop-nav{display:flex;justify-content:center;gap:clamp(20px,2.3vw,38px)}.desktop-nav a{font-size:13px;color:#c7d1df;transition:.25s}.desktop-nav a:hover{color:#fff}.header-cta{padding:14px 18px;border-radius:14px;background:#fff;color:#07111f;font-weight:700;font-size:13px;display:flex;gap:18px;align-items:center}.header-cta span{font-size:16px}.menu-toggle{display:none;border:0;background:none;width:48px;height:48px;padding:0;position:relative}.menu-toggle span{position:absolute;left:11px;right:11px;height:1px;background:#fff;top:19px;transition:.3s}.menu-toggle span+span{top:28px}.menu-open .menu-toggle span:first-child{transform:translateY(4.5px) rotate(45deg)}.menu-open .menu-toggle span:last-child{transform:translateY(-4.5px) rotate(-45deg)}.mobile-menu{position:fixed;z-index:850;inset:0;background:rgba(5,12,22,.98);padding:130px var(--pad) 50px;opacity:0;visibility:hidden;transition:.3s}.mobile-menu[aria-hidden="false"]{opacity:1;visibility:visible}.mobile-menu nav{display:flex;flex-direction:column;gap:10px}.mobile-menu nav>a:not(.button){font-size:clamp(30px,9vw,54px);font-weight:700;padding:10px 0;border-bottom:1px solid var(--line)}
+.hero{position:relative;min-height:960px;height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(circle at 78% 36%,rgba(45,127,255,.2),transparent 30%),linear-gradient(155deg,#07111f 20%,#09182b 58%,#07111f 100%)}.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:68px 68px;mask-image:linear-gradient(to bottom,black,transparent 92%)}.hero-orb{position:absolute;border-radius:50%;filter:blur(1px)}.orb-one{width:560px;height:560px;right:-170px;top:22%;border:1px solid rgba(101,163,255,.3);box-shadow:inset 0 0 100px rgba(45,127,255,.08);animation:float 8s ease-in-out infinite}.orb-two{width:250px;height:250px;right:23%;top:17%;border:1px solid rgba(255,255,255,.09);animation:float 7s ease-in-out infinite reverse}.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(340px,.55fr);gap:clamp(40px,7vw,120px);align-items:end;padding-top:100px}.eyebrow,.section-kicker{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#b7c6d8}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);margin-bottom:24px}.live-dot{width:7px;height:7px;border-radius:50%;background:#56ff9a;box-shadow:0 0 0 6px rgba(86,255,154,.08);animation:pulse 1.8s infinite}.hero h1{font-size:clamp(70px,9.6vw,155px);line-height:.78;margin:0;letter-spacing:-.067em;font-weight:760}.hero h1 span{display:inline-block}.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.75)}.hero-lead{max-width:720px;font-size:clamp(17px,1.6vw,23px);line-height:1.55;color:#b9c5d4;margin:40px 0 32px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-height:56px;padding:0 22px;border:1px solid var(--line);border-radius:16px;font-size:13px;font-weight:750;letter-spacing:.02em;transition:.3s cubic-bezier(.2,.8,.2,1)}.button:hover{transform:translateY(-2px)}.button.primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 18px 45px rgba(45,127,255,.22)}.button.primary:hover{background:#408bff}.button.ghost{background:rgba(255,255,255,.025)}.button.ghost:hover{background:rgba(255,255,255,.07)}.button.light{background:#fff;color:#07111f;border-color:#fff}.button.wide{width:100%}.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:center}.glass{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(16px)}.date-card{grid-column:1/-1;border-radius:26px;padding:26px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between;transform-style:preserve-3d}.date-top{display:flex;justify-content:space-between;align-items:flex-start}.date-top>span{font-size:clamp(58px,6vw,92px);font-weight:750;letter-spacing:-.07em;line-height:.9}.date-top small{font-size:11px;letter-spacing:.14em;line-height:1.5;text-align:right;color:#b7c5d7}.date-line{height:1px;background:linear-gradient(90deg,rgba(255,255,255,.5),transparent)}.meta-row{display:flex;justify-content:space-between;gap:20px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);font-size:12px}.meta-row span{color:var(--muted)}.meta-row strong{font-weight:650;text-align:right}.mini-stat{border-radius:22px;padding:20px;min-height:140px;display:flex;flex-direction:column}.mini-label{text-transform:uppercase;letter-spacing:.13em;font-size:9px;color:var(--muted)}.mini-stat strong{font-size:34px;letter-spacing:-.04em;margin:auto 0 4px}.mini-stat small{color:var(--muted);font-size:11px;line-height:1.4}.marquee{position:absolute;bottom:0;left:0;right:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(4,10,18,.75);overflow:hidden;z-index:3}.marquee-track{display:flex;width:max-content;gap:26px;align-items:center;padding:17px 0;animation:marquee 28s linear infinite}.marquee span{font-size:12px;letter-spacing:.18em;font-weight:700}.marquee i{font-style:normal;color:var(--accent)}
+.about{background:#f1f4f8;color:#07111f}.about .section-kicker{color:#536174}.about-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:8vw;margin-top:28px;align-items:end}.section-title{font-size:clamp(50px,6.7vw,106px);line-height:.94;letter-spacing:-.06em;margin:0;font-weight:730}.section-title span{color:#8592a4}.about-copy{padding-bottom:8px}.about-copy p{font-size:clamp(16px,1.35vw,20px);line-height:1.7;color:#526072;margin:0 0 20px}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:90px;border-top:1px solid rgba(7,17,31,.16);border-left:1px solid rgba(7,17,31,.16)}.benefit{min-height:220px;border-right:1px solid rgba(7,17,31,.16);border-bottom:1px solid rgba(7,17,31,.16);padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:.35s}.benefit:hover{background:#fff}.benefit>span{font-size:11px;color:#8390a0}.benefit h3{font-size:22px;letter-spacing:-.03em;margin:0 0 10px}.benefit p{color:#687587;line-height:1.55;margin:0;max-width:300px;font-size:14px}
+.program{background:#07111f}.program-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px}.program .section-title{margin-top:25px}.day-tabs{display:grid;grid-template-columns:1fr 1fr;background:rgba(255,255,255,.04);padding:5px;border:1px solid var(--line);border-radius:18px}.day-tab{border:0;background:transparent;border-radius:13px;padding:14px 18px;text-align:left;min-width:170px;cursor:pointer;color:#93a2b4;transition:.25s}.day-tab span{display:block;font-size:9px;letter-spacing:.13em;margin-top:5px}.day-tab.active{background:#fff;color:#07111f}.schedule{margin-top:70px;border-top:1px solid var(--line)}.schedule[hidden]{display:none}.schedule-row{display:grid;grid-template-columns:180px 1fr 44px;gap:30px;align-items:center;padding:24px 8px;border-bottom:1px solid var(--line);transition:.3s}.schedule-row:hover{padding-left:18px;background:linear-gradient(90deg,rgba(45,127,255,.09),transparent 65%)}.schedule-row time{font-size:13px;color:#96a4b6}.schedule-row h3{font-size:clamp(18px,2vw,28px);line-height:1.25;letter-spacing:-.035em;margin:8px 0 0;font-weight:600}.schedule-row p{color:var(--muted);margin:8px 0 0}.tag{display:inline-block;color:#74a9ff;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.tag.muted{color:#8997a8}.arrow{justify-self:end;font-size:23px;color:#6b7a8f;transition:.25s}.schedule-row:hover .arrow{color:#fff;transform:translate(3px,3px)}.schedule-row.break{background:rgba(255,255,255,.025)}.schedule-row.workshop{background:linear-gradient(90deg,rgba(45,127,255,.15),rgba(45,127,255,.02))}.schedule-row.dinner{background:rgba(255,255,255,.04)}
+.speakers{background:#0a1627}.speakers-head{display:flex;justify-content:space-between;gap:50px;align-items:end}.speakers .section-title{margin-top:25px}.side-note{max-width:260px;color:var(--muted);font-size:13px;line-height:1.6}.speaker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:70px}.speaker-card{position:relative;min-height:600px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#0b1421;isolation:isolate}.speaker-image{position:absolute;inset:0}.speaker-image:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(3,9,16,.98) 5%,rgba(3,9,16,.2) 52%,rgba(3,9,16,.04) 100%);transition:.4s}.speaker-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.02);transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .4s}.speaker-card:hover .speaker-image img{transform:scale(1.045);filter:saturate(1)}.speaker-card:hover .speaker-image:after{background:linear-gradient(to top,rgba(3,9,16,.98) 7%,rgba(3,9,16,.36) 60%,rgba(3,9,16,.04) 100%)}.speaker-index{position:absolute;top:20px;right:20px;z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(5,10,18,.5);border:1px solid rgba(255,255,255,.16);font-size:10px;backdrop-filter:blur(10px)}.speaker-info{position:absolute;z-index:2;left:24px;right:24px;bottom:24px;transform:translateY(58px);transition:.45s cubic-bezier(.2,.8,.2,1)}.speaker-card:hover .speaker-info{transform:translateY(0)}.speaker-info h3{font-size:30px;letter-spacing:-.045em;margin:0 0 10px}.speaker-info p{color:#c3cbd5;line-height:1.5;margin:0 0 18px;opacity:0;transition:.35s;font-size:14px}.speaker-card:hover .speaker-info p{opacity:1}.speaker-info span{display:inline-block;font-size:9px;letter-spacing:.16em;color:#7cacff;font-weight:800}
+.tickets{background:#eef2f7;color:#07111f}.tickets .section-kicker{color:#526174}.ticket-heading{display:grid;grid-template-columns:1.2fr .5fr;gap:8vw;align-items:end;margin-top:25px}.ticket-heading p{font-size:16px;color:#667486;line-height:1.65;margin:0 0 10px}.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:70px}.ticket-card{position:relative;min-height:590px;border:1px solid rgba(7,17,31,.14);border-radius:26px;padding:28px;background:#fff;display:flex;flex-direction:column;overflow:hidden}.ticket-card.featured{background:#0a1728;color:#fff;border-color:#0a1728;box-shadow:0 28px 80px rgba(7,17,31,.18)}.featured-line{position:absolute;left:0;right:0;top:0;padding:11px 28px;background:var(--accent);font-size:9px;letter-spacing:.15em;font-weight:800}.featured .ticket-top{margin-top:24px}.ticket-top{display:flex;justify-content:space-between;gap:20px;align-items:center}.ticket-type{font-size:16px;font-weight:700}.ticket-badge{font-size:9px;letter-spacing:.12em;padding:8px 10px;border:1px solid currentColor;border-radius:999px;opacity:.62}.price{display:flex;align-items:flex-start;margin:65px 0 28px}.price strong{font-size:clamp(68px,6vw,96px);line-height:.8;letter-spacing:-.07em}.price span{font-size:24px;margin-left:8px}.ticket-card>p{color:#6d7a8b;line-height:1.55;min-height:74px}.featured>p{color:#aab6c4}.ticket-card ul{list-style:none;margin:28px 0;padding:0;border-top:1px solid rgba(7,17,31,.11)}.featured ul{border-color:rgba(255,255,255,.12)}.ticket-card li{padding:13px 0;border-bottom:1px solid rgba(7,17,31,.11);font-size:13px;color:#536174}.featured li{border-color:rgba(255,255,255,.12);color:#c2cad5}.ticket-card .button{margin-top:auto}.group-icon{font-size:96px;font-weight:750;letter-spacing:-.07em;margin:42px 0 18px}.group-icon span{color:var(--accent)}.contact-card{background:#dce9ff}
+.countdown-section{background:#07111f;padding-top:0}.countdown-wrap{border:1px solid var(--line);border-radius:30px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;background:radial-gradient(circle at 80% 30%,rgba(45,127,255,.18),transparent 40%),rgba(255,255,255,.02)}.countdown-wrap h2{font-size:clamp(44px,5vw,76px);line-height:.95;letter-spacing:-.055em;margin:20px 0 0}.countdown-wrap h2 span{color:#6d7c91}.countdown{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}.countdown>div{padding:0 18px;border-right:1px solid var(--line)}.countdown strong{font-size:clamp(42px,4.4vw,72px);letter-spacing:-.06em;display:block}.countdown span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.location{background:#07111f;padding-top:0}.location-card{display:grid;grid-template-columns:1.2fr .8fr;min-height:650px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:#0a1627}.location-visual{position:relative;min-height:620px;overflow:hidden}.location-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(10,22,39,.35)),linear-gradient(to top,rgba(4,10,18,.55),transparent 45%)}.location-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1s}.location-card:hover .location-visual img{transform:scale(1.025)}.location-pin{position:absolute;z-index:3;left:22px;bottom:22px;padding:10px 13px;border-radius:999px;background:rgba(6,13,23,.72);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(10px);font-size:10px;letter-spacing:.08em}.location-pin span{display:inline-block;width:6px;height:6px;background:#5eff9d;border-radius:50%;margin-right:8px}.location-copy{padding:clamp(34px,5vw,72px);display:flex;flex-direction:column;justify-content:center}.location-copy h2{font-size:clamp(55px,6vw,92px);line-height:.88;letter-spacing:-.06em;margin:28px 0}.location-copy h2 span{color:#74849a}.location-copy p{font-size:18px;line-height:1.6;color:#b8c3d1}.location-features{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 34px}.location-features span{font-size:10px;letter-spacing:.08em;padding:9px 11px;border:1px solid var(--line);border-radius:999px;color:#b8c3d1}.location-copy .button{align-self:flex-start}
+.partners{background:#eef2f7;color:#07111f;padding-top:90px;padding-bottom:90px}.partner-row{display:grid;grid-template-columns:1fr 1fr;align-items:center;border-top:1px solid rgba(7,17,31,.14);padding:36px 0}.partner-row:last-child{border-bottom:1px solid rgba(7,17,31,.14)}.partner-label{display:flex;flex-direction:column;gap:7px}.partner-label span{font-size:11px;font-weight:800;letter-spacing:.16em}.partner-label small{color:#7b8898}.logo-box{justify-self:end;width:170px;height:110px;display:grid;place-items:center}.logo-box img{max-width:100%;max-height:100%;object-fit:contain}.wide-logo{width:330px}
+.final-cta{background:var(--accent);color:#fff;overflow:hidden}.final-cta:before{content:"";position:absolute;width:720px;height:720px;border-radius:50%;border:1px solid rgba(255,255,255,.17);right:-160px;top:-240px;box-shadow:0 0 0 90px rgba(255,255,255,.02),0 0 0 180px rgba(255,255,255,.02)}.final-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:end}.final-copy h2{font-size:clamp(64px,7.5vw,120px);line-height:.82;letter-spacing:-.07em;margin:28px 0 34px}.final-copy h2 span{color:#07111f}.final-copy p{margin:0 0 28px}.contact-panel{border-left:1px solid rgba(255,255,255,.3);padding-left:40px;display:flex;flex-direction:column;gap:16px}.contact-panel p{font-size:13px;opacity:.75}.contact-panel a{font-size:clamp(18px,2vw,28px);font-weight:650;letter-spacing:-.025em;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.22)}
+.footer{background:#050a12;padding:34px 0;color:#b6c1cf}.footer-inner{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center}.footer-brand{color:#fff}.footer-links{display:flex;justify-content:center;gap:24px;font-size:12px}.copyright{text-align:right;font-size:11px;color:#758297}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes float{50%{transform:translateY(-18px) rotate(4deg)}}@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(86,255,154,0)}}
+@media(max-width:1120px){.desktop-nav{display:none}.site-header{grid-template-columns:1fr auto auto}.menu-toggle{display:block}.header-cta{margin-right:6px}.hero{height:auto;min-height:900px;padding:150px 0 120px}.hero-inner{grid-template-columns:1fr;align-items:center}.hero-meta{grid-template-columns:2fr 1fr 1fr}.date-card{grid-column:auto}.speaker-grid{grid-template-columns:repeat(2,1fr)}.ticket-grid{grid-template-columns:1fr 1fr}.contact-card{grid-column:1/-1;min-height:460px}.countdown-wrap{grid-template-columns:1fr}.location-card{grid-template-columns:1fr}.location-visual{min-height:500px}.location-copy{min-height:500px}.final-grid{grid-template-columns:1fr}.contact-panel{max-width:700px}.footer-inner{grid-template-columns:1fr auto}.copyright{grid-column:1/-1;text-align:left;margin-top:20px}}
+@media(max-width:760px){
+  :root{--pad:max(16px,env(safe-area-inset-left))}
+  html{-webkit-text-size-adjust:100%;scroll-padding-top:82px}
+  body{font-size:15px;-webkit-tap-highlight-color:transparent}
+  .container{width:min(var(--max),calc(100% - var(--pad) - var(--pad)))}
+  .site-header{top:max(8px,env(safe-area-inset-top));height:62px;width:calc(100% - 20px);grid-template-columns:minmax(0,1fr) auto auto;gap:3px;border-radius:18px;padding:0 7px 0 10px}
+  .site-header.scrolled{top:max(6px,env(safe-area-inset-top))}
+  .brand{min-width:0;gap:8px}.brand-mark{width:36px;height:36px;border-radius:11px;flex:0 0 auto}.brand-mark svg{width:24px}.brand-text b{font-size:12px;letter-spacing:.11em}.brand-text small{display:none}
+  .header-cta{display:inline-flex;min-height:40px;height:40px;margin:0;padding:0 13px;border-radius:12px;gap:0;font-size:0;white-space:nowrap}.header-cta:before{content:"Квиток";font-size:11px;font-weight:800;letter-spacing:.02em}.header-cta span{display:none}
+  .menu-toggle{display:block;width:44px;height:44px;touch-action:manipulation}.menu-toggle span{left:10px;right:10px;top:17px}.menu-toggle span+span{top:26px}
+  .mobile-menu{padding:calc(96px + env(safe-area-inset-top)) 20px calc(24px + env(safe-area-inset-bottom));background:radial-gradient(circle at 88% 8%,rgba(45,127,255,.18),transparent 32%),rgba(5,12,22,.985);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .mobile-menu nav{min-height:calc(100% - env(safe-area-inset-top));justify-content:center;gap:0}.mobile-menu nav>a:not(.button){font-size:clamp(27px,8.2vw,38px);line-height:1.08;letter-spacing:-.035em;padding:11px 0}.mobile-menu .button{margin-top:22px;min-height:52px}
+  .hero{height:auto;min-height:0;align-items:flex-start;padding:calc(112px + env(safe-area-inset-top)) 0 98px;background:radial-gradient(circle at 88% 22%,rgba(45,127,255,.2),transparent 32%),linear-gradient(155deg,#07111f 15%,#09182b 62%,#07111f 100%)}
+  .hero-grid{background-size:44px 44px;opacity:.65}.orb-one{width:330px;height:330px;right:-190px;top:24%}.orb-two{display:none}
+  .hero-inner{padding-top:0;gap:32px}.eyebrow{max-width:100%;margin-bottom:20px;padding:8px 10px;font-size:9px;line-height:1.4;letter-spacing:.11em}
+  .hero h1{font-size:clamp(38px,11.9vw,53px);line-height:.88;letter-spacing:-.048em}.hero h1 em{white-space:nowrap;-webkit-text-stroke:1px rgba(255,255,255,.8)}
+  .hero-lead{font-size:15.5px;line-height:1.58;margin:24px 0}.hero-actions{display:grid;grid-template-columns:1fr;gap:9px}.hero-actions .button{width:100%;min-height:54px}
+  .hero-meta{grid-template-columns:1fr 1fr;gap:8px}.date-card{grid-column:1/-1;min-height:238px;padding:20px;border-radius:20px}.date-top>span{font-size:52px}.date-top small{font-size:9px}.meta-row{font-size:11px;padding-top:11px}.mini-stat{min-height:108px;padding:16px;border-radius:18px}.mini-stat strong{font-size:27px}.mini-stat small{font-size:10px}
+  .marquee-track{padding:14px 0;gap:20px}.marquee span{font-size:10px}
+  .section{padding:72px 0}.section-kicker{font-size:9px;letter-spacing:.16em}.section-title{font-size:clamp(38px,11.2vw,52px);line-height:.98;letter-spacing:-.047em;overflow-wrap:anywhere}
+  .about-layout,.ticket-heading{grid-template-columns:1fr;gap:26px;margin-top:22px}.about-copy{padding-bottom:0}.about-copy p{font-size:15px;line-height:1.65}
+  .benefit-grid{grid-template-columns:1fr;margin-top:46px;border-left:0}.benefit{min-height:0;display:grid;grid-template-columns:42px 1fr;gap:12px;padding:20px 0;border-right:0;align-items:start}.benefit:hover{background:transparent}.benefit>span{padding-top:3px}.benefit h3{font-size:19px;margin-bottom:7px}.benefit p{font-size:13.5px;line-height:1.5}
+  .program-head{grid-template-columns:1fr;gap:28px}.program .section-title,.speakers .section-title{margin-top:18px}.day-tabs{width:100%;border-radius:14px;padding:4px}.day-tab{min-width:0;padding:11px 12px;border-radius:10px;font-size:12px;touch-action:manipulation}.day-tab span{font-size:8px}
+  .schedule{margin-top:30px}.schedule-row{grid-template-columns:72px minmax(0,1fr);gap:12px;padding:18px 0}.schedule-row:hover{padding-left:0;background:transparent}.schedule-row .arrow{display:none}.schedule-row time{font-size:10.5px;line-height:1.35}.schedule-row h3{font-size:16px;line-height:1.35;margin-top:6px;overflow-wrap:anywhere}.schedule-row p{font-size:12px;line-height:1.5}.tag{font-size:8px;line-height:1.35}
+  .speakers-head{display:block}.side-note{margin:18px 0 0;font-size:0}.side-note:after{content:"Гортайте картки — тема й опис уже відкриті.";font-size:13px;line-height:1.6}
+  .speaker-grid{display:flex;grid-template-columns:none;gap:12px;margin:40px calc(0px - var(--pad)) 0 0;padding:0 var(--pad) 8px 0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:0;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}.speaker-grid::-webkit-scrollbar{display:none}
+  .speaker-card{flex:0 0 min(82vw,340px);min-height:470px;border-radius:20px;scroll-snap-align:start}.speaker-card:hover .speaker-image img{transform:none;filter:saturate(.9) contrast(1.02)}.speaker-info{left:18px;right:18px;bottom:18px;transform:none}.speaker-info h3{font-size:25px;margin-bottom:8px}.speaker-info p{font-size:13px;line-height:1.45;margin-bottom:14px;opacity:1}.speaker-index{top:14px;right:14px}
+  .ticket-grid{grid-template-columns:1fr;gap:12px;margin-top:42px}.ticket-card,.contact-card{min-height:0;padding:22px;border-radius:20px}.featured-line{padding:10px 22px}.featured .ticket-top{margin-top:22px}.ticket-top{align-items:flex-start}.ticket-type{font-size:15px}.ticket-badge{font-size:8px;padding:7px 9px}.price{margin:44px 0 18px}.price strong{font-size:58px}.price span{font-size:20px}.ticket-card>p{min-height:0;font-size:14px}.ticket-card ul{margin:20px 0 24px}.ticket-card li{padding:11px 0}.ticket-card .button{min-height:52px}.group-icon{font-size:68px;margin:30px 0 14px}
+  .countdown-section,.location{padding-top:0}.countdown-wrap{padding:22px;border-radius:20px;gap:28px}.countdown-wrap h2{font-size:clamp(36px,10.5vw,48px);line-height:1;margin-top:15px}.countdown{grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:0}.countdown>div{padding:16px 12px;border-bottom:1px solid var(--line)}.countdown strong{font-size:36px}.countdown span{font-size:8px}
+  .location-card{min-height:0;border-radius:20px}.location-visual{min-height:320px}.location-copy{min-height:0;padding:28px 22px 30px}.location-copy h2{font-size:clamp(42px,12.2vw,56px);margin:20px 0;line-height:.92}.location-copy p{font-size:16px}.location-features{margin:16px 0 26px}.location-copy .button{align-self:stretch;width:100%}
+  .partners{padding-top:60px;padding-bottom:60px}.partner-row{grid-template-columns:1fr;gap:24px;padding:28px 0}.logo-box{justify-self:start;width:145px;height:74px}.wide-logo{width:240px}
+  .final-grid{grid-template-columns:1fr;gap:50px}.final-copy h2{font-size:clamp(41px,11.8vw,54px);line-height:.94;letter-spacing:-.052em;margin:20px 0 28px;overflow-wrap:anywhere}.final-copy .button{width:100%}.contact-panel{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.28);padding-top:26px;gap:12px}.contact-panel a{font-size:17px;line-height:1.35;overflow-wrap:anywhere}.footer{padding:28px 0 calc(28px + env(safe-area-inset-bottom))}.footer-inner{grid-template-columns:1fr}.footer-links{justify-content:flex-start;flex-wrap:wrap;gap:14px 22px;margin-top:26px}.copyright{grid-column:auto;margin-top:24px}.mouse-glow,.noise{display:none}
+}
+@media(max-width:360px){
+  :root{--pad:16px}.site-header{width:calc(100% - 16px)}.brand-text b{font-size:11px}.header-cta{padding:0 11px}.hero h1{font-size:11.8vw}.date-top>span{font-size:48px}.schedule-row{grid-template-columns:66px minmax(0,1fr);gap:10px}.speaker-card{flex-basis:84vw}.contact-panel a{font-size:15px}
+}
+@media(max-width:760px) and (orientation:landscape) and (max-height:500px){.mobile-menu{padding-top:78px}.mobile-menu nav{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-content:center}.mobile-menu nav>a:not(.button){font-size:22px;padding:8px 0}.mobile-menu .button{margin-top:8px}.hero{padding-top:100px}}
+/* Editorial event direction: restrained grid, factual copy, no glass-card styling. */
+:root{--paper:#f2f0e8;--white:#fff;--ink:#0b1d34;--signal:#f05238;--soft:#d8d5cc;--text:var(--ink);--muted:#697382;--accent:var(--signal);--line:rgba(11,29,52,.24);--pad:clamp(24px,4.2vw,72px);--max:1320px;--radius:0}
+body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.noise,.mouse-glow,.hero-orb{display:none}
+.section{padding:clamp(92px,9vw,132px) 0}.section-kicker,.eyebrow{font-size:10px;font-weight:700;letter-spacing:.17em;color:var(--signal)}.section-title{font-size:clamp(54px,6vw,86px);line-height:.94;letter-spacing:-.055em;font-weight:700}.section-title span{color:#697382}
+.site-header{top:0;left:0;transform:none;width:100%;max-width:none;height:74px;padding:0 var(--pad);border:0;border-bottom:1px solid rgba(11,29,52,.25);border-radius:0;background:rgba(242,240,232,.96);box-shadow:none;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.site-header.scrolled{top:0;background:rgba(242,240,232,.98)}.brand{min-width:220px}.brand-mark{width:38px;height:38px;border:1px solid var(--ink);border-radius:0;background:none}.brand-mark svg{stroke:var(--ink)}.brand-text b{color:var(--ink)}.brand-text small{color:#697382}.desktop-nav a{color:#3f4d5f}.desktop-nav a:hover{color:var(--signal)}.header-cta{min-height:44px;padding:0 18px;border:1px solid var(--ink);border-radius:0;background:var(--ink);color:var(--paper)}.header-cta:hover{background:var(--signal);border-color:var(--signal)}.menu-toggle span{background:var(--ink)}
+.mobile-menu{background:var(--ink);color:var(--paper)}.mobile-menu nav>a:not(.button){border-color:rgba(255,255,255,.22)}
+.button{min-height:54px;border-radius:0;border-color:currentColor;padding:0 20px;box-shadow:none}.button:hover{transform:none}.button.primary{background:var(--signal);border-color:var(--signal);box-shadow:none}.button.primary:hover{background:var(--ink);border-color:var(--ink)}.button.ghost{background:transparent}.button.ghost:hover{background:transparent;color:var(--signal)}.button.light{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.hero{height:auto;min-height:900px;padding:154px 0 108px;align-items:center;background:var(--paper);color:var(--ink);border-bottom:1px solid rgba(11,29,52,.25)}.hero:before{content:"";position:absolute;top:74px;bottom:0;left:68%;width:1px;background:rgba(11,29,52,.18)}.hero-grid{display:none}.hero-inner{grid-template-columns:minmax(0,1.25fr) minmax(330px,.55fr);gap:clamp(52px,8vw,120px);align-items:center;padding-top:0}.eyebrow{display:flex;width:max-content;max-width:100%;gap:10px;padding:10px 0;margin-bottom:32px;border:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);border-radius:0;background:none;color:var(--ink)}.live-dot{width:7px;height:7px;border-radius:0;background:var(--signal);box-shadow:none;animation:none}.hero h1{font-size:clamp(72px,8.5vw,126px);line-height:.79;letter-spacing:-.065em;font-weight:800;color:var(--ink)}.hero h1 em{color:var(--signal);-webkit-text-stroke:0}.hero-lead{max-width:650px;margin:38px 0 30px;color:#4d5a6a;font-size:clamp(17px,1.45vw,21px)}.hero-actions{gap:0}.hero-actions .button+.button{margin-left:-1px}.hero .button.ghost{color:var(--ink)}
+.hero-meta{grid-template-columns:1fr 1fr;gap:0;align-self:center;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}.glass{background:transparent;border:0;backdrop-filter:none}.hero-meta>*{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.date-card{grid-column:1/-1;min-height:310px;padding:28px;border-radius:0}.date-top>span{font-size:clamp(68px,6vw,88px)}.date-top small{color:#4e5b6b}.date-line{background:var(--ink)}.meta-row{border-color:rgba(11,29,52,.25)}.meta-row span,.mini-label,.mini-stat small{color:#697382}.mini-stat{min-height:138px;padding:20px;border-radius:0}.mini-stat strong{font-size:31px}.marquee{background:var(--ink);color:var(--paper);border:0}.marquee-track{animation-duration:42s}.marquee i{color:var(--signal)}
+.about{background:var(--white);color:var(--ink)}.about .section-kicker{color:var(--signal)}.about-layout{grid-template-columns:1.1fr .65fr;gap:8vw;align-items:start}.about-copy p{color:#4e5b6b}.benefit-grid{grid-template-columns:repeat(3,1fr);gap:0 34px;margin-top:74px;border:0}.benefit{min-height:175px;padding:22px 0;border:0;border-top:1px solid var(--ink);background:none}.benefit:hover{background:none}.benefit>span{color:var(--signal)}.benefit h3{font-size:21px}.benefit p{color:#596575}
+.program{background:var(--paper);color:var(--ink)}.program .section-kicker{color:var(--signal)}.day-tabs{padding:0;border:1px solid var(--ink);border-radius:0;background:transparent}.day-tab{min-width:170px;padding:15px 17px;border-radius:0;color:#5d6876}.day-tab+.day-tab{border-left:1px solid var(--ink)}.day-tab.active{background:var(--signal);color:#fff}.schedule{border-color:var(--ink)}.schedule-row{grid-template-columns:165px 1fr 40px;padding:23px 0;border-color:rgba(11,29,52,.23)}.schedule-row:hover{padding-left:0;background:var(--white)}.schedule-row time{color:#4e5b6b}.schedule-row h3{font-weight:600}.schedule-row p{color:#5e6977}.tag,.tag.muted{color:var(--signal)}.arrow{color:#657080}.schedule-row:hover .arrow{color:var(--signal);transform:none}.schedule-row.break{background:#e3e0d8}.schedule-row.workshop{background:#f8ded7}.schedule-row.dinner{background:#e3e0d8}
+.speakers{background:var(--ink);color:var(--paper)}.speakers .section-kicker{color:#ff7a62}.speakers .section-title span{color:#8f9aaa}.side-note{color:#abb3be}.speaker-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:64px}.speaker-card{min-height:0;border:0;border-radius:0;overflow:visible;background:transparent;isolation:auto}.speaker-image{position:relative;inset:auto;aspect-ratio:4/5;overflow:hidden;background:#172a44}.speaker-image:after{display:none}.speaker-image img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.04);transition:filter .25s}.speaker-card:hover .speaker-image img{transform:none;filter:saturate(1)}.speaker-index{top:0;right:0;width:36px;height:36px;border:0;border-radius:0;background:var(--signal);color:#fff;backdrop-filter:none}.speaker-info{position:static;padding:18px 0 24px;border-bottom:1px solid rgba(255,255,255,.24);transform:none}.speaker-card:hover .speaker-info{transform:none}.speaker-info h3{font-size:24px;line-height:1.04;margin-bottom:9px}.speaker-info p{min-height:62px;margin-bottom:15px;color:#b7bec7;opacity:1}.speaker-info span{color:#ff8069}
+.tickets{background:var(--white);color:var(--ink)}.tickets .section-kicker{color:var(--signal)}.ticket-heading p{color:#536071}.ticket-grid{gap:18px;margin-top:64px}.ticket-card{min-height:560px;padding:28px;border:1px solid var(--ink);border-radius:0;background:var(--white);box-shadow:none}.ticket-card.featured{background:var(--ink);border-color:var(--ink);box-shadow:none}.contact-card{background:var(--paper)}.featured-line{background:var(--signal)}.ticket-badge{border-radius:0}.price{margin:58px 0 26px}.ticket-card>p{color:#566272}.featured>p{color:#b4bdc8}.ticket-card ul,.ticket-card li{border-color:rgba(11,29,52,.22)}.featured ul,.featured li{border-color:rgba(255,255,255,.22)}.group-icon span{color:var(--signal)}
+.countdown-section{padding:92px 0;background:var(--ink);color:var(--paper)}.countdown-wrap{padding:48px 0;border:0;border-top:1px solid rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.32);border-radius:0;background:none}.countdown-wrap h2 span{color:#9ba6b4}.countdown{border-color:rgba(255,255,255,.3)}.countdown>div{border-color:rgba(255,255,255,.3)}
+.location{padding:118px 0;background:var(--paper);color:var(--ink)}.location-card{min-height:620px;border:1px solid var(--ink);border-radius:0;background:var(--white)}.location-visual{min-height:620px}.location-visual:after{background:linear-gradient(to top,rgba(11,29,52,.28),transparent 38%)}.location-card:hover .location-visual img{transform:none}.location-pin{left:0;bottom:0;padding:11px 14px;border:0;border-radius:0;background:var(--ink);color:#fff}.location-pin span{background:var(--signal)}.location-copy h2 span{color:#718094}.location-copy p{color:#4e5b6b}.location-features span{border-color:rgba(11,29,52,.35);border-radius:0;color:#4f5c6c}
+.partners{background:var(--white);color:var(--ink)}.partner-row{border-color:rgba(11,29,52,.28)}.partner-label small{color:#667282}
+.final-cta{background:var(--signal);color:var(--ink)}.final-cta:before{display:none}.final-copy h2{font-size:clamp(58px,7vw,104px);line-height:.86}.final-copy h2 span{color:var(--paper)}.contact-panel{border-color:rgba(11,29,52,.4)}.contact-panel a{border-color:rgba(11,29,52,.3)}.footer{background:var(--ink);color:#b5bdc7}.footer .brand-mark{border-color:var(--paper)}.footer .brand-mark svg{stroke:var(--paper)}.footer .brand-text b{color:var(--paper)}
+.reveal{transform:translateY(16px);transition-duration:.6s}
+@media(max-width:1120px){.hero:before{display:none}.hero-inner{grid-template-columns:1fr;gap:56px}.hero-meta{grid-template-columns:2fr 1fr 1fr}.date-card{grid-column:auto}.speaker-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ticket-grid{grid-template-columns:1fr 1fr}.contact-card{grid-column:1/-1}.location-card{grid-template-columns:1fr}.location-visual{min-height:520px}.location-copy{min-height:440px}.final-grid{grid-template-columns:1fr}}
+@media(max-width:760px){
+  :root{--pad:20px}.section{padding:74px 0}.site-header,.site-header.scrolled{top:0;width:100%;height:64px;padding:0 10px 0 16px;border-radius:0}.brand{gap:8px}.brand-mark{width:34px;height:34px}.header-cta{height:38px;min-height:38px;border:0;background:var(--signal);color:#fff}.menu-toggle{width:42px;height:42px}.mobile-menu{padding:94px 20px calc(24px + env(safe-area-inset-bottom));background:var(--ink)}.mobile-menu nav>a:not(.button){font-size:29px;padding:12px 0}.mobile-menu .button{background:var(--signal);border-color:var(--signal)}
+  .hero{min-height:0;padding:112px 0 78px}.hero-inner{gap:38px}.eyebrow{margin-bottom:24px}.hero h1{font-size:11.8vw;line-height:.82}.hero-lead{margin:28px 0 26px;font-size:15.5px}.hero-actions{display:grid;gap:8px}.hero-actions .button+.button{margin-left:0}.hero-meta{grid-template-columns:1fr 1fr}.date-card{grid-column:1/-1;min-height:230px;padding:20px}.date-top>span{font-size:49px}.mini-stat{min-height:104px;padding:15px}.mini-stat strong{font-size:26px}.marquee-track{padding:13px 0}
+  .section-title{font-size:clamp(39px,11vw,51px);line-height:.97}.about-layout,.ticket-heading{grid-template-columns:1fr;gap:26px}.benefit-grid{grid-template-columns:1fr;gap:0;margin-top:48px}.benefit{min-height:0;grid-template-columns:40px 1fr;padding:20px 0}.benefit h3{font-size:19px}
+  .program-head{grid-template-columns:1fr;gap:28px}.day-tabs{width:100%}.day-tab{min-width:0}.schedule{margin-top:30px}.schedule-row{grid-template-columns:72px 1fr;gap:12px;padding:18px 0}.schedule-row:hover{background:transparent}.schedule-row h3{font-size:16px}
+  .speakers-head{display:block}.side-note{margin-top:18px;font-size:13px}.side-note:after{content:none}.speaker-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 10px;margin:40px 0 0;padding:0;overflow:visible}.speaker-card{min-width:0;min-height:0}.speaker-image{aspect-ratio:4/5}.speaker-index{width:30px;height:30px}.speaker-info{padding:12px 0 16px}.speaker-info h3{font-size:18px;line-height:1.08}.speaker-info p{display:none}.speaker-info span{font-size:8px;line-height:1.3}
+  .ticket-grid{grid-template-columns:1fr;gap:12px;margin-top:42px}.ticket-card,.contact-card{min-height:0;padding:22px}.ticket-card.featured{padding-top:22px}.price{margin:44px 0 18px}.price strong{font-size:56px}.group-icon{font-size:64px}.countdown-section{padding:74px 0}.countdown-wrap{padding:34px 0;gap:30px}.countdown-wrap h2{font-size:39px}.countdown{grid-template-columns:1fr 1fr}.countdown>div{padding:16px 12px}.countdown strong{font-size:35px}
+  .location{padding:74px 0}.location-card{min-height:0}.location-visual{min-height:310px}.location-copy{min-height:0;padding:30px 22px}.location-copy h2{font-size:44px}.partner-row{grid-template-columns:1fr;gap:22px}.logo-box{justify-self:start}.final-grid{gap:48px}.final-copy h2{font-size:clamp(43px,12vw,54px);line-height:.92}.contact-panel{border-top:1px solid rgba(11,29,52,.4)}.footer-links{margin-top:26px}
+}
+@media(max-width:360px){:root{--pad:16px}.site-header{width:100%}.brand-text b{font-size:10.5px}.hero h1{font-size:11.6vw}.speaker-info h3{font-size:16.5px}.speaker-info span{font-size:7.5px}}
+/* Signature event layer: image-led hero and asymmetric rhythm. */
+.site-header,.site-header.scrolled{background:rgba(11,29,52,.96);border-color:rgba(255,255,255,.2)}.brand-mark{border-color:var(--paper)}.brand-mark svg{stroke:var(--paper)}.brand-text b{color:var(--paper)}.brand-text small{color:#aeb7c3}.desktop-nav a{color:#d8dde4}.desktop-nav a:hover{color:#ff8069}.header-cta{border-color:var(--signal);background:var(--signal);color:#fff}.header-cta:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}.menu-toggle span{background:var(--paper)}
+.hero{min-height:980px;padding-top:160px;background:var(--ink);color:var(--paper);border-color:rgba(255,255,255,.2)}.hero:before{top:74px;left:63%;background:rgba(255,255,255,.16)}.hero-inner{grid-template-columns:minmax(0,1.08fr) minmax(390px,.72fr);gap:clamp(44px,6vw,92px)}.hero-copy{position:relative;isolation:isolate}.hero-copy:after{content:"2026";position:absolute;z-index:-1;left:-.04em;bottom:-.42em;font-size:clamp(130px,15vw,230px);font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.11);letter-spacing:-.08em}.eyebrow{color:var(--paper);border-color:rgba(255,255,255,.48)}.hero h1{color:var(--paper);font-size:clamp(76px,8.2vw,122px);animation:title-in .9s cubic-bezier(.2,.8,.2,1) both}.hero h1 em{color:#ff7258}.hero-lead{color:#c6cdd6}.hero .button.ghost{color:var(--paper);border-color:rgba(255,255,255,.55)}.hero .button.ghost:hover{color:#ff8069}
+.hero-meta{position:relative;min-height:650px;align-content:end;border:0;overflow:hidden;background:linear-gradient(to top,rgba(5,14,27,.96) 0%,rgba(5,14,27,.2) 58%,rgba(5,14,27,.05) 100%),url("https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/bg-bot.webp") center/cover no-repeat;box-shadow:18px 18px 0 var(--signal)}.hero-meta:before{content:"HOTEL FRANCE · MONT BLANC";position:absolute;z-index:3;top:18px;left:18px;padding:8px 10px;background:var(--paper);color:var(--ink);font-size:8px;font-weight:800;letter-spacing:.14em}.hero-meta>*{position:relative;z-index:2;border-color:rgba(255,255,255,.42)}.date-card{min-height:400px;padding:28px;color:#fff;justify-content:flex-end;gap:16px;background:linear-gradient(to top,rgba(5,14,27,.5),transparent)}.date-top{margin-bottom:auto}.date-top>span{font-size:clamp(76px,6.5vw,96px)}.date-top small,.date-card .meta-row span{color:#d6dce4}.date-line{background:rgba(255,255,255,.65)}.date-card .meta-row{border-color:rgba(255,255,255,.3)}.mini-stat{min-height:126px;border:0}.mini-stat:first-of-type{background:var(--signal);color:#fff}.mini-stat:last-child{background:var(--paper);color:var(--ink)}.mini-stat:first-of-type .mini-label,.mini-stat:first-of-type small{color:#ffe1da}.mini-stat:last-child .mini-label,.mini-stat:last-child small{color:#667282}
+.about{position:relative}.about:before{content:"VINNYTSIA / 2026";position:absolute;right:0;top:96px;padding:12px 18px;background:var(--signal);color:#fff;font-size:9px;font-weight:800;letter-spacing:.16em}.benefit-grid{counter-reset:item}.benefit{position:relative;transition:color .25s}.benefit:after{content:"";position:absolute;left:0;top:-1px;width:0;height:3px;background:var(--signal);transition:width .35s}.benefit:hover:after{width:100%}.benefit h3{font-size:clamp(22px,2vw,30px);letter-spacing:-.04em}.benefit>span{font-weight:800}
+.program{background:#e9e6de}.program-head{position:relative}.program-head:after{content:"2 ДНІ";position:absolute;right:0;top:-80px;font-size:clamp(90px,12vw,176px);font-weight:800;letter-spacing:-.08em;color:rgba(11,29,52,.055);pointer-events:none}.day-tabs{position:relative;z-index:2;background:#e9e6de}.schedule-row{position:relative}.schedule-row:before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--signal);transition:width .2s}.schedule-row:hover:before{width:4px}.schedule-row:hover{padding-left:16px;background:#fff}.schedule-row h3{max-width:880px}
+.speakers{overflow:hidden}.speakers:before{content:"10";position:absolute;right:-.05em;top:.05em;font-size:clamp(260px,31vw,500px);font-weight:800;line-height:.8;letter-spacing:-.1em;color:rgba(255,255,255,.025);pointer-events:none}.speaker-grid{position:relative;z-index:2;gap:20px}.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:76px}.speaker-image{border:1px solid rgba(255,255,255,.18);transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s}.speaker-card:hover .speaker-image{transform:translateY(-8px);border-color:#ff8069}.speaker-info h3{transition:color .25s}.speaker-card:hover .speaker-info h3{color:#ff8069}
+.tickets{position:relative;overflow:hidden}.tickets:before{content:"25/26";position:absolute;left:-.04em;bottom:-.2em;font-size:clamp(170px,25vw,390px);font-weight:800;line-height:.8;letter-spacing:-.1em;color:rgba(11,29,52,.035);pointer-events:none}.ticket-grid{position:relative;z-index:2}.ticket-card{transition:transform .3s,border-color .3s}.ticket-card:hover{transform:translateY(-8px);border-color:var(--signal)}.ticket-card.featured{transform:translateY(-18px)}.ticket-card.featured:hover{transform:translateY(-26px)}
+.countdown-section{position:relative;overflow:hidden}.countdown-section:before{content:"09:00";position:absolute;right:-.03em;bottom:-.16em;font-size:clamp(160px,24vw,360px);font-weight:800;letter-spacing:-.09em;color:rgba(255,255,255,.025)}.countdown-wrap{position:relative;z-index:2}.countdown strong{color:#ff8069}
+.location-card{box-shadow:18px 18px 0 var(--signal)}.location-copy{background:var(--white)}.location-copy h2{position:relative}.location-copy h2:after{content:"34";position:absolute;right:0;top:-.4em;font-size:2.2em;color:rgba(11,29,52,.06)}
+.final-cta{position:relative}.final-cta:after{content:"25—26";position:absolute;right:-.02em;bottom:-.18em;font-size:clamp(160px,23vw,350px);font-weight:800;line-height:1;letter-spacing:-.09em;color:rgba(11,29,52,.08);pointer-events:none}.final-grid{position:relative;z-index:2}
+.hero h1{animation:none}.hero-copy.visible h1{animation:title-in .9s cubic-bezier(.2,.8,.2,1) both}.hero-meta .mini-stat:nth-child(2){background:var(--signal);color:#fff}.hero-meta .mini-stat:nth-child(2) .mini-label,.hero-meta .mini-stat:nth-child(2) small{color:#ffe1da}
+@keyframes title-in{from{opacity:0;transform:translateY(36px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0)}}
+@media(max-width:1120px){.hero-inner{grid-template-columns:1fr}.hero-meta{min-height:620px}.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:0}.speaker-card:nth-child(3n+2){margin-top:58px}.ticket-card.featured{transform:none}.ticket-card.featured:hover{transform:translateY(-8px)}}
+@media(max-width:760px){
+  .site-header,.site-header.scrolled{background:rgba(11,29,52,.97)}.hero{padding-top:112px}.hero h1{font-size:11.8vw}.hero-copy:after{bottom:-.32em;font-size:42vw}.hero-meta{min-height:510px;box-shadow:10px 10px 0 var(--signal)}.hero-meta:before{top:12px;left:12px}.date-card{min-height:310px}.date-top>span{font-size:54px}.about:before{display:none}.program-head:after{top:-42px;font-size:86px}.schedule-row:hover{padding-left:0}.schedule-row:hover:before{width:0}.speaker-card:nth-child(3n+2){margin-top:0}.speaker-card:hover .speaker-image{transform:none}.ticket-card:hover,.ticket-card.featured:hover{transform:none}.location-card{box-shadow:10px 10px 0 var(--signal)}.location-copy h2:after{font-size:1.7em}.final-cta:after{font-size:44vw}
+}
+@media(max-width:360px){.hero-meta{min-height:480px}.date-card{min-height:290px}.date-top>span{font-size:49px}}
+/* Approved palette: graphite, warm milk, restrained bronze. */
+:root{--paper:#f3eee4;--white:#fbf9f4;--ink:#1c1c1a;--signal:#a9824f;--soft:#d8d0c2;--text:var(--ink);--muted:#716b62;--accent:var(--signal);--line:rgba(28,28,26,.24)}
+body{background:var(--paper);color:var(--ink)}.section-title span{color:#777168}.site-header,.site-header.scrolled{background:rgba(28,28,26,.97);border-color:rgba(243,238,228,.2)}.desktop-nav a{color:#ddd7cd}.desktop-nav a:hover{color:#c5a574}.header-cta{background:var(--signal);border-color:var(--signal);color:#fff}.header-cta:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.button.primary{background:var(--signal);border-color:var(--signal)}.button.primary:hover{background:#7f623e;border-color:#7f623e}.hero{background:var(--ink);color:var(--paper)}.hero h1 em{color:#c5a574}.hero .button.ghost:hover{color:#c5a574}.hero-meta{background:linear-gradient(to top,rgba(18,18,17,.97) 0%,rgba(18,18,17,.22) 58%,rgba(18,18,17,.06) 100%),url("https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/bg-bot.webp") center/cover no-repeat;box-shadow:18px 18px 0 rgba(169,130,79,.92)}.hero-meta .mini-stat:nth-child(2){background:var(--ink);border-top:4px solid var(--signal);color:var(--paper)}.hero-meta .mini-stat:nth-child(2) .mini-label,.hero-meta .mini-stat:nth-child(2) small{color:#cfc5b7}.hero-meta .mini-stat:nth-child(3){background:var(--paper);color:var(--ink)}.marquee{background:#131312}.marquee i{color:#c5a574}
+.about:before{background:var(--ink);color:var(--paper);border-left:4px solid var(--signal)}.program{background:#e9e3d8}.day-tabs{background:#e9e3d8}.day-tab.active{background:var(--ink);color:var(--paper);box-shadow:inset 0 -4px 0 var(--signal)}.schedule-row.break,.schedule-row.dinner{background:#ddd6ca}.schedule-row.workshop{background:#e8ddcc}.speakers{background:var(--ink)}.speakers .section-kicker,.speaker-info span{color:#c5a574}.speaker-image{background:#292825}.speaker-card:hover .speaker-image{border-color:#c5a574}.speaker-card:hover .speaker-info h3{color:#c5a574}.speaker-index{background:var(--signal)}
+.ticket-card.featured{background:var(--ink);border-color:var(--ink)}.featured-line{background:var(--signal)}.countdown-section,.footer{background:var(--ink)}.countdown strong{color:#c5a574}.location-card{box-shadow:18px 18px 0 rgba(169,130,79,.92)}.location-pin{background:var(--ink)}
+.final-cta{background:var(--ink);color:var(--paper);border-top:8px solid var(--signal)}.final-copy h2 span{color:#c5a574}.final-cta:after{color:rgba(243,238,228,.045)}.final-cta .section-kicker{color:#c5a574}.final-cta .button.light{background:var(--signal);border-color:var(--signal);color:#fff}.final-cta .contact-panel{border-color:rgba(243,238,228,.32)}.final-cta .contact-panel a{border-color:rgba(243,238,228,.22)}
+@media(max-width:760px){.site-header,.site-header.scrolled{background:rgba(28,28,26,.98)}.hero-meta,.location-card{box-shadow:10px 10px 0 rgba(169,130,79,.92)}.header-cta,.mobile-menu .button{background:var(--signal);border-color:var(--signal)}.final-cta .contact-panel{border-color:rgba(243,238,228,.3)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="mouse-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <a class="brand" href="#top" aria-label="Форум нерухомості — на початок">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M10 34V18l14-8 14 8v16"/><path d="M16 34V22l8-4 8 4v12"/><path d="M8 38h32"/></svg>
+      </span>
+      <span class="brand-text"><b>ФОРУМ</b><small>НЕРУХОМОСТІ · 2026</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Головна навігація">
+      <a href="#about">Про форум</a>
+      <a href="#program">Програма</a>
+      <a href="#speakers">Спікери</a>
+      <a href="#tickets">Квитки</a>
+      <a href="#location">Локація</a>
+    </nav>
+
+    <a class="header-cta" href="#tickets">Купити квиток <span>↗</span></a>
+    <button class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="#about">Про форум</a>
+      <a href="#program">Програма</a>
+      <a href="#speakers">Спікери</a>
+      <a href="#tickets">Квитки</a>
+      <a href="#location">Локація</a>
+      <a class="button primary" href="#tickets">Купити квиток</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="live-dot"></span> 25–26 вересня · Вінниця</div>
+          <h1><span>ФОРУМ</span><br><em>НЕРУХОМОСТІ</em></h1>
+          <p class="hero-lead">Два дні для рієлторів, керівників агенцій і партнерів ринку: 10 виступів, 4 майстер-класи та професійний нетворкінг.</p>
+          <div class="hero-actions">
+            <a class="button primary magnetic" href="#tickets">Забронювати місце <span>↗</span></a>
+            <a class="button ghost" href="#program">Дивитися програму <span>↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-meta reveal delay-1">
+          <div class="date-card glass">
+            <div class="date-top"><span>25–26</span><small>ВЕРЕСНЯ<br>2026</small></div>
+            <div class="date-line"></div>
+            <div class="meta-row"><span>Початок</span><strong>09:00</strong></div>
+            <div class="meta-row"><span>Місто</span><strong>Вінниця</strong></div>
+            <div class="meta-row"><span>Локація</span><strong>Hotel France · Mont Blanc</strong></div>
+          </div>
+          <div class="mini-stat glass"><span class="mini-label">Формат</span><strong>2 дні</strong><small>виступи + 4 майстер-класи</small></div>
+          <div class="mini-stat glass"><span class="mini-label">Спікери</span><strong>10+</strong><small>експерти ринку</small></div>
+        </div>
+      </div>
+
+      <div class="marquee" aria-label="Ключові теми форуму">
+        <div class="marquee-track">
+          <span>ПРАКТИКА</span><i>✦</i><span>НЕТВОРКІНГ</span><i>✦</i><span>ШІ В НЕРУХОМОСТІ</span><i>✦</i><span>ПЕРЕГОВОРИ</span><i>✦</i><span>МАРКЕТИНГ</span><i>✦</i><span>ПРАКТИКА</span><i>✦</i><span>НЕТВОРКІНГ</span><i>✦</i><span>ШІ В НЕРУХОМОСТІ</span><i>✦</i><span>ПЕРЕГОВОРИ</span><i>✦</i><span>МАРКЕТИНГ</span><i>✦</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-kicker reveal">01 / ПРО ФОРУМ</div>
+        <div class="about-layout">
+          <h2 class="section-title reveal">Практика, угоди,<br><span>маркетинг і право.</span></h2>
+          <div class="about-copy reveal delay-1">
+            <p>Форум нерухомості збирає рієлторів, власників агенцій, маркетологів і партнерів ринку в одному професійному середовищі.</p>
+            <p>У програмі — робота з клієнтами, реклама, переговори, ШІ, державні програми, право та особистий бренд.</p>
+          </div>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="benefit reveal"><span>01</span><div><h3>10 виступів</h3><p>Практичні теми першого дня без паралельних потоків.</p></div></article>
+          <article class="benefit reveal delay-1"><span>02</span><div><h3>4 майстер-класи</h3><p>Окрема практична програма другого дня.</p></div></article>
+          <article class="benefit reveal delay-2"><span>03</span><div><h3>Переговори й угоди</h3><p>Робота з мотивацією, запереченнями та домовленостями.</p></div></article>
+          <article class="benefit reveal"><span>04</span><div><h3>Маркетинг</h3><p>Таргетована реклама, контент та особистий бренд.</p></div></article>
+          <article class="benefit reveal delay-1"><span>05</span><div><h3>Право й держпрограми</h3><p>Судова практика, ризики та реальні кейси.</p></div></article>
+          <article class="benefit reveal delay-2"><span>06</span><div><h3>Нетворкінг</h3><p>Два дні для нових професійних контактів.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section program" id="program">
+      <div class="container">
+        <div class="program-head">
+          <div>
+            <div class="section-kicker reveal">02 / ПРОГРАМА</div>
+            <h2 class="section-title reveal">25–26 вересня.<br><span>Повна програма.</span></h2>
+          </div>
+          <div class="day-tabs reveal" role="tablist" aria-label="Дні форуму">
+            <button class="day-tab active" data-day="day1" role="tab" aria-selected="true">25 вересня <span>День 01</span></button>
+            <button class="day-tab" data-day="day2" role="tab" aria-selected="false">26 вересня <span>День 02</span></button>
+          </div>
+        </div>
+
+        <div class="schedule active" id="day1" role="tabpanel">
+          <div class="schedule-row reveal"><time>09:00–09:45</time><div><span class="tag muted">WELCOME</span><h3>Реєстрація учасників</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>09:45–10:15</time><div><span class="tag muted">OPENING</span><h3>Вітальне слово</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>10:15–11:00</time><div><span class="tag">Яна Коваленко</span><h3>Наступний рівень ШІ в нерухомості</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>11:00–11:45</time><div><span class="tag">Нестор Слюсаренко</span><h3>Від контакту до договору: як підписати власника та довести покупця до угоди</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>11:45–12:30</time><div><span class="tag">Максим Давидюк</span><h3>Таргетована реклама в нерухомості</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>12:30–13:15</time><div><span class="tag">Андрій Леонов</span><h3>Переговори, які приводять до угоди</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row break reveal"><time>13:15–14:00</time><div><span class="tag muted">BREAK</span><h3>Кава-брейк · нетворкінг</h3></div><span class="arrow">☕</span></div>
+          <div class="schedule-row reveal"><time>14:00–14:30</time><div><span class="tag">Катерина Сапожнікова</span><h3>Від об’єкта до особистого бренду: система роботи рієлтора на DIM.RIA</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>14:30–15:00</time><div><span class="tag">Ігор Балака</span><h3>Особистий бренд рієлтора, який приводить клієнта</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>15:00–15:30</time><div><span class="tag">Володимир Яцуба</span><h3>Довірче управління нерухомістю</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>15:30–16:00</time><div><span class="tag">Тетяна Мишковська</span><h3>Судова практика у сфері нерухомості: уроки для рієлтора</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>16:00–17:00</time><div><span class="tag">Галина Поліщук</span><h3>Державні програми: інструменти, ризики, реальні кейси</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>17:00–18:00</time><div><span class="tag">Віктор Замрій</span><h3>Контент, який будує довіру та продає: як стати медійним експертом</h3></div><span class="arrow">↘</span></div>
+        </div>
+
+        <div class="schedule" id="day2" role="tabpanel" hidden>
+          <div class="schedule-row workshop reveal"><time>10:00–13:00</time><div><span class="tag">4 МАЙСТЕР-КЛАСИ</span><h3>Практична робота в різних залах</h3><p>Яна Коваленко · Нестор Слюсаренко · Андрій Леонов · Максим Давидюк / Марина Кушнір</p></div><span class="arrow">04</span></div>
+          <div class="schedule-row reveal"><time>10:00–13:00</time><div><span class="tag">Яна Коваленко</span><h3>Створюємо власні робочі інструменти ШІ для нерухомості</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>10:00–13:00</time><div><span class="tag">Нестор Слюсаренко</span><h3>Як виявити справжню мотивацію власника та отримати ексклюзивний договір без тиску</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>10:00–13:00</time><div><span class="tag">Андрій Леонов</span><h3>Потреби клієнта, заперечення без конфлікту та взаємовигідні домовленості</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row reveal"><time>10:00–13:00</time><div><span class="tag">Максим Давидюк · Марина Кушнір</span><h3>Таргетована реклама: як не «зливати» бюджет без результату</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row break reveal"><time>13:00–13:45</time><div><span class="tag muted">BREAK</span><h3>Кава-брейк</h3></div><span class="arrow">☕</span></div>
+          <div class="schedule-row reveal"><time>13:45–16:00</time><div><span class="tag muted">INTERACTIVE</span><h3>Інтерактивна гра</h3></div><span class="arrow">↘</span></div>
+          <div class="schedule-row dinner reveal"><time>17:00</time><div><span class="tag muted">AFTERPARTY</span><h3>Дружня вечеря</h3></div><span class="arrow">✦</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section speakers" id="speakers">
+      <div class="container">
+        <div class="speakers-head">
+          <div>
+            <div class="section-kicker reveal">03 / СПІКЕРИ</div>
+            <h2 class="section-title reveal">Спікери<br><span>форуму 2026.</span></h2>
+          </div>
+          <p class="side-note reveal">10 фахівців із практичним досвідом у нерухомості, маркетингу, праві та переговорах.</p>
+        </div>
+
+        <div class="speaker-grid">
+          <article class="speaker-card reveal">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Kovalenko.webp" alt="Яна Коваленко" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">01</div><div class="speaker-info"><h3>Яна Коваленко</h3><p>Співзасновниця SOYKA REALTY TEAM. Авторка майстер-класів з ШІ для рієлторів.</p><span>ШІ · НЕРУХОМІСТЬ</span></div>
+          </article>
+          <article class="speaker-card reveal delay-1">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Slusarenko.webp" alt="Нестор Слюсаренко" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">02</div><div class="speaker-info"><h3>Нестор Слюсаренко</h3><p>Член АФНУ. Голова Івано-Франківського регіонального відділення АФНУ.</p><span>ПРОДАЖІ · УГОДИ</span></div>
+          </article>
+          <article class="speaker-card reveal delay-2">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Leonov.webp" alt="Андрій Леонов" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">03</div><div class="speaker-info"><h3>Андрій Леонов</h3><p>Бізнес-тренер. Підприємець.</p><span>ПЕРЕГОВОРИ</span></div>
+          </article>
+          <article class="speaker-card reveal">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Daviduk.webp" alt="Максим Давидюк" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">04</div><div class="speaker-info"><h3>Максим Давидюк</h3><p>Таргетолог.</p><span>ТАРГЕТ · РЕКЛАМА</span></div>
+          </article>
+          <article class="speaker-card reveal delay-1">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Sapojnikova.webp" alt="Катерина Сапожнікова" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">05</div><div class="speaker-info"><h3>Катерина Сапожнікова</h3><p>Менеджерка по роботі з ключовими клієнтами DIM.RIA.</p><span>БРЕНД · DIM.RIA</span></div>
+          </article>
+          <article class="speaker-card reveal delay-2">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Balaka.webp" alt="Ігор Балака" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">06</div><div class="speaker-info"><h3>Ігор Балака</h3><p>Віце-президент АФНУ. Експерт з нерухомості, інвестицій та особистого бренду.</p><span>БРЕНД · ІНВЕСТИЦІЇ</span></div>
+          </article>
+          <article class="speaker-card reveal">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Yacuba.webp" alt="Володимир Яцуба" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">07</div><div class="speaker-info"><h3>Володимир Яцуба</h3><p>Член АФНУ, NAR. Директор АН «Стиль Естейт».</p><span>УПРАВЛІННЯ</span></div>
+          </article>
+          <article class="speaker-card reveal delay-1">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Myshkovska.webp" alt="Тетяна Мишковська" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">08</div><div class="speaker-info"><h3>Тетяна Мишковська</h3><p>Практикуюча адвокатка з 15-річним досвідом.</p><span>ПРАВО · ПРАКТИКА</span></div>
+          </article>
+          <article class="speaker-card reveal delay-2">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Polishuk.webp" alt="Галина Поліщук" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">09</div><div class="speaker-info"><h3>Галина Поліщук</h3><p>Засновниця «Крамниці Нерухомості». Член АФНУ, NAR.</p><span>ДЕРЖПРОГРАМИ</span></div>
+          </article>
+          <article class="speaker-card reveal">
+            <div class="speaker-image"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/Zamriy_2.webp" alt="Віктор Замрій" loading="lazy" decoding="async"></div>
+            <div class="speaker-index">10</div><div class="speaker-info"><h3>Віктор Замрій</h3><p>Режисер, сценарист і креативний продюсер.</p><span>КОНТЕНТ · МЕДІА</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tickets" id="tickets">
+      <div class="container">
+        <div class="section-kicker reveal">04 / УЧАСТЬ</div>
+        <div class="ticket-heading">
+          <h2 class="section-title reveal">Квитки<br><span>на два дні форуму.</span></h2>
+          <p class="reveal delay-1">Рання реєстрація вже відкрита. Для груп від 10 осіб та мешканців прифронтових територій діє окрема знижка.</p>
+        </div>
+
+        <div class="ticket-grid">
+          <article class="ticket-card reveal">
+            <div class="ticket-top"><span class="ticket-type">Члени АФНУ</span><span class="ticket-badge">РАННЯ ЦІНА</span></div>
+            <div class="price"><strong>2 500</strong><span>₴</span></div>
+            <p>Повний доступ до програми форуму за спеціальною ранньою ціною для членів АФНУ.</p>
+            <ul><li>День 1 · виступи</li><li>День 2 · майстер-класи</li><li>Нетворкінг</li></ul>
+            <a class="button primary wide" target="_blank" rel="noopener" href="https://secure.wayforpay.com/button/b81afd7e42bcc">Купити квиток <span>↗</span></a>
+          </article>
+
+          <article class="ticket-card featured reveal delay-1">
+            <div class="featured-line">СТАНДАРТНИЙ КВИТОК</div>
+            <div class="ticket-top"><span class="ticket-type">Стандарт</span><span class="ticket-badge">РАННЯ ЦІНА</span></div>
+            <div class="price"><strong>3 000</strong><span>₴</span></div>
+            <p>Для рієлторів, власників агенцій, маркетологів та всіх учасників ринку.</p>
+            <ul><li>День 1 · виступи</li><li>День 2 · майстер-класи</li><li>Нетворкінг</li></ul>
+            <a class="button light wide" target="_blank" rel="noopener" href="https://secure.wayforpay.com/button/b0b69c50d0903">Купити квиток <span>↗</span></a>
+          </article>
+
+          <article class="ticket-card contact-card reveal delay-2">
+            <div class="ticket-top"><span class="ticket-type">Група 10+</span><span class="ticket-badge">ДЛЯ ГРУП</span></div>
+            <div class="group-icon">10<span>+</span></div>
+            <p>Спеціальна пропозиція для груп від 10 осіб та мешканців прифронтових територій.</p>
+            <ul><li>Індивідуальний розрахунок</li><li>Допомога з оформленням</li><li>Зв’язок напряму з організаторами</li></ul>
+            <a class="button ghost wide" href="tel:+380964796620">+380 (96) 479 66 20 <span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section countdown-section">
+      <div class="container countdown-wrap reveal">
+        <div><div class="section-kicker">ДО ПОЧАТКУ ФОРУМУ</div><h2>25 вересня.<br><span>Початок о 09:00.</span></h2></div>
+        <div class="countdown" data-target="2026-09-25T09:00:00+03:00" aria-label="Зворотний відлік до форуму">
+          <div><strong id="days">00</strong><span>днів</span></div>
+          <div><strong id="hours">00</strong><span>годин</span></div>
+          <div><strong id="minutes">00</strong><span>хвилин</span></div>
+          <div><strong id="seconds">00</strong><span>секунд</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section location" id="location">
+      <div class="container location-card reveal">
+        <div class="location-visual">
+          <img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/bg-bot.webp" alt="Зала Mont Blanc, Hotel France у Вінниці" loading="lazy" decoding="async">
+          <div class="location-pin"><span></span> 49.2328° N · 28.4708° E</div>
+        </div>
+        <div class="location-copy">
+          <div class="section-kicker">05 / ЛОКАЦІЯ</div>
+          <h2>Hotel France<br><span>Mont Blanc</span></h2>
+          <p>Вулиця Соборна, 34<br>Вінниця, 21050</p>
+          <div class="location-features"><span>Центр міста</span><span>Зала Mont Blanc</span><span>Hotel France</span></div>
+          <a class="button primary" target="_blank" rel="noopener" href="https://maps.app.goo.gl/d3XRffDsevQTM6QLA">Відкрити на карті <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partners">
+      <div class="container">
+        <div class="partner-row reveal">
+          <div class="partner-label"><span>ОРГАНІЗАТОР</span><small>Вінницьке регіональне відділення АФНУ</small></div>
+          <div class="logo-box"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/logo_1.png" alt="Вінницьке регіональне відділення АФНУ" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="partner-row reveal delay-1">
+          <div class="partner-label"><span>ПАРТНЕР</span><small>DIM.RIA</small></div>
+          <div class="logo-box wide-logo"><img src="https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/rio-logo.webp" alt="DIM.RIA перевірений партнер" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="contact">
+      <div class="container final-grid">
+        <div class="final-copy reveal">
+          <div class="section-kicker">КОНТАКТИ</div>
+          <h2>До зустрічі<br><span>25–26 вересня</span><br>у Вінниці.</h2>
+          <p>25–26 вересня · Вінниця · Hotel France</p>
+          <a class="button light magnetic" href="#tickets">Забронювати місце <span>↗</span></a>
+        </div>
+        <div class="contact-panel reveal delay-1">
+          <p>Є питання щодо участі?</p>
+          <a href="tel:+380964796620">+380 (96) 479 66 20</a>
+          <a href="mailto:info@forumneruhomosti.com.ua">info@forumneruhomosti.com.ua</a>
+          <a target="_blank" rel="noopener" href="https://www.instagram.com/afnuvinnytsia">Instagram · @afnuvinnytsia ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand footer-brand"><span class="brand-mark"><svg viewBox="0 0 48 48" fill="none"><path d="M10 34V18l14-8 14 8v16"/><path d="M16 34V22l8-4 8 4v12"/><path d="M8 38h32"/></svg></span><span class="brand-text"><b>ФОРУМ</b><small>НЕРУХОМОСТІ · 2026</small></span></div>
+      <div class="footer-links"><a href="#program">Програма</a><a href="#speakers">Спікери</a><a href="#tickets">Квитки</a><a href="#location">Локація</a></div>
+      <div class="copyright">© 2026 Форум нерухомості</div>
+    </div>
+  </footer>
+
+  <script>
+const header=document.querySelector('#header');
+const menuBtn=document.querySelector('.menu-toggle');
+const mobileMenu=document.querySelector('.mobile-menu');
+const body=document.body;
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>40),{passive:true});
+const setMenu=open=>{body.classList.toggle('menu-open',open);menuBtn?.setAttribute('aria-expanded',String(open));menuBtn?.setAttribute('aria-label',open?'Закрити меню':'Відкрити меню');mobileMenu?.setAttribute('aria-hidden',String(!open))};
+menuBtn?.addEventListener('click',()=>setMenu(!body.classList.contains('menu-open')));
+document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&body.classList.contains('menu-open')){setMenu(false);menuBtn?.focus()}});
+matchMedia('(min-width:1121px)').addEventListener?.('change',e=>{if(e.matches)setMenu(false)});
+
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const tabs=[...document.querySelectorAll('.day-tab')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false')});tab.classList.add('active');tab.setAttribute('aria-selected','true');
+  document.querySelectorAll('.schedule').forEach(s=>{s.hidden=true;s.classList.remove('active')});
+  const panel=document.getElementById(tab.dataset.day);panel.hidden=false;panel.classList.add('active');
+  panel.querySelectorAll('.reveal').forEach((el,i)=>{el.classList.remove('visible');setTimeout(()=>el.classList.add('visible'),30+i*35)});
+}));
+
+const cd=document.querySelector('.countdown');
+if(cd){const target=new Date(cd.dataset.target).getTime();const pad=n=>String(Math.max(0,n)).padStart(2,'0');
+const tick=()=>{let d=Math.max(0,target-Date.now());const days=Math.floor(d/864e5);d%=864e5;const h=Math.floor(d/36e5);d%=36e5;const m=Math.floor(d/6e4);const s=Math.floor((d%6e4)/1000);document.querySelector('#days').textContent=pad(days);document.querySelector('#hours').textContent=pad(h);document.querySelector('#minutes').textContent=pad(m);document.querySelector('#seconds').textContent=pad(s)};tick();setInterval(tick,1000)}
+
+if(matchMedia('(pointer:fine)').matches){
+  const glow=document.querySelector('.mouse-glow');window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'},{passive:true});
+  document.querySelectorAll('.tilt-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateY(${x*5}deg) rotateX(${-y*5}deg)`});card.addEventListener('pointerleave',()=>card.style.transform='')});
+}
+
+</script>
+</body>
+</html>
