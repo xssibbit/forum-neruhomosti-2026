@@ -122,6 +122,8 @@ body{background:var(--paper);color:var(--ink)}.section-title span{color:#777168}
 body{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:400}.section-title,.hero h1,.date-top>span,.price strong,.countdown strong,.final-copy h2{font-family:Georgia,"Times New Roman",serif;font-weight:400}.hero h1{letter-spacing:-.055em;line-height:.84}.hero h1 em{font-style:italic;font-weight:400}.section-title{letter-spacing:-.048em;line-height:.94}.section-kicker,.eyebrow,.tag,.mini-label,.ticket-badge,.featured-line{letter-spacing:.22em}.edition-stamp{display:flex;align-items:center;gap:12px;margin:0 0 22px;color:#c9b18b;font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}.edition-stamp:before{content:"";width:46px;height:1px;background:#a9824f}.hero-meta{border:1px solid rgba(201,177,139,.42);box-shadow:0 38px 90px rgba(0,0,0,.32)}.hero-meta:after{content:"";position:absolute;inset:14px;z-index:1;border:1px solid rgba(243,238,228,.18);pointer-events:none}.button{border-radius:0;letter-spacing:.08em;text-transform:uppercase;font-size:11px}.button.primary{box-shadow:0 16px 40px rgba(169,130,79,.17)}.speaker-image{border-color:rgba(201,177,139,.25)}.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:96px}.speaker-info h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.03em}.ticket-card{box-shadow:0 20px 60px rgba(28,28,26,.055)}.ticket-card.featured{box-shadow:0 34px 80px rgba(28,28,26,.2)}.location-card{box-shadow:0 38px 90px rgba(28,28,26,.15)}.final-cta{border-top:1px solid rgba(201,177,139,.6)}.mobile-purchase{display:none}
 @media(max-width:1120px){.speaker-card:nth-child(4n+2),.speaker-card:nth-child(4n+4){margin-top:0}.speaker-card:nth-child(3n+2){margin-top:64px}}
 @media(max-width:760px){body{padding-bottom:74px}.hero{padding-top:106px}.hero-meta,.location-card{box-shadow:0 24px 54px rgba(0,0,0,.25)}.hero-meta:after{inset:9px}.edition-stamp{margin-bottom:18px}.hero h1{font-size:12.2vw;line-height:.86}.section-title{font-size:clamp(42px,12vw,56px)}.speaker-card:nth-child(3n+2){margin-top:0}.speaker-info h3{font-size:20px}.mobile-purchase{position:fixed;z-index:90;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));min-height:58px;padding:0 8px 0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(28,28,26,.96);color:var(--paper);border:1px solid rgba(201,177,139,.55);box-shadow:0 18px 50px rgba(0,0,0,.35);backdrop-filter:blur(18px)}.mobile-purchase span{display:flex;flex-direction:column;font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#c9b18b}.mobile-purchase strong{margin-top:3px;color:var(--paper);font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:400;letter-spacing:0;text-transform:none}.mobile-purchase b{display:grid;place-items:center;width:42px;height:42px;background:var(--signal);color:#fff;font-size:18px;font-weight:400}}
+.speaker-card{cursor:pointer}.speaker-card:focus-visible{outline:2px solid #c5a574;outline-offset:6px}.speaker-card:after{content:"ВІДКРИТИ ↗";position:absolute;z-index:4;left:14px;top:14px;padding:9px 11px;background:rgba(28,28,26,.84);color:#f3eee4;border:1px solid rgba(201,177,139,.45);font-size:8px;font-weight:700;letter-spacing:.17em;opacity:0;transform:translateY(-5px);transition:.25s;backdrop-filter:blur(12px)}.speaker-card:hover:after,.speaker-card:focus-visible:after{opacity:1;transform:none}.speaker-dialog{width:min(1040px,calc(100% - 40px));max-height:calc(100dvh - 40px);padding:0;border:1px solid rgba(201,177,139,.55);background:#1c1c1a;color:#f3eee4;box-shadow:0 50px 140px rgba(0,0,0,.62);overflow:hidden}.speaker-dialog::backdrop{background:rgba(10,10,9,.82);backdrop-filter:blur(12px)}.speaker-dialog-inner{display:grid;grid-template-columns:minmax(320px,.82fr) 1.18fr;min-height:620px}.speaker-dialog-visual{position:relative;min-height:620px;background:#292825}.speaker-dialog-visual:after{content:"";position:absolute;inset:0;border:12px solid rgba(28,28,26,.2);pointer-events:none}.speaker-dialog-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04)}.speaker-dialog-copy{position:relative;display:flex;flex-direction:column;justify-content:center;padding:clamp(46px,6vw,88px)}.speaker-dialog-number{color:#c5a574;font-size:10px;letter-spacing:.24em}.speaker-dialog h3{max-width:520px;margin:25px 0 22px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,5vw,76px);font-weight:400;line-height:.92;letter-spacing:-.055em}.speaker-dialog-topic{margin:0 0 30px;color:#c5a574;font-size:10px;font-weight:700;letter-spacing:.2em}.speaker-dialog-description{max-width:500px;margin:0;color:#c9c2b7;font-size:17px;line-height:1.75}.speaker-dialog-close{position:absolute;z-index:5;right:18px;top:18px;width:46px;height:46px;border:1px solid rgba(201,177,139,.45);background:rgba(28,28,26,.84);color:#f3eee4;cursor:pointer;font-size:23px;font-weight:300}.speaker-dialog-close:hover{background:#a9824f}.speaker-dialog-hint{margin-top:42px;padding-top:18px;border-top:1px solid rgba(201,177,139,.25);color:#777168;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:760px){.speaker-card:after{display:none}.speaker-dialog{width:100%;max-width:none;max-height:92dvh;margin:auto 0 0;border-width:1px 0 0}.speaker-dialog-inner{display:block;min-height:0;max-height:92dvh;overflow:auto}.speaker-dialog-visual{min-height:0;height:43dvh}.speaker-dialog-visual:after{border-width:8px}.speaker-dialog-copy{min-height:43dvh;padding:32px 24px calc(34px + env(safe-area-inset-bottom));justify-content:flex-start}.speaker-dialog h3{margin:18px 0 14px;font-size:42px}.speaker-dialog-topic{margin-bottom:20px}.speaker-dialog-description{font-size:15px;line-height:1.65}.speaker-dialog-close{position:fixed;right:12px;top:auto;bottom:calc(12px + env(safe-area-inset-bottom));background:#a9824f}.speaker-dialog-hint{display:none}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 
 </style>
@@ -425,6 +427,20 @@ body{font-family:Inter,Arial,Helvetica,sans-serif;font-weight:400}.section-title
     <span>Рання реєстрація<strong>від 2 500 ₴</strong></span><b>↗</b>
   </a>
 
+  <dialog class="speaker-dialog" aria-labelledby="speaker-dialog-name">
+    <button class="speaker-dialog-close" type="button" aria-label="Закрити профіль">×</button>
+    <div class="speaker-dialog-inner">
+      <div class="speaker-dialog-visual"><img src="" alt=""></div>
+      <div class="speaker-dialog-copy">
+        <span class="speaker-dialog-number"></span>
+        <h3 id="speaker-dialog-name"></h3>
+        <p class="speaker-dialog-topic"></p>
+        <p class="speaker-dialog-description"></p>
+        <span class="speaker-dialog-hint">Натисніть Esc або клікніть поза вікном, щоб закрити</span>
+      </div>
+    </div>
+  </dialog>
+
   <script>
 const header=document.querySelector('#header');
 const menuBtn=document.querySelector('.menu-toggle');
@@ -436,6 +452,23 @@ menuBtn?.addEventListener('click',()=>setMenu(!body.classList.contains('menu-ope
 document.querySelectorAll('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&body.classList.contains('menu-open')){setMenu(false);menuBtn?.focus()}});
 matchMedia('(min-width:1121px)').addEventListener?.('change',e=>{if(e.matches)setMenu(false)});
+
+const speakerDialog=document.querySelector('.speaker-dialog');
+const speakerDialogImage=speakerDialog?.querySelector('.speaker-dialog-visual img');
+const openSpeaker=card=>{
+  const image=card.querySelector('.speaker-image img');
+  const name=card.querySelector('h3')?.textContent?.trim()||'';
+  speakerDialogImage.src=image?.currentSrc||image?.src||'';speakerDialogImage.alt=name;
+  speakerDialog.querySelector('.speaker-dialog-number').textContent=`СПІКЕР · ${card.querySelector('.speaker-index')?.textContent?.trim()||''}`;
+  speakerDialog.querySelector('h3').textContent=name;
+  speakerDialog.querySelector('.speaker-dialog-topic').textContent=card.querySelector('.speaker-info span')?.textContent?.trim()||'';
+  speakerDialog.querySelector('.speaker-dialog-description').textContent=card.querySelector('.speaker-info p')?.textContent?.trim()||'';
+  speakerDialog.showModal();body.classList.add('dialog-open');
+};
+document.querySelectorAll('.speaker-card').forEach(card=>{card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',`Відкрити профіль: ${card.querySelector('h3')?.textContent?.trim()||'спікер'}`);card.addEventListener('click',()=>openSpeaker(card));card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openSpeaker(card)}})});
+speakerDialog?.querySelector('.speaker-dialog-close')?.addEventListener('click',()=>speakerDialog.close());
+speakerDialog?.addEventListener('click',e=>{if(e.target===speakerDialog)speakerDialog.close()});
+speakerDialog?.addEventListener('close',()=>body.classList.remove('dialog-open'));
 
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
