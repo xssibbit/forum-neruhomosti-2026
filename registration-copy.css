@@ -1,0 +1,26 @@
+/* Registration CTA copy override */
+html body .participants-head .section-title{
+  font-size:0!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+}
+html body .participants-head .section-title br,
+html body .participants-head .section-title span{
+  display:none!important;
+}
+html body .participants-head .section-title::after{
+  content:"Зареєструйся вже зараз"!important;
+  display:block!important;
+  color:#f4f1e8!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(56px,6vw,92px)!important;
+  font-weight:400!important;
+  line-height:.95!important;
+  letter-spacing:-.055em!important;
+}
+@media(max-width:760px){
+  html body .participants-head .section-title::after{
+    font-size:clamp(42px,12vw,58px)!important;
+    line-height:.96!important;
+  }
+}
