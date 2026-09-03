@@ -61,4 +61,40 @@
     .forEach(person => merged.set(String(person.name).toLocaleLowerCase('uk'), person));
 
   localStorage.setItem(KEY, JSON.stringify([...merged.values()]));
+
+  // Replace the old payment-reference field with City without changing the rest of the form markup.
+  const form = document.querySelector('#participantForm');
+  const cityField = form?.querySelector('[name="paymentRef"]');
+  if (cityField) {
+    const label = cityField.closest('label');
+    const labelText = label?.querySelector('span');
+    if (labelText) labelText.textContent = 'Місто';
+    cityField.placeholder = 'Наприклад: Вінниця';
+    cityField.autocomplete = 'address-level2';
+    cityField.setAttribute('aria-label', 'Місто');
+  }
+
+  const consentText = form?.querySelector('.form-consent span');
+  if (consentText) {
+    consentText.textContent = 'Погоджуюся на публікацію мого ПІБ та агентства у списку учасників.';
+  }
+
+  // Persist the entered city alongside the participant after the existing submit handler runs.
+  form?.addEventListener('submit', () => {
+    const name = String(form.querySelector('[name="fullName"]')?.value || '').trim();
+    const city = String(cityField?.value || '').trim();
+    if (!name || !city) return;
+
+    setTimeout(() => {
+      try {
+        const items = JSON.parse(localStorage.getItem(KEY) || '[]');
+        if (!Array.isArray(items)) return;
+        const participant = items.find(item => String(item?.name || '').toLocaleLowerCase('uk') === name.toLocaleLowerCase('uk'));
+        if (participant) {
+          participant.city = city;
+          localStorage.setItem(KEY, JSON.stringify(items));
+        }
+      } catch {}
+    }, 0);
+  }, true);
 })();
