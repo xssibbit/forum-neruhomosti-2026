@@ -1,0 +1,64 @@
+(() => {
+  const KEY = 'forum-neruhomosti-2026-participants-v1';
+
+  const seededParticipants = [
+    { name: 'Реміна Вікторія Анатоліївна', agency: '—' },
+    { name: 'Березюк Діна Дмитрівна', agency: '—' },
+    { name: 'Приймак Світлана Іванівна', agency: '—' },
+    { name: 'Шевченко Ірина Василівна', agency: '—' },
+    { name: 'Міненко Євгенія Едуардівна', agency: '—' },
+    { name: 'Слепенчук Ірина Петрівна', agency: '—' },
+    { name: 'Кузнецова Наталія Андріївна', agency: '—' },
+    { name: 'Богданець Тетяна Володимирівна', agency: '—' },
+    { name: 'Підлісна Ірина Василівна', agency: '—' },
+    { name: 'Богуш Ліліана', agency: '—' },
+    { name: 'Козинюк Лариса', agency: '—' },
+    { name: 'Гаєвська Марина', agency: '—' },
+    { name: 'Кулійчук Олена Миколаївна', agency: '—' },
+    { name: 'Гапченко Олександр Миколайович', agency: '—' },
+    { name: 'Мацько Таїсія Петрівна', agency: '—' },
+    { name: 'Маринич Вікторія Петрівна', agency: '—' },
+    { name: 'Слюсар Єлизавета Миколаївна', agency: '—' },
+    { name: 'Якубчак Тетяна Анатоліївна', agency: '—' },
+    { name: 'Волосович Наталія Олегівна', agency: '—' },
+    { name: 'Кухарук Мая Вячеславівна', agency: '—' },
+    { name: 'Гилюк Юлія Ігорівна', agency: '—' },
+    { name: 'Березньова Ганна Юріівна', agency: '—' },
+    { name: 'Драченко Юлія Дмитрівна', agency: '—' },
+    { name: 'Прилипко Галина Павлівна', agency: '—' },
+    { name: 'Кушнір Любов Михайлівна', agency: '—' },
+    { name: 'Григорчук Людмила Борисівна', agency: '—' },
+    { name: "Дем'яненко Наталія Володимирівна", agency: '—' },
+    { name: 'Дробот Анна', agency: '—' },
+    { name: 'Маркова Альбіна', agency: '—' },
+    { name: 'Новікова Ліліанна', agency: '—' },
+    { name: 'Штельмах Ольга', agency: '—' },
+    { name: 'Наконечна Альона', agency: '—' },
+    { name: 'Антко Света', agency: '—' },
+    { name: 'Сідлецька Таня', agency: '—' },
+    { name: 'Яблочнікова Олена', agency: '—' },
+    { name: 'Король Юлія', agency: '—' },
+    { name: 'Біла Лілія', agency: '—' },
+    { name: 'Поліщук Галина', agency: '—' },
+    { name: 'Сурменко Наталія', agency: '—' },
+    { name: 'Сазонова Людмила', agency: '—' },
+    { name: 'Крістенчук Наталія', agency: '—' },
+    { name: 'Захарченко Сергій', agency: '—' }
+  ];
+
+  let saved = [];
+  try {
+    saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+    if (!Array.isArray(saved)) saved = [];
+  } catch {
+    saved = [];
+  }
+
+  const merged = new Map();
+  seededParticipants.forEach(person => merged.set(person.name.toLocaleLowerCase('uk'), person));
+  saved
+    .filter(person => person && person.name)
+    .forEach(person => merged.set(String(person.name).toLocaleLowerCase('uk'), person));
+
+  localStorage.setItem(KEY, JSON.stringify([...merged.values()]));
+})();
