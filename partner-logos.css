@@ -1,4 +1,4 @@
-/* Exact partner marks processed from the forum's original assets. */
+/* Crisp vector partner marks — no raster upscaling, no white background. */
 .partners .logo-box{
   background:transparent!important;
   border:0!important;
@@ -6,41 +6,42 @@
   overflow:visible!important;
   display:grid!important;
   place-items:center!important;
-}
-.partners .logo-box::before{display:none!important;content:none!important}
-.partners .logo-box img{
-  display:block!important;
-  width:auto!important;
+  width:100%!important;
   height:auto!important;
-  max-width:100%!important;
-  max-height:100%!important;
-  object-fit:contain!important;
-  background:transparent!important;
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.16))!important;
+  min-height:180px!important;
 }
-/* ORGANIZER: exact Vinnytsia regional AFNU branch mark */
-.partners .partner-row:nth-child(1) .logo-box{
-  width:min(420px,40vw)!important;
-  height:190px!important;
+.partners .logo-box img{display:none!important}
+.partners .logo-box::before{
+  content:""!important;
+  display:block!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.18))!important;
 }
-.partners .partner-row:nth-child(1) .logo-box img{
-  content:url("assets/afnu-vinnytsia-transparent.png")!important;
-  max-width:390px!important;
-  max-height:175px!important;
+/* Вінницьке регіональне відділення АФНУ — horizontal vector lockup. */
+.partners .partner-row:nth-child(1) .logo-box::before{
+  width:min(860px,58vw)!important;
+  aspect-ratio:1100/320!important;
+  background-image:url("assets/vrv-afnu.svg")!important;
 }
-/* PARTNER: DIM.RIA */
-.partners .partner-row:nth-child(2) .logo-box{
-  width:min(500px,45vw)!important;
-  height:155px!important;
+/* DIM.RIA — transparent vector wordmark. */
+.partners .partner-row:nth-child(2) .logo-box::before{
+  width:min(700px,50vw)!important;
+  aspect-ratio:920/260!important;
+  background-image:url("assets/dim-ria.svg")!important;
 }
-.partners .partner-row:nth-child(2) .logo-box img{
-  content:url("assets/dimria-transparent.png")!important;
-  max-width:470px!important;
-  max-height:140px!important;
+@media(max-width:900px){
+  .partners .logo-box{min-height:150px!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:min(760px,82vw)!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:min(620px,76vw)!important}
 }
 @media(max-width:760px){
-  .partners .partner-row:nth-child(1) .logo-box{width:min(290px,82vw)!important;height:145px!important}
-  .partners .partner-row:nth-child(1) .logo-box img{max-width:270px!important;max-height:135px!important}
-  .partners .partner-row:nth-child(2) .logo-box{width:min(310px,86vw)!important;height:115px!important}
-  .partners .partner-row:nth-child(2) .logo-box img{max-width:295px!important;max-height:105px!important}
+  .partners .logo-box{min-height:116px!important;justify-items:start!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:min(640px,92vw)!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:min(520px,86vw)!important}
+}
+@media(max-width:390px){
+  .partners .partner-row:nth-child(1) .logo-box::before{width:94vw!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:88vw!important}
 }
