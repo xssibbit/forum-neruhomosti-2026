@@ -110,7 +110,7 @@
   // Keep only one edition label (an earlier sync accidentally duplicated it).
   const stamps = $$('.hero .edition-stamp');
   stamps.slice(1).forEach(el => el.remove());
-  if (stamps[0]) stamps[0].textContent = 'PRIVATE BUSINESS EDITION · 2026';
+  stamps.forEach(el => el.remove());
 
   // Registration is on the main page, under the countdown.
   const registrationUrl = '#participants';
@@ -149,7 +149,7 @@
   const heroLead = $('.hero-lead');
   if (heroLead) heroLead.textContent = 'Два дні практики, кейсів, нетворкінгу та майстер-класів від провідних експертів ринку нерухомості.';
   const heroPrimary = $('.hero-actions .button.primary');
-  if (heroPrimary) heroPrimary.innerHTML = 'Купити квиток <span>↗</span>';
+  if (heroPrimary) heroPrimary.innerHTML = 'Забронювати місце <span>↗</span>';
   const heroSecondary = $('.hero-actions .button.ghost');
   if (heroSecondary) {
     heroSecondary.href = registrationUrl;
@@ -257,7 +257,7 @@
         <div class="section-kicker">05 / РЕЄСТРАЦІЯ УЧАСНИКІВ</div>
         <div class="participants-head">
           <h2 class="section-title">Ви вже<br><span>придбали квиток?</span></h2>
-          <p>Заповніть дані після оплати. У загальному списку відображаються лише ПІБ учасника та його агентство. Для швидкого пошуку використовуйте поле за ПІБ.</p>
+          <p>Заповніть коротку форму після оплати. Вкажіть ПІБ, агентство / компанію та місто.</p>
         </div>
 
         <div class="registration-layout">
@@ -273,8 +273,8 @@
               <input name="agency" autocomplete="organization" maxlength="120" required placeholder="Назва агентства">
             </label>
             <label class="form-field">
-              <span>Номер або призначення платежу</span>
-              <input name="paymentRef" maxlength="100" required placeholder="Номер транзакції з квитанції">
+              <span>Місто</span>
+              <input name="city" autocomplete="address-level2" maxlength="100" required placeholder="Наприклад: Вінниця">
             </label>
             <label class="form-consent">
               <input type="checkbox" name="consent" required>
@@ -369,11 +369,11 @@
       const data = new FormData(form);
       const name = String(data.get('fullName') || '').trim();
       const agency = String(data.get('agency') || '').trim();
-      const payment = String(data.get('paymentRef') || '').trim();
+      const city = String(data.get('city') || '').trim();
       const consent = data.get('consent');
       status.className = 'form-status';
 
-      if (!name || !agency || !payment || !consent) {
+      if (!name || !agency || !city || !consent) {
         status.textContent = 'Заповніть усі поля та підтвердьте згоду.';
         status.classList.add('error');
         return;
@@ -382,7 +382,7 @@
       const items = read();
       const duplicate = items.some(item => item.name.toLocaleLowerCase('uk') === name.toLocaleLowerCase('uk'));
       if (!duplicate) {
-        items.push({name, agency, createdAt: new Date().toISOString()});
+        items.push({name, agency, city, createdAt: new Date().toISOString()});
         localStorage.setItem(KEY, JSON.stringify(items));
       }
 
@@ -419,7 +419,7 @@
   const finalText = $('.final-copy > p');
   if (finalText) finalText.textContent = 'До початку форуму залишилося небагато часу. Забронюйте місце вже сьогодні.';
   const finalButton = $('.final-copy .button');
-  if (finalButton) finalButton.innerHTML = 'Купити квиток <span>↗</span>';
+  if (finalButton) finalButton.innerHTML = 'Забронювати місце <span>↗</span>';
 
   const contactPanel = $('.contact-panel');
   if (contactPanel) {
