@@ -31,7 +31,7 @@ jobs:
           s = p.read_text()
           seed = '<script src="participants-data.js?v=20260903-main2"></script>'
           marker = '<script src="tz-enhancements.js?v=20260903-final"></script>'
-          css = '<link rel="stylesheet" href="participants-return.css?v=20260903-main2">'
+          css = '<link rel="stylesheet" href="participants-return.css?v=20260903-main3">'
           adjust = '<script src="ticket-date-adjustments.js?v=20260903-1"></script>'
           countdown = '<link rel="stylesheet" href="countdown-classic.css?v=20260903-1">'
           if seed not in s and marker in s:
