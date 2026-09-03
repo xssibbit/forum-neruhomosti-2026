@@ -1,4 +1,4 @@
-/* Crisp vector partner marks — no raster upscaling, no white background. */
+/* Crisp white partner marks for the dark emerald section. */
 .partners .logo-box{
   background:transparent!important;
   border:0!important;
@@ -8,7 +8,7 @@
   place-items:center!important;
   width:100%!important;
   height:auto!important;
-  min-height:180px!important;
+  min-height:190px!important;
 }
 .partners .logo-box img{display:none!important}
 .partners .logo-box::before{
@@ -17,31 +17,31 @@
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:contain!important;
-  filter:drop-shadow(0 12px 26px rgba(0,0,0,.18))!important;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.22))!important;
 }
-/* Вінницьке регіональне відділення АФНУ — horizontal vector lockup. */
+/* Вінницьке регіональне відділення АФНУ — white high-contrast vector lockup. */
 .partners .partner-row:nth-child(1) .logo-box::before{
-  width:min(860px,58vw)!important;
-  aspect-ratio:1100/320!important;
-  background-image:url("assets/vrv-afnu.svg")!important;
+  width:min(930px,64vw)!important;
+  aspect-ratio:1240/320!important;
+  background-image:url("assets/vrv-afnu.svg?v=white-20260903")!important;
 }
-/* DIM.RIA — transparent vector wordmark. */
+/* DIM.RIA — white high-contrast verified partner lockup. */
 .partners .partner-row:nth-child(2) .logo-box::before{
-  width:min(700px,50vw)!important;
-  aspect-ratio:920/260!important;
-  background-image:url("assets/dim-ria.svg")!important;
+  width:min(760px,54vw)!important;
+  aspect-ratio:980/260!important;
+  background-image:url("assets/dim-ria.svg?v=white-20260903")!important;
 }
 @media(max-width:900px){
   .partners .logo-box{min-height:150px!important}
-  .partners .partner-row:nth-child(1) .logo-box::before{width:min(760px,82vw)!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:min(620px,76vw)!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:min(820px,90vw)!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:min(690px,84vw)!important}
 }
 @media(max-width:760px){
-  .partners .logo-box{min-height:116px!important;justify-items:start!important}
-  .partners .partner-row:nth-child(1) .logo-box::before{width:min(640px,92vw)!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:min(520px,86vw)!important}
+  .partners .logo-box{min-height:118px!important;justify-items:start!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:min(680px,94vw)!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:min(560px,90vw)!important}
 }
 @media(max-width:390px){
-  .partners .partner-row:nth-child(1) .logo-box::before{width:94vw!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:88vw!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:95vw!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:90vw!important}
 }
