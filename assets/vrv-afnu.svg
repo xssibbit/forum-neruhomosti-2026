@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" role="img" aria-labelledby="title desc">
+  <title id="title">Вінницьке регіональне відділення АФНУ</title>
+  <desc id="desc">Векторний знак Вінницького регіонального відділення Асоціації фахівців з нерухомості України</desc>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(20 20)">
+      <circle cx="140" cy="140" r="126" stroke="#DDE7E2" stroke-width="3" opacity=".9"/>
+      <circle cx="140" cy="140" r="111" stroke="#B9915C" stroke-width="2" opacity=".7"/>
+      <path d="M62 216c25 34 61 51 107 51 45 0 80-17 106-51" stroke="#1397D5" stroke-width="18" stroke-linecap="round"/>
+      <path d="M92 78h96v83l-48 47-48-47z" fill="#F4F2EA" stroke="#F4F2EA" stroke-width="5"/>
+      <path d="M140 82v121M96 105l44 42 44-42M96 147l44-42 44 42M115 126l25 24 25-24M96 161l44-40 44 40" stroke="#0A332B" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M91 159l49 48 0 29-50-48z" fill="#169BD5"/>
+      <path d="M189 159l-49 48 0 29 50-48z" fill="#F4D113"/>
+      <text x="140" y="48" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" text-anchor="middle" letter-spacing="1.5">ВРВ АФНУ</text>
+      <text x="140" y="250" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1.2">1995</text>
+    </g>
+    <g transform="translate(350 58)">
+      <text x="0" y="36" fill="#B9915C" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" letter-spacing="4">ОРГАНІЗАТОР</text>
+      <text x="0" y="94" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="1.1">ВІННИЦЬКЕ РЕГІОНАЛЬНЕ</text>
+      <text x="0" y="145" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" letter-spacing="1.1">ВІДДІЛЕННЯ АФНУ</text>
+      <line x1="0" y1="175" x2="680" y2="175" stroke="#DDE7E2" stroke-width="1" opacity=".35"/>
+      <text x="0" y="210" fill="#AFC0B9" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" letter-spacing=".55">АСОЦІАЦІЯ ФАХІВЦІВ З НЕРУХОМОСТІ</text>
+      <text x="0" y="240" fill="#AFC0B9" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" letter-spacing=".55">(РІЄЛТОРІВ) УКРАЇНИ</text>
+    </g>
+  </g>
+</svg>
