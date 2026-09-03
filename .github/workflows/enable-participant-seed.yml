@@ -1,0 +1,36 @@
+name: Enable initial participant list
+
+on:
+  push:
+    paths:
+      - '.github/workflows/enable-participant-seed.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load permanent participant seed before page logic
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('participants.html')
+          s = p.read_text()
+          marker = '  <script>\n    const KEY='
+          inject = '  <script src="participants-data.js?v=20260903-1"></script>\n  <script>\n    const KEY='
+          if 'participants-data.js' not in s:
+              if marker not in s:
+                  raise SystemExit('participant script marker not found')
+              s = s.replace(marker, inject, 1)
+              p.write_text(s)
+          PY
+      - name: Commit page update
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add participants.html
+          git commit -m 'Show initial participant list on site' || exit 0
+          git push
