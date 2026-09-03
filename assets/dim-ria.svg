@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 260" role="img" aria-labelledby="title desc">
+  <title id="title">DIM.RIA</title>
+  <desc id="desc">Векторний логотип DIM.RIA для темного фону</desc>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(24 34)">
+      <text x="0" y="124" fill="#F6931D" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="800" letter-spacing="-5">DIM</text>
+      <circle cx="253" cy="105" r="10" fill="#F6931D"/>
+      <text x="277" y="124" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="800" letter-spacing="-4">RIA</text>
+      <path d="M673 53l29 18 35-8-18 30 17 31-34-8-29 18 3-35-24-26 36-5z" fill="#F4F2EA" transform="rotate(-12 694 94)"/>
+      <line x1="0" y1="154" x2="820" y2="154" stroke="#DDE7E2" stroke-width="1" opacity=".3"/>
+      <text x="2" y="190" fill="#AFC0B9" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="4">ПЕРЕВІРЕНИЙ ПАРТНЕР</text>
+    </g>
+  </g>
+</svg>
