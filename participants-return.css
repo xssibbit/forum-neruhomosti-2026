@@ -217,3 +217,36 @@ html body .participant-empty{
   html body .participant-row{grid-template-columns:32px minmax(0,1fr)!important;gap:4px 9px!important}
   html body .participant-row strong{font-size:15px!important}
 }
+
+/* Registration heading: centered, with no supporting paragraph. */
+html body .participants-head{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0 auto 48px!important;
+  text-align:center!important;
+}
+html body .participants-head .section-title{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+html body .participants-head .section-title::after{
+  text-align:center!important;
+}
+html body .participants-head p{
+  display:none!important;
+}
+
+@media(max-width:760px){
+  html body .participants-head{
+    margin-bottom:32px!important;
+    text-align:center!important;
+  }
+  html body .participants-head .section-title,
+  html body .participants-head .section-title::after{
+    text-align:center!important;
+  }
+}
