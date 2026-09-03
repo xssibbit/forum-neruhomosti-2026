@@ -2,14 +2,21 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+  // Load the compact participant section styles.
+  if (!document.querySelector('link[href^="participants-main.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'participants-main.css?v=20260903-2';
+    document.head.append(link);
+  }
+
   // Keep only one edition label (an earlier sync accidentally duplicated it).
   const stamps = $$('.hero .edition-stamp');
   stamps.slice(1).forEach(el => el.remove());
   if (stamps[0]) stamps[0].textContent = 'PRIVATE BUSINESS EDITION · 2026';
 
-  // Customer TZ: top-right registration CTA. Google Form URL was not supplied,
-  // so it currently opens the dedicated registration page already created for the project.
-  const registrationUrl = 'participants.html';
+  // Registration is on the main page, under the countdown.
+  const registrationUrl = '#participants';
   const headerCta = $('.header-cta');
   if (headerCta) {
     headerCta.href = registrationUrl;
@@ -17,7 +24,7 @@
     headerCta.setAttribute('aria-label', 'Реєстрація учасників');
   }
 
-  // Navigation: add registration and outcomes without disturbing the approved composition.
+  // Navigation: outcomes + registration on the landing page.
   $$('.desktop-nav, .mobile-menu nav').forEach(nav => {
     if (!nav.querySelector('a[href="#outcomes"]')) {
       const programLink = nav.querySelector('a[href="#program"]');
@@ -26,11 +33,16 @@
       link.textContent = 'Що отримаєте';
       if (programLink) nav.insertBefore(link, programLink);
     }
-    if (!nav.querySelector('a[href="participants.html"]')) {
+
+    const oldParticipant = nav.querySelector('a[href="participants.html"]');
+    if (oldParticipant) {
+      oldParticipant.href = registrationUrl;
+      oldParticipant.textContent = 'Учасники';
+    } else if (!nav.querySelector('a[href="#participants"]')) {
       const locationLink = nav.querySelector('a[href="#location"]');
       const link = document.createElement('a');
       link.href = registrationUrl;
-      link.textContent = 'Реєстрація';
+      link.textContent = 'Учасники';
       if (locationLink) nav.insertBefore(link, locationLink);
       else nav.append(link);
     }
@@ -129,9 +141,157 @@
     ticketGrid.insertAdjacentElement('afterend', late);
   }
 
-  // Public participants live on the dedicated page, not inside the long landing page.
-  const embeddedParticipants = $('#participants');
-  if (embeddedParticipants) embeddedParticipants.remove();
+  // Registration + compact participant list directly under the countdown.
+  const countdownSection = $('.countdown-section');
+  if (countdownSection && !$('#participants')) {
+    const section = document.createElement('section');
+    section.className = 'section participants-section';
+    section.id = 'participants';
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-kicker">05 / РЕЄСТРАЦІЯ УЧАСНИКІВ</div>
+        <div class="participants-head">
+          <h2 class="section-title">Ви вже<br><span>придбали квиток?</span></h2>
+          <p>Заповніть дані після оплати. У загальному списку відображаються лише ПІБ учасника та його агентство. Для швидкого пошуку використовуйте поле за ПІБ.</p>
+        </div>
+
+        <div class="registration-layout">
+          <form class="registration-form" id="participant-form">
+            <h3>Дані учасника</h3>
+            <p>Усі поля обов’язкові.</p>
+            <label class="form-field">
+              <span>Прізвище, ім’я, по батькові</span>
+              <input name="fullName" autocomplete="name" maxlength="120" required placeholder="Наприклад: Коваленко Яна Сергіївна">
+            </label>
+            <label class="form-field">
+              <span>Агентство / компанія</span>
+              <input name="agency" autocomplete="organization" maxlength="120" required placeholder="Назва агентства">
+            </label>
+            <label class="form-field">
+              <span>Номер або призначення платежу</span>
+              <input name="paymentRef" maxlength="100" required placeholder="Номер транзакції з квитанції">
+            </label>
+            <label class="form-consent">
+              <input type="checkbox" name="consent" required>
+              <span>Погоджуюся на публікацію мого ПІБ та агентства у списку учасників.</span>
+            </label>
+            <button class="button primary" type="submit">Надіслати дані <span>↗</span></button>
+            <p class="form-status" id="participant-status" aria-live="polite"></p>
+          </form>
+
+          <div class="participant-list">
+            <div class="participant-list-head">
+              <h3>Зареєстровані учасники</h3>
+              <span class="participant-count" id="participant-count">0 УЧАСНИКІВ</span>
+            </div>
+            <div class="participant-tools">
+              <label class="participant-search">
+                <input id="participant-search" type="search" autocomplete="off" placeholder="Пошук за ПІБ" aria-label="Пошук учасника за ПІБ">
+              </label>
+              <span class="participant-result-note" id="participant-result-note">Показано всіх</span>
+            </div>
+            <div class="participant-scroll" id="participant-scroll">
+              <div id="participant-rows"><p class="participant-empty">Перші зареєстровані учасники з’являться тут.</p></div>
+            </div>
+            <div class="participant-pagination" id="participant-pagination">
+              <button type="button" id="participant-prev">← Назад</button>
+              <span class="participant-page-label" id="participant-page-label">1 / 1</span>
+              <button type="button" id="participant-next">Далі →</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    countdownSection.insertAdjacentElement('afterend', section);
+
+    const KEY = 'forum-neruhomosti-2026-participants-v1';
+    const form = $('#participant-form');
+    const rows = $('#participant-rows');
+    const count = $('#participant-count');
+    const status = $('#participant-status');
+    const search = $('#participant-search');
+    const note = $('#participant-result-note');
+    const prev = $('#participant-prev');
+    const next = $('#participant-next');
+    const pageLabel = $('#participant-page-label');
+    const mobileQuery = matchMedia('(max-width: 760px)');
+    let page = 1;
+    const mobilePageSize = 6;
+
+    const read = () => {
+      try {
+        const value = JSON.parse(localStorage.getItem(KEY) || '[]');
+        return Array.isArray(value) ? value.filter(x => x && x.name && x.agency) : [];
+      } catch {
+        return [];
+      }
+    };
+    const esc = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const matches = items => {
+      const q = (search?.value || '').trim().toLocaleLowerCase('uk');
+      return q ? items.filter(item => item.name.toLocaleLowerCase('uk').includes(q)) : items;
+    };
+
+    const render = () => {
+      const all = read();
+      const filtered = matches(all);
+      count.textContent = `${all.length} УЧАСНИКІВ`;
+      note.textContent = search?.value.trim() ? `Знайдено: ${filtered.length}` : `Показано: ${filtered.length}`;
+
+      const isMobile = mobileQuery.matches;
+      const pages = Math.max(1, Math.ceil(filtered.length / mobilePageSize));
+      page = Math.min(Math.max(1, page), pages);
+      const visible = isMobile ? filtered.slice((page - 1) * mobilePageSize, page * mobilePageSize) : filtered;
+
+      rows.innerHTML = visible.length
+        ? visible.map((p, i) => {
+            const n = isMobile ? (page - 1) * mobilePageSize + i + 1 : i + 1;
+            return `<div class="participant-row"><span class="participant-index">${String(n).padStart(2, '0')}</span><strong>${esc(p.name)}</strong><span class="agency">${esc(p.agency)}</span></div>`;
+          }).join('')
+        : `<p class="participant-empty">${search?.value.trim() ? 'За цим ПІБ нічого не знайдено.' : 'Перші зареєстровані учасники з’являться тут.'}</p>`;
+
+      pageLabel.textContent = `${page} / ${pages}`;
+      prev.disabled = page <= 1;
+      next.disabled = page >= pages;
+    };
+
+    search?.addEventListener('input', () => { page = 1; render(); });
+    prev?.addEventListener('click', () => { if (page > 1) { page--; render(); $('#participant-list')?.scrollIntoView?.({behavior:'smooth', block:'nearest'}); } });
+    next?.addEventListener('click', () => { const pages = Math.max(1, Math.ceil(matches(read()).length / mobilePageSize)); if (page < pages) { page++; render(); } });
+    mobileQuery.addEventListener?.('change', () => { page = 1; render(); });
+
+    form?.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const name = String(data.get('fullName') || '').trim();
+      const agency = String(data.get('agency') || '').trim();
+      const payment = String(data.get('paymentRef') || '').trim();
+      const consent = data.get('consent');
+      status.className = 'form-status';
+
+      if (!name || !agency || !payment || !consent) {
+        status.textContent = 'Заповніть усі поля та підтвердьте згоду.';
+        status.classList.add('error');
+        return;
+      }
+
+      const items = read();
+      const duplicate = items.some(item => item.name.toLocaleLowerCase('uk') === name.toLocaleLowerCase('uk'));
+      if (!duplicate) {
+        // Payment reference is intentionally not published or stored in the public browser list.
+        items.push({name, agency, createdAt: new Date().toISOString()});
+        localStorage.setItem(KEY, JSON.stringify(items));
+      }
+
+      form.reset();
+      search.value = '';
+      page = 1;
+      render();
+      status.textContent = duplicate ? 'Цей учасник уже є у списку.' : 'Дані прийнято. У списку показано лише ПІБ та агентство.';
+      status.classList.add('ok');
+    });
+
+    render();
+  }
 
   // Embedded Google Map under the approved photo/address block.
   const location = $('#location');
@@ -161,13 +321,20 @@
       <a target="_blank" rel="noopener" href="https://www.facebook.com/vro.asnu/">Facebook · ВРВ АФНУ ↗</a>`;
   }
 
-  // Keep the footer aligned with the new section and registration page.
+  // Footer: keep registration on the main page.
   const footerLinks = $('.footer-links');
-  if (footerLinks && !footerLinks.querySelector('a[href="#outcomes"]')) {
-    const link = document.createElement('a');
-    link.href = '#outcomes';
-    link.textContent = 'Що отримаєте';
-    footerLinks.insertBefore(link, footerLinks.firstChild);
+  if (footerLinks) {
+    const oldParticipant = footerLinks.querySelector('a[href="participants.html"]');
+    if (oldParticipant) {
+      oldParticipant.href = registrationUrl;
+      oldParticipant.textContent = 'Учасники';
+    }
+    if (!footerLinks.querySelector('a[href="#outcomes"]')) {
+      const link = document.createElement('a');
+      link.href = '#outcomes';
+      link.textContent = 'Що отримаєте';
+      footerLinks.insertBefore(link, footerLinks.firstChild);
+    }
   }
 
   // Smooth-close the mobile menu for dynamically inserted links too.
