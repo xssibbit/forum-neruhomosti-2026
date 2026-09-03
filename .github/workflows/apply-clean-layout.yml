@@ -1,0 +1,66 @@
+name: Apply clean forum layout
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-clean-layout.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply requested landing-page changes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          # Main HTML: load final override last and rename ticket CTAs.
+          p = Path('index.html')
+          s = p.read_text()
+          clean_link = '  <link rel="stylesheet" href="clean-layout.css?v=20260903-clean-1">\n'
+          if 'clean-layout.css' not in s:
+              anchor = '  <link rel="stylesheet" href="partner-logos.css?v=user-png-final-1">\n'
+              if anchor in s:
+                  s = s.replace(anchor, anchor + clean_link, 1)
+              else:
+                  s = s.replace('</head>', clean_link + '</head>', 1)
+
+          # Keep the top-right registration CTA, but rename all ticket-purchase CTA copy.
+          s = s.replace('<a class="header-cta" href="#tickets">Купити квиток <span>↗</span></a>', '<a class="header-cta" href="#participants">Реєстрація <span>↗</span></a>')
+          s = s.replace('Купити квиток', 'Забронювати місце')
+          # Restore header text if broad replacement touched it in a future version.
+          s = s.replace('<a class="header-cta" href="#participants">Забронювати місце <span>↗</span></a>', '<a class="header-cta" href="#participants">Реєстрація <span>↗</span></a>')
+          s = s.replace('Перейти до купівлі квитка', 'Перейти до бронювання місця')
+          p.write_text(s)
+
+          # Active enhancement script: main-page form only, city instead of payment reference,
+          # and sales CTA copy aligned with the landing page.
+          p = Path('tz-enhancements.js')
+          s = p.read_text()
+          s = s.replace("if (stamps[0]) stamps[0].textContent = 'PRIVATE BUSINESS EDITION · 2026';", "stamps.forEach(el => el.remove());")
+          s = s.replace("if (heroPrimary) heroPrimary.innerHTML = 'Купити квиток <span>↗</span>';", "if (heroPrimary) heroPrimary.innerHTML = 'Забронювати місце <span>↗</span>';" )
+          s = s.replace("if (finalButton) finalButton.innerHTML = 'Купити квиток <span>↗</span>';", "if (finalButton) finalButton.innerHTML = 'Забронювати місце <span>↗</span>';" )
+          s = s.replace('Заповніть дані після оплати. У загальному списку відображаються лише ПІБ учасника та його агентство. Для швидкого пошуку використовуйте поле за ПІБ.', 'Заповніть коротку форму після оплати. Вкажіть ПІБ, агентство / компанію та місто.')
+          s = s.replace('<span>Номер або призначення платежу</span>\n              <input name="paymentRef" maxlength="100" required placeholder="Номер транзакції з квитанції">', '<span>Місто</span>\n              <input name="city" autocomplete="address-level2" maxlength="100" required placeholder="Наприклад: Вінниця">')
+          s = s.replace("const payment = String(data.get('paymentRef') || '').trim();", "const city = String(data.get('city') || '').trim();")
+          s = s.replace('if (!name || !agency || !payment || !consent)', 'if (!name || !agency || !city || !consent)')
+          s = s.replace('items.push({name, agency, createdAt: new Date().toISOString()});', 'items.push({name, agency, city, createdAt: new Date().toISOString()});')
+          p.write_text(s)
+
+          assert 'clean-layout.css' in Path('index.html').read_text()
+          assert 'name="city"' in Path('tz-enhancements.js').read_text()
+          assert "Забронювати місце" in Path('tz-enhancements.js').read_text()
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html tz-enhancements.js
+          git commit -m 'Clean hero and simplify main registration' || exit 0
+          git push
