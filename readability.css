@@ -1,0 +1,307 @@
+/* Readability pass for desktop + mobile, tuned for a 40+ audience. */
+:root{
+  --read-text:#f5f3ec;
+  --read-muted:#c5d0cb;
+  --read-soft:#aebeb8;
+  --read-gold:#e0ba82;
+  --read-green:#43d7ad;
+}
+
+/* Remove low-contrast decorative words/numbers that look like content. */
+html body .hero-copy::after,
+html body .program-head::after,
+html body .speakers::before,
+html body .tickets::before,
+html body .outcomes::after,
+html body .final-cta::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Header and navigation. */
+html body .brand-text b{font-size:15px!important;line-height:1.1!important;color:#fff!important}
+html body .brand-text small{font-size:11px!important;line-height:1.25!important;color:#b8c7c1!important}
+html body .desktop-nav a{font-size:15px!important;font-weight:650!important;color:#e2e9e6!important}
+html body .header-cta{font-size:14px!important;min-height:48px!important;padding-inline:22px!important}
+
+/* General supporting text — never too faint. */
+html body .hero-lead,
+html body .about-copy p,
+html body .outcomes-head p,
+html body .ticket-heading p,
+html body .final-copy p,
+html body .participants-head p{
+  color:var(--read-muted)!important;
+  font-size:clamp(18px,1.35vw,21px)!important;
+  line-height:1.62!important;
+}
+html body .section-kicker{
+  font-size:13px!important;
+  line-height:1.3!important;
+  letter-spacing:.14em!important;
+  color:var(--read-green)!important;
+}
+
+/* Hero event date: deliberately large and high contrast. */
+html body .hero .eyebrow{
+  min-width:min(100%,590px)!important;
+  padding:18px 22px!important;
+  gap:22px!important;
+}
+html body .hero .eyebrow::before{
+  font-size:clamp(56px,5.2vw,78px)!important;
+  line-height:.86!important;
+  color:#fffaf1!important;
+}
+html body .hero .eyebrow::after{
+  font-size:clamp(19px,1.55vw,24px)!important;
+  line-height:1.25!important;
+  letter-spacing:.085em!important;
+  color:#fff!important;
+}
+html body .hero h1{color:#f7f4ed!important}
+
+/* About + outcomes. */
+html body .benefit h3{color:#fff!important}
+html body .benefit p{
+  font-size:17px!important;
+  line-height:1.55!important;
+  color:#d8e2de!important;
+}
+html body .outcome-item strong{
+  font-size:clamp(29px,2.25vw,38px)!important;
+  line-height:1.08!important;
+  color:#faf6ed!important;
+}
+
+/* Program hierarchy: time -> speaker -> topic/description. */
+html body .schedule-row time{
+  min-width:130px!important;
+  justify-content:center!important;
+  font-size:17px!important;
+  line-height:1.15!important;
+  font-weight:800!important;
+  color:#ffe0b4!important;
+  background:rgba(185,140,82,.16)!important;
+  border-color:rgba(224,186,130,.55)!important;
+}
+html body .schedule-row .tag{
+  font-size:clamp(25px,2vw,32px)!important;
+  line-height:1.12!important;
+  font-weight:800!important;
+  color:#fff!important;
+  letter-spacing:-.02em!important;
+  text-transform:none!important;
+}
+html body .schedule-row h3{
+  font-size:clamp(18px,1.35vw,22px)!important;
+  line-height:1.45!important;
+  font-weight:550!important;
+  color:#d1ddd8!important;
+}
+html body .schedule-row p{
+  font-size:16px!important;
+  line-height:1.58!important;
+  color:#b9c8c2!important;
+}
+html body .schedule-row.break .tag,
+html body .schedule-row.dinner .tag{
+  font-size:16px!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  color:var(--read-gold)!important;
+}
+html body .schedule-row.break h3,
+html body .schedule-row.dinner h3{font-size:25px!important;color:#fff!important;font-weight:700!important}
+html body .day-tab{font-size:16px!important;font-weight:700!important}
+html body .day-tab span{font-size:12px!important;line-height:1.25!important}
+
+/* Speakers: restore old cards but make every label legible. */
+html body .side-note{font-size:16px!important;line-height:1.55!important;color:#c1cec9!important}
+html body .speaker-info h3{
+  font-size:clamp(29px,2.2vw,36px)!important;
+  line-height:1.06!important;
+  color:#fff!important;
+}
+html body .speaker-info p{
+  font-size:16px!important;
+  line-height:1.52!important;
+  color:#c4d0cb!important;
+  opacity:1!important;
+}
+html body .speaker-info span{
+  font-size:13px!important;
+  line-height:1.35!important;
+  color:#5ce0b8!important;
+  letter-spacing:.08em!important;
+}
+
+/* Tickets and prices. */
+html body .ticket-type{font-size:19px!important}
+html body .ticket-badge{font-size:12px!important;line-height:1.2!important}
+html body .featured-line{font-size:12px!important;line-height:1.25!important}
+html body .price strong{font-size:clamp(76px,6.4vw,104px)!important;line-height:.86!important;color:#fff!important}
+html body .price span{font-size:28px!important;color:#fff!important}
+html body .ticket-card>p{font-size:17px!important;line-height:1.55!important;color:#d3ddd9!important}
+html body .ticket-card:not(.featured):not(.contact-card)>p{color:#d3ddd9!important}
+html body .ticket-card li{font-size:15px!important;line-height:1.45!important;color:#d0dbd6!important}
+html body .ticket-card .button{font-size:14px!important;min-height:58px!important}
+html body .late-registration .late-label{font-size:13px!important}
+html body .late-registration strong{font-size:40px!important}
+html body .late-registration p,html body .late-registration b{font-size:15px!important;line-height:1.45!important}
+
+/* Countdown: four readable values in one row, including phones. */
+html body .countdown-wrap h2{
+  font-size:clamp(58px,5.5vw,84px)!important;
+  line-height:.94!important;
+  color:var(--read-gold)!important;
+}
+html body .countdown-wrap h2 span{color:#fff!important}
+html body .countdown{
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:8px!important;
+}
+html body .countdown>div{min-width:0!important;padding:26px 10px!important;text-align:center!important}
+html body .countdown strong{
+  font-size:clamp(52px,4.7vw,74px)!important;
+  line-height:1!important;
+  color:#4be0b4!important;
+}
+html body .countdown span{
+  display:block!important;
+  margin-top:8px!important;
+  font-size:12px!important;
+  line-height:1.2!important;
+  letter-spacing:.08em!important;
+  color:#e1e9e6!important;
+  white-space:nowrap!important;
+}
+
+/* Registration form. */
+html body .participants-head .section-title::after{color:#fff!important}
+html body .registration-form h3{font-size:clamp(38px,3.2vw,50px)!important;color:#fff!important}
+html body .registration-form>p{font-size:17px!important;color:#d1dfda!important}
+html body .registration-form .form-field>span{
+  font-size:15px!important;
+  line-height:1.35!important;
+  font-weight:800!important;
+  color:#fff!important;
+}
+html body .registration-form input:not([type="checkbox"]){
+  min-height:60px!important;
+  font-size:18px!important;
+  line-height:1.3!important;
+  color:#fff!important;
+}
+html body .registration-form input::placeholder{color:#aebdb7!important;opacity:1!important}
+html body .form-consent{font-size:16px!important;line-height:1.5!important;color:#e3eae7!important}
+html body .registration-form .button{font-size:15px!important;min-height:60px!important}
+html body .form-status{font-size:16px!important;line-height:1.45!important}
+
+/* Participants page/list if opened separately. */
+html body .participant-list-head h3{font-size:30px!important;color:#fff!important}
+html body .participant-count{font-size:14px!important;color:var(--read-gold)!important}
+html body .participant-search input{font-size:17px!important;min-height:54px!important;color:#fff!important}
+html body .participant-result-note{font-size:14px!important;color:#c2d0cb!important}
+html body .participant-row strong{font-size:18px!important;line-height:1.35!important;color:#fff!important}
+html body .participant-row .agency{font-size:16px!important;color:#d0ddd8!important}
+html body .participant-pagination button,html body .participant-page-label{font-size:15px!important}
+
+/* Location, partners, contacts, footer. */
+html body .location-copy p{font-size:19px!important;line-height:1.6!important;color:#d0dcd7!important}
+html body .location-features span{font-size:13px!important;line-height:1.3!important;color:#d6e0dc!important}
+html body .location-copy .button{font-size:14px!important;min-height:58px!important}
+html body .partner-label span{font-size:14px!important;color:#fff!important}
+html body .partner-label small{font-size:16px!important;line-height:1.45!important;color:#d0dcd7!important}
+html body .contact-panel p{font-size:16px!important;color:#d0dbd7!important}
+html body .contact-panel a{font-size:clamp(19px,1.7vw,26px)!important;line-height:1.35!important;color:#fff!important}
+html body .footer,html body .footer a,html body .copyright{font-size:14px!important;line-height:1.45!important;color:#b8c7c1!important}
+
+/* Buttons everywhere should be easy to read. */
+html body .button{font-size:14px!important;min-height:56px!important;letter-spacing:.035em!important}
+
+@media(max-width:760px){
+  html body .brand-text b{font-size:13px!important}
+  html body .header-cta{font-size:12px!important;min-height:42px!important;padding-inline:13px!important}
+  html body .mobile-menu nav>a:not(.button){font-size:clamp(32px,9vw,44px)!important;line-height:1.12!important}
+
+  html body .hero .eyebrow{
+    width:100%!important;
+    grid-template-columns:auto 1fr!important;
+    gap:12px!important;
+    padding:14px!important;
+  }
+  html body .hero .eyebrow::before{font-size:clamp(40px,11vw,52px)!important}
+  html body .hero .eyebrow::after{font-size:clamp(14px,3.7vw,17px)!important;letter-spacing:.055em!important;padding-left:12px!important}
+  html body .hero-lead{font-size:17px!important;line-height:1.55!important}
+  html body .button{font-size:14px!important;min-height:56px!important}
+
+  html body .section-kicker{font-size:12px!important}
+  html body .about-copy p,html body .participants-head p,html body .ticket-heading p,html body .final-copy p{font-size:17px!important}
+  html body .benefit p{font-size:16px!important}
+  html body .outcome-item strong{font-size:30px!important}
+
+  html body .schedule-row{
+    grid-template-columns:94px minmax(0,1fr)!important;
+    gap:14px!important;
+    padding:20px 0!important;
+    min-height:0!important;
+    border-left:0!important;border-right:0!important;
+  }
+  html body .schedule-row time{
+    min-width:0!important;
+    width:94px!important;
+    padding:9px 6px!important;
+    font-size:14px!important;
+    white-space:nowrap!important;
+  }
+  html body .schedule-row .tag{font-size:22px!important;line-height:1.15!important}
+  html body .schedule-row h3{font-size:17px!important;line-height:1.45!important}
+  html body .schedule-row p{font-size:15px!important;line-height:1.55!important}
+  html body .schedule-row.break .tag,html body .schedule-row.dinner .tag{font-size:14px!important}
+  html body .schedule-row.break h3,html body .schedule-row.dinner h3{font-size:21px!important}
+  html body .day-tab{font-size:15px!important}
+  html body .day-tab span{font-size:11px!important}
+
+  html body .side-note{font-size:15px!important}
+  html body .speaker-info h3{font-size:28px!important}
+  html body .speaker-info p{font-size:15px!important}
+  html body .speaker-info span{font-size:12px!important}
+
+  html body .ticket-type{font-size:18px!important}
+  html body .ticket-card>p{font-size:16px!important}
+  html body .ticket-card li{font-size:15px!important}
+  html body .ticket-badge,html body .featured-line{font-size:11px!important}
+  html body .price strong{font-size:64px!important}
+
+  html body .countdown-wrap h2{font-size:clamp(44px,12vw,58px)!important}
+  html body .countdown{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;width:100%!important}
+  html body .countdown>div{padding:16px 3px!important}
+  html body .countdown strong{font-size:clamp(30px,9vw,40px)!important;letter-spacing:-.04em!important}
+  html body .countdown span{font-size:9px!important;letter-spacing:.02em!important;margin-top:6px!important}
+
+  html body .registration-form{padding:26px 20px!important}
+  html body .registration-form h3{font-size:36px!important}
+  html body .registration-form>p{font-size:16px!important}
+  html body .registration-form .form-field>span{font-size:14px!important}
+  html body .registration-form input:not([type="checkbox"]){font-size:17px!important;min-height:58px!important}
+  html body .form-consent{font-size:15px!important}
+
+  html body .location-copy p{font-size:17px!important}
+  html body .location-features span{font-size:12px!important}
+  html body .partner-label span{font-size:13px!important}
+  html body .partner-label small{font-size:15px!important}
+  html body .contact-panel a{font-size:18px!important}
+  html body .footer,html body .footer a,html body .copyright{font-size:13px!important}
+}
+
+@media(max-width:360px){
+  html body .hero .eyebrow::before{font-size:36px!important}
+  html body .hero .eyebrow::after{font-size:13px!important}
+  html body .countdown{gap:3px!important}
+  html body .countdown strong{font-size:29px!important}
+  html body .countdown span{font-size:8px!important}
+  html body .schedule-row{grid-template-columns:88px minmax(0,1fr)!important;gap:10px!important}
+  html body .schedule-row time{width:88px!important;font-size:13px!important}
+}
