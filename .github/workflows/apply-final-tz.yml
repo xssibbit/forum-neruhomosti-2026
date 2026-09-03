@@ -1,0 +1,28 @@
+name: Apply approved screenshots and customer TZ
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-final-tz.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Attach final design and TZ enhancements
+        run: python3 apply_tz.py
+      - name: Verify final assets
+        run: |
+          grep -q 'live-match.css?v=20260903-final' index.html
+          grep -q 'tz-enhancements.js?v=20260903-final' index.html
+      - name: Commit final landing page wiring
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Apply approved screenshots and customer TZ' || exit 0
+          git push
