@@ -4,7 +4,7 @@
     const link = document.createElement('link');
     link.id = id;
     link.rel = 'stylesheet';
-    link.href = 'partner-logos.css?v=white-20260903-2';
+    link.href = 'partner-logos.css?v=user-png-final-1';
     document.head.appendChild(link);
   }
 })();
@@ -41,11 +41,11 @@
     const data = new FormData(form);
     const name = String(data.get('fullName') || '').trim();
     const agency = String(data.get('agency') || '').trim();
-    const payment = String(data.get('paymentRef') || '').trim();
+    const city = String(data.get('city') || data.get('paymentRef') || '').trim();
     const consent = data.get('consent');
     message.className = 'form-message';
 
-    if (!name || !agency || !payment || !consent) {
+    if (!name || !agency || !city || !consent) {
       message.textContent = 'Заповніть усі поля та підтвердьте згоду.';
       message.classList.add('error');
       return;
@@ -53,12 +53,12 @@
 
     const items = read();
     if (!items.some(item => item.name.toLocaleLowerCase('uk') === name.toLocaleLowerCase('uk'))) {
-      items.push({ name, agency });
+      items.push({ name, agency, city });
       localStorage.setItem(KEY, JSON.stringify(items));
     }
     form.reset();
     render();
-    message.textContent = 'Дані прийнято. У списку показано лише ПІБ та агентство.';
+    message.textContent = 'Дані прийнято. У списку показано ПІБ та агентство.';
     message.classList.add('ok');
   });
 })();
