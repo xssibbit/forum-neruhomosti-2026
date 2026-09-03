@@ -6,7 +6,7 @@
   grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr)!important;
   align-items:center!important;
   gap:clamp(36px,5vw,90px)!important;
-  padding:clamp(46px,5vw,76px) 0!important;
+  padding:clamp(40px,4vw,62px) 0!important;
 }
 
 .partners .logo-box{
@@ -19,7 +19,7 @@
   justify-content:center!important;
   width:100%!important;
   height:auto!important;
-  min-height:300px!important;
+  min-height:160px!important;
 }
 
 /* Hide the old remote <img> elements. The exact PNGs below are the source of truth. */
@@ -35,19 +35,18 @@
   filter:none!important;
 }
 
-/* Вінницьке регіональне відділення АФНУ — exact uploaded PNG.
-   Deliberately tall so the seal and its lettering are readable. */
+/* Вінницьке регіональне відділення АФНУ — exact uploaded PNG. */
 .partners .partner-row:nth-child(1) .logo-box::before{
-  width:min(520px,40vw)!important;
-  height:390px!important;
-  background-image:url("assets/vrv-afnu.png?v=user-final-2")!important;
+  width:min(260px,20vw)!important;
+  height:195px!important;
+  background-image:url("assets/vrv-afnu.png?v=user-final-3")!important;
 }
 
-/* DIM.RIA — exact uploaded PNG, displayed as a large horizontal mark. */
+/* DIM.RIA — exact uploaded PNG. */
 .partners .partner-row:nth-child(2) .logo-box::before{
-  width:min(820px,58vw)!important;
-  height:270px!important;
-  background-image:url("assets/dim-ria.png?v=user-final-2")!important;
+  width:min(410px,29vw)!important;
+  height:135px!important;
+  background-image:url("assets/dim-ria.png?v=user-final-3")!important;
 }
 
 @media(max-width:1000px){
@@ -55,22 +54,22 @@
     grid-template-columns:minmax(190px,.5fr) minmax(0,1.5fr)!important;
     gap:28px!important;
   }
-  .partners .logo-box{min-height:260px!important}
+  .partners .logo-box{min-height:140px!important}
   .partners .partner-row:nth-child(1) .logo-box::before{
-    width:min(460px,46vw)!important;
-    height:340px!important;
+    width:min(230px,23vw)!important;
+    height:170px!important;
   }
   .partners .partner-row:nth-child(2) .logo-box::before{
-    width:min(700px,62vw)!important;
-    height:230px!important;
+    width:min(350px,31vw)!important;
+    height:115px!important;
   }
 }
 
 @media(max-width:760px){
   .partners .partner-row{
     grid-template-columns:1fr!important;
-    gap:20px!important;
-    padding:38px 0!important;
+    gap:16px!important;
+    padding:30px 0!important;
   }
   .partners .logo-box{
     min-height:0!important;
@@ -78,22 +77,22 @@
     justify-content:center!important;
   }
   .partners .partner-row:nth-child(1) .logo-box::before{
-    width:min(360px,88vw)!important;
-    height:300px!important;
+    width:min(180px,44vw)!important;
+    height:150px!important;
   }
   .partners .partner-row:nth-child(2) .logo-box::before{
-    width:min(560px,92vw)!important;
-    height:190px!important;
+    width:min(280px,46vw)!important;
+    height:95px!important;
   }
 }
 
 @media(max-width:390px){
   .partners .partner-row:nth-child(1) .logo-box::before{
-    width:88vw!important;
-    height:260px!important;
+    width:44vw!important;
+    height:130px!important;
   }
   .partners .partner-row:nth-child(2) .logo-box::before{
-    width:92vw!important;
-    height:160px!important;
+    width:46vw!important;
+    height:80px!important;
   }
 }
