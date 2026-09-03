@@ -1,15 +1,25 @@
 /* Partner logos: use ONLY the user-provided PNG files from /assets.
    Do not replace, convert or regenerate these images. */
+
+.partners .partner-row{
+  display:grid!important;
+  grid-template-columns:minmax(240px,.55fr) minmax(0,1.45fr)!important;
+  align-items:center!important;
+  gap:clamp(36px,5vw,90px)!important;
+  padding:clamp(46px,5vw,76px) 0!important;
+}
+
 .partners .logo-box{
   background:transparent!important;
   border:0!important;
   box-shadow:none!important;
   overflow:visible!important;
-  display:grid!important;
-  place-items:center!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
   width:100%!important;
   height:auto!important;
-  min-height:150px!important;
+  min-height:300px!important;
 }
 
 /* Hide the old remote <img> elements. The exact PNGs below are the source of truth. */
@@ -18,42 +28,72 @@
 .partners .logo-box::before{
   content:""!important;
   display:block!important;
+  flex:0 0 auto!important;
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:contain!important;
   filter:none!important;
 }
 
-/* Вінницьке регіональне відділення АФНУ — exact uploaded PNG. */
+/* Вінницьке регіональне відділення АФНУ — exact uploaded PNG.
+   Deliberately tall so the seal and its lettering are readable. */
 .partners .partner-row:nth-child(1) .logo-box::before{
-  width:min(900px,64vw)!important;
-  aspect-ratio:2175/181!important;
-  background-image:url("assets/vrv-afnu.png?v=user-final-1")!important;
+  width:min(520px,40vw)!important;
+  height:390px!important;
+  background-image:url("assets/vrv-afnu.png?v=user-final-2")!important;
 }
 
-/* DIM.RIA — exact uploaded PNG. */
+/* DIM.RIA — exact uploaded PNG, displayed as a large horizontal mark. */
 .partners .partner-row:nth-child(2) .logo-box::before{
   width:min(820px,58vw)!important;
-  aspect-ratio:2175/181!important;
-  background-image:url("assets/dim-ria.png?v=user-final-1")!important;
+  height:270px!important;
+  background-image:url("assets/dim-ria.png?v=user-final-2")!important;
 }
 
-@media(max-width:900px){
-  .partners .logo-box{min-height:125px!important}
-  .partners .partner-row:nth-child(1) .logo-box::before{width:min(820px,88vw)!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:min(760px,84vw)!important}
+@media(max-width:1000px){
+  .partners .partner-row{
+    grid-template-columns:minmax(190px,.5fr) minmax(0,1.5fr)!important;
+    gap:28px!important;
+  }
+  .partners .logo-box{min-height:260px!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{
+    width:min(460px,46vw)!important;
+    height:340px!important;
+  }
+  .partners .partner-row:nth-child(2) .logo-box::before{
+    width:min(700px,62vw)!important;
+    height:230px!important;
+  }
 }
 
 @media(max-width:760px){
-  .partners .logo-box{
-    min-height:100px!important;
-    justify-items:start!important;
+  .partners .partner-row{
+    grid-template-columns:1fr!important;
+    gap:20px!important;
+    padding:38px 0!important;
   }
-  .partners .partner-row:nth-child(1) .logo-box::before{width:92vw!important;max-width:100%!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:88vw!important;max-width:100%!important}
+  .partners .logo-box{
+    min-height:0!important;
+    width:100%!important;
+    justify-content:center!important;
+  }
+  .partners .partner-row:nth-child(1) .logo-box::before{
+    width:min(360px,88vw)!important;
+    height:300px!important;
+  }
+  .partners .partner-row:nth-child(2) .logo-box::before{
+    width:min(560px,92vw)!important;
+    height:190px!important;
+  }
 }
 
 @media(max-width:390px){
-  .partners .partner-row:nth-child(1) .logo-box::before{width:94vw!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:90vw!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{
+    width:88vw!important;
+    height:260px!important;
+  }
+  .partners .partner-row:nth-child(2) .logo-box::before{
+    width:92vw!important;
+    height:160px!important;
+  }
 }
