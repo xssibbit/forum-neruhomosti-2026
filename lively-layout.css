@@ -170,6 +170,77 @@ html body .registration-form input:not([type="checkbox"]):focus {
   background:rgba(255,255,255,.045) !important;
 }
 
+/* Date and time: deliberate, high-contrast event anchor. */
+html body .hero .eyebrow {
+  color:#fffaf2 !important;
+  background:linear-gradient(90deg,rgba(185,140,82,.96),rgba(139,99,52,.90)) !important;
+  border-color:rgba(255,240,217,.38) !important;
+  padding:12px 16px !important;
+  font-size:12px !important;
+  font-weight:850 !important;
+  letter-spacing:.13em !important;
+  box-shadow:0 12px 38px rgba(0,0,0,.20),0 0 0 1px rgba(255,255,255,.04) inset !important;
+}
+html body .hero .eyebrow .live-dot {
+  background:#28d6a2 !important;
+  box-shadow:0 0 0 6px rgba(40,214,162,.16),0 0 18px rgba(40,214,162,.75) !important;
+}
+
+html body .countdown-section {
+  background:linear-gradient(105deg,#071d19 0%,#0a332a 55%,#0a4334 100%) !important;
+  border-top:1px solid rgba(185,140,82,.38) !important;
+  border-bottom:1px solid rgba(185,140,82,.38) !important;
+}
+html body .countdown-wrap > div:first-child {
+  position:relative !important;
+  padding:28px 30px 30px !important;
+  border:1px solid rgba(223,190,143,.34) !important;
+  background:linear-gradient(145deg,rgba(185,140,82,.13),rgba(255,255,255,.018)) !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.20) !important;
+}
+html body .countdown-wrap > div:first-child::before {
+  content:"📅" !important;
+  display:block !important;
+  width:max-content !important;
+  margin-bottom:14px !important;
+  font-size:30px !important;
+  animation:forumFloat 4.6s ease-in-out infinite !important;
+}
+html body .countdown-wrap h2 {
+  margin:0 !important;
+  color:#d5a765 !important;
+  font-size:clamp(50px,5.5vw,84px) !important;
+  font-weight:700 !important;
+  line-height:.92 !important;
+  letter-spacing:-.055em !important;
+  text-shadow:0 8px 30px rgba(0,0,0,.18) !important;
+}
+html body .countdown-wrap h2 span {
+  display:inline-block !important;
+  margin-top:12px !important;
+  color:#ffffff !important;
+  font-size:.68em !important;
+  line-height:1 !important;
+  letter-spacing:-.04em !important;
+}
+html body .countdown-wrap h2 span::after {
+  content:"  ⏰" !important;
+  font-family:Apple Color Emoji,"Segoe UI Emoji",sans-serif !important;
+  font-size:.58em !important;
+  vertical-align:.10em !important;
+}
+html body .countdown {
+  filter:drop-shadow(0 24px 52px rgba(0,0,0,.16)) !important;
+}
+html body .countdown strong {
+  color:#32ddb0 !important;
+  text-shadow:0 0 22px rgba(50,221,176,.16) !important;
+}
+html body .countdown span {
+  color:#e9f4ef !important;
+  opacity:.78 !important;
+}
+
 @media (max-width:760px) {
   html body .benefit::before,
   html body .outcome-item::before {
@@ -210,6 +281,33 @@ html body .registration-form input:not([type="checkbox"]):focus {
   html body .location-copy h2::before {
     margin-right:8px !important;
   }
+
+  html body .hero .eyebrow {
+    width:max-content !important;
+    max-width:100% !important;
+    padding:10px 12px !important;
+    font-size:10px !important;
+    letter-spacing:.10em !important;
+  }
+  html body .countdown-wrap > div:first-child {
+    padding:22px 18px 24px !important;
+    text-align:center !important;
+  }
+  html body .countdown-wrap > div:first-child::before {
+    margin:0 auto 10px !important;
+    font-size:25px !important;
+  }
+  html body .countdown-wrap h2 {
+    font-size:clamp(39px,12.2vw,54px) !important;
+    line-height:.94 !important;
+  }
+  html body .countdown-wrap h2 span {
+    margin-top:9px !important;
+    font-size:.62em !important;
+  }
+  html body .countdown strong {
+    color:#38e5b7 !important;
+  }
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -218,7 +316,8 @@ html body .registration-form input:not([type="checkbox"]):focus {
   html body .ticket-card::before,
   html body .location-copy h2::before,
   html body .final-copy h2::before,
-  html body .registration-form::before {
+  html body .registration-form::before,
+  html body .countdown-wrap > div:first-child::before {
     animation:none !important;
   }
 }
