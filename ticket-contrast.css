@@ -1,0 +1,70 @@
+/* Ticket section contrast fix — light editorial background, fully readable text. */
+html body .tickets{
+  background:linear-gradient(128deg,#f3f0e8 0%,#e9efeb 58%,#dfe9e4 100%)!important;
+  color:#0a2b24!important;
+}
+
+html body .tickets .ticket-heading .section-title,
+html body .tickets .ticket-heading h2{
+  color:#0a2b24!important;
+  text-shadow:none!important;
+}
+html body .tickets .ticket-heading .section-title span,
+html body .tickets .ticket-heading h2 span{
+  color:#55756b!important;
+}
+html body .tickets .ticket-heading p{
+  color:#3d5c53!important;
+  font-size:clamp(18px,1.35vw,21px)!important;
+  font-weight:550!important;
+  line-height:1.6!important;
+  opacity:1!important;
+}
+html body .tickets .section-kicker{
+  color:#8b6335!important;
+  font-weight:850!important;
+}
+
+/* Cards remain dark/bronze and keep their existing design. */
+html body .tickets .ticket-card{
+  color:#fff!important;
+}
+html body .tickets .ticket-card .ticket-type,
+html body .tickets .ticket-card .price strong,
+html body .tickets .ticket-card .price span{
+  color:#fff!important;
+}
+
+/* Late registration was almost invisible on the pale background. */
+html body .tickets .late-registration{
+  border:1px solid rgba(185,140,82,.62)!important;
+  background:linear-gradient(105deg,#0b3d32 0%,#0a3028 62%,#76512f 100%)!important;
+  box-shadow:0 18px 48px rgba(6,35,29,.13)!important;
+}
+html body .tickets .late-registration .late-label{
+  color:#e2ba82!important;
+  font-size:14px!important;
+  font-weight:850!important;
+}
+html body .tickets .late-registration strong{
+  color:#fff!important;
+  font-size:clamp(38px,3.2vw,48px)!important;
+}
+html body .tickets .late-registration p{
+  color:#d8e4df!important;
+  font-size:16px!important;
+  opacity:1!important;
+}
+html body .tickets .late-registration b{
+  color:#f2c98f!important;
+  font-size:16px!important;
+}
+
+@media(max-width:760px){
+  html body .tickets .ticket-heading p{font-size:17px!important;}
+  html body .tickets .late-registration{padding:22px!important;}
+  html body .tickets .late-registration .late-label{font-size:13px!important;}
+  html body .tickets .late-registration strong{font-size:36px!important;}
+  html body .tickets .late-registration p,
+  html body .tickets .late-registration b{font-size:15px!important;}
+}
