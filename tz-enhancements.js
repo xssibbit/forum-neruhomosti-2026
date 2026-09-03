@@ -10,6 +10,103 @@
     document.head.append(link);
   }
 
+  // Final UX refinements requested after desktop/mobile review.
+  if (!$('#forum-ux-refinements')) {
+    const style = document.createElement('style');
+    style.id = 'forum-ux-refinements';
+    style.textContent = `
+      /* Make the two sections after hero feel different, shorter and more visual. */
+      .about{padding-top:clamp(78px,6.8vw,108px)!important;padding-bottom:clamp(74px,6vw,96px)!important}
+      .about-layout{grid-template-columns:minmax(0,.88fr) minmax(320px,.58fr)!important;gap:clamp(46px,8vw,120px)!important;align-items:end!important}
+      .about .section-title{font-size:clamp(56px,5.6vw,88px)!important;max-width:760px!important}
+      .about-copy p{max-width:560px!important;margin:0!important;font-size:clamp(16px,1.22vw,19px)!important;line-height:1.62!important;color:#b9c9c3!important}
+      .benefit-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;margin-top:58px!important}
+      .benefit{min-height:178px!important;padding:22px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;border:1px solid rgba(219,234,227,.12)!important;background:#0c3028!important;transition:transform .25s ease,background .25s ease!important}
+      .benefit:nth-child(1){background:#0b5b45!important}
+      .benefit:nth-child(2){background:#102b26!important}
+      .benefit:nth-child(3){background:#a77a45!important}
+      .benefit:nth-child(4){background:#0d3d31!important}
+      .benefit:hover{transform:translateY(-4px)!important;background:#11624b!important}
+      .benefit>span{margin:0 0 auto!important;color:#58ddb5!important;font-size:9px!important;letter-spacing:.14em!important}
+      .benefit:nth-child(3)>span{color:#f4e7d4!important}
+      .benefit h3{margin:22px 0 8px!important;font-family:Georgia,"Times New Roman",serif!important;font-size:clamp(22px,2vw,30px)!important;font-weight:400!important;color:#f3f2ec!important;line-height:1!important}
+      .benefit p{max-width:250px!important;margin:0!important;color:#aabdb6!important;font-size:12px!important;line-height:1.45!important}
+      .benefit:nth-child(3) p{color:#f0e0ca!important}
+      .benefit:after{display:none!important}
+
+      .outcomes{padding-top:clamp(72px,6vw,94px)!important;padding-bottom:clamp(74px,6vw,98px)!important;background:linear-gradient(115deg,#071c19 0%,#092a23 58%,#0b4536 100%)!important}
+      .outcomes:after{content:"07"!important;right:.03em!important;top:-.08em!important;font-size:clamp(180px,22vw,330px)!important;color:rgba(227,240,234,.026)!important}
+      .outcomes-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:40px!important}
+      .outcomes-head .section-title{font-size:clamp(52px,5.4vw,82px)!important;max-width:820px!important}
+      .outcomes-head p{display:none!important}
+      .outcomes-marker{flex:0 0 auto;padding:10px 12px;border:1px solid rgba(216,231,225,.2);color:#a8bbb4;font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+      .outcome-grid{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:0!important;margin-top:48px!important;border:1px solid rgba(215,230,224,.18)!important;border-right:0!important}
+      .outcome-item,.outcome-item:last-child{grid-column:auto!important;min-height:132px!important;padding:18px 16px!important;border:0!important;border-right:1px solid rgba(215,230,224,.18)!important;background:rgba(255,255,255,.012)!important}
+      .outcome-item:nth-child(1){background:#0b503f!important}
+      .outcome-item:nth-child(4){background:#112d27!important}
+      .outcome-item:nth-child(7){background:#a77a45!important}
+      .outcome-item span{font-size:8px!important;color:#39d4a5!important}
+      .outcome-item:nth-child(7) span{color:#f4e4cf!important}
+      .outcome-item strong{font-size:clamp(17px,1.45vw,23px)!important;line-height:1.08!important}
+
+      /* Partner logos: compact, intentional brand plates instead of huge white rectangles. */
+      .partners{padding-top:66px!important;padding-bottom:66px!important;background:linear-gradient(135deg,#0b3d31,#10231f)!important;color:#eef2ee!important}
+      .partner-row{grid-template-columns:minmax(0,1fr) auto!important;gap:38px!important;padding:26px 0!important;border-color:rgba(219,233,227,.17)!important}
+      .partner-label span{color:#f0f2ee!important}
+      .partner-label small{color:#9db0a9!important;max-width:520px!important}
+      .logo-box{justify-self:end!important;width:122px!important;height:122px!important;padding:9px!important;background:#f3f2ed!important;border:1px solid rgba(255,255,255,.16)!important;box-shadow:none!important;overflow:hidden!important}
+      .logo-box img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;filter:none!important}
+      .partner-afnu .logo-box img{transform:scale(1.16)!important}
+      .wide-logo{width:276px!important;height:92px!important;padding:12px 17px!important}
+      .partner-dim .logo-box img{transform:scale(1.04)!important}
+
+      /* Countdown on phones must always stay in one line. */
+      @media(max-width:760px){
+        .about{padding-top:62px!important;padding-bottom:62px!important}
+        .about-layout{grid-template-columns:1fr!important;gap:20px!important}
+        .about .section-title{font-size:clamp(40px,11vw,52px)!important}
+        .about-copy p{font-size:14px!important;line-height:1.55!important}
+        .benefit-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;margin-top:34px!important}
+        .benefit{min-height:150px!important;padding:16px!important}
+        .benefit h3{margin-top:18px!important;font-size:21px!important}
+        .benefit p{font-size:11px!important;line-height:1.4!important}
+
+        .outcomes{padding-top:60px!important;padding-bottom:60px!important}
+        .outcomes-head{display:block!important}
+        .outcomes-head .section-title{font-size:clamp(39px,10.7vw,50px)!important;max-width:330px!important}
+        .outcomes-marker{display:inline-block!important;margin-top:18px!important}
+        .outcome-grid{display:grid!important;grid-auto-flow:column!important;grid-template-columns:none!important;grid-auto-columns:min(72vw,270px)!important;overflow-x:auto!important;overscroll-behavior-inline:contain!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:none!important;margin-top:30px!important;border-right:1px solid rgba(215,230,224,.18)!important}
+        .outcome-grid::-webkit-scrollbar{display:none!important}
+        .outcome-item{min-height:138px!important;scroll-snap-align:start!important;padding:18px!important}
+        .outcome-item strong{font-size:23px!important}
+
+        .countdown-wrap{gap:22px!important}
+        .countdown{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;width:100%!important;border:0!important;border-top:0!important}
+        .countdown>div{min-width:0!important;padding:13px 3px 12px!important;border:0!important;background:#0d3f33!important;text-align:center!important}
+        .countdown>div:nth-child(even){background:#162420!important}
+        .countdown strong{font-size:clamp(27px,8.6vw,38px)!important;line-height:.95!important;letter-spacing:-.055em!important}
+        .countdown span{display:block!important;margin-top:6px!important;font-size:6.5px!important;letter-spacing:.065em!important;white-space:nowrap!important}
+
+        .partners{padding-top:48px!important;padding-bottom:48px!important}
+        .partner-row{grid-template-columns:minmax(0,1fr) auto!important;gap:14px!important;padding:20px 0!important}
+        .partner-label{min-width:0!important}
+        .partner-label span{font-size:9px!important}
+        .partner-label small{max-width:160px!important;font-size:10px!important;line-height:1.35!important}
+        .logo-box{width:88px!important;height:88px!important;padding:6px!important}
+        .wide-logo{width:148px!important;height:58px!important;padding:7px 10px!important}
+      }
+      @media(max-width:360px){
+        .countdown{gap:3px!important}
+        .countdown>div{padding-left:2px!important;padding-right:2px!important}
+        .countdown strong{font-size:26px!important}
+        .countdown span{font-size:5.8px!important;letter-spacing:.04em!important}
+        .benefit-grid{grid-template-columns:1fr!important}
+        .benefit{min-height:130px!important}
+      }
+    `;
+    document.head.append(style);
+  }
+
   // Keep only one edition label (an earlier sync accidentally duplicated it).
   const stamps = $$('.hero .edition-stamp');
   stamps.slice(1).forEach(el => el.remove());
@@ -59,15 +156,23 @@
     heroSecondary.innerHTML = 'Реєстрація учасників <span>↓</span>';
   }
 
-  // About section — exact customer message while retaining the screenshot layout.
+  // Short, sales-focused about section. No duplicate paragraphs.
   const aboutTitle = $('#about .section-title');
   if (aboutTitle) aboutTitle.innerHTML = 'Чому варто<br><span>бути тут?</span>';
   const aboutCopy = $('#about .about-copy');
   if (aboutCopy) {
-    aboutCopy.innerHTML = '<p>Форум нерухомості — це два дні інтенсивного навчання, практичних інструментів та знайомств із людьми, які формують сучасний ринок нерухомості.</p><p>На учасників чекають практичні виступи, реальні кейси, нетворкінг, нові знайомства та можливості для партнерства.</p>';
+    aboutCopy.innerHTML = '<p>Два дні практики та знайомств із людьми, які формують сучасний ринок нерухомості.</p>';
+  }
+  const benefitGrid = $('#about .benefit-grid');
+  if (benefitGrid) {
+    benefitGrid.innerHTML = `
+      <article class="benefit"><span>01</span><div><h3>Практика</h3><p>Інструменти, які можна застосувати одразу.</p></div></article>
+      <article class="benefit"><span>02</span><div><h3>Реальні кейси</h3><p>Конкретні рішення замість зайвої теорії.</p></div></article>
+      <article class="benefit"><span>03</span><div><h3>Нетворкінг</h3><p>Нові професійні контакти за два дні.</p></div></article>
+      <article class="benefit"><span>04</span><div><h3>Партнерства</h3><p>Люди та можливості для наступного кроку.</p></div></article>`;
   }
 
-  // New TZ block: "Що ви отримаєте".
+  // New TZ block: "Що ви отримаєте" — compact horizontal editorial rail.
   const about = $('#about');
   if (about && !$('#outcomes')) {
     const section = document.createElement('section');
@@ -78,7 +183,7 @@
       'Покрокові інструменти',
       'Нові контакти',
       'Практичні кейси',
-      'Відповіді на свої питання',
+      'Відповіді на питання',
       'Знайомства з партнерами',
       'Натхнення'
     ];
@@ -86,10 +191,10 @@
       <div class="container">
         <div class="section-kicker">ЩО ВИ ОТРИМАЄТЕ</div>
         <div class="outcomes-head">
-          <h2 class="section-title">Результат,<br><span>який залишається.</span></h2>
-          <p>Не просто два дні події — конкретні знання, інструменти, контакти та рішення, які можна застосовувати після форуму.</p>
+          <h2 class="section-title">Що залишиться<br><span>після форуму.</span></h2>
+          <span class="outcomes-marker">7 результатів</span>
         </div>
-        <div class="outcome-grid">
+        <div class="outcome-grid" aria-label="Результати участі">
           ${items.map((item, i) => `<article class="outcome-item"><span>${String(i + 1).padStart(2, '0')}</span><strong>${item}</strong></article>`).join('')}
         </div>
       </div>`;
@@ -255,7 +360,7 @@
     };
 
     search?.addEventListener('input', () => { page = 1; render(); });
-    prev?.addEventListener('click', () => { if (page > 1) { page--; render(); $('#participant-list')?.scrollIntoView?.({behavior:'smooth', block:'nearest'}); } });
+    prev?.addEventListener('click', () => { if (page > 1) { page--; render(); } });
     next?.addEventListener('click', () => { const pages = Math.max(1, Math.ceil(matches(read()).length / mobilePageSize)); if (page < pages) { page++; render(); } });
     mobileQuery.addEventListener?.('change', () => { page = 1; render(); });
 
@@ -277,7 +382,6 @@
       const items = read();
       const duplicate = items.some(item => item.name.toLocaleLowerCase('uk') === name.toLocaleLowerCase('uk'));
       if (!duplicate) {
-        // Payment reference is intentionally not published or stored in the public browser list.
         items.push({name, agency, createdAt: new Date().toISOString()});
         localStorage.setItem(KEY, JSON.stringify(items));
       }
@@ -301,6 +405,13 @@
     map.innerHTML = '<iframe title="Готель Франція, Вінниця — Google Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%A1%D0%BE%D0%B1%D0%BE%D1%80%D0%BD%D0%B0%2034%2C%20%D0%92%D1%96%D0%BD%D0%BD%D0%B8%D1%86%D1%8F&output=embed"></iframe>';
     location.append(map);
   }
+
+  // Partner logos: keep the actual brand assets, but present them as compact marks.
+  const partnerRows = $$('.partners .partner-row');
+  if (partnerRows[0]) partnerRows[0].classList.add('partner-afnu');
+  if (partnerRows[1]) partnerRows[1].classList.add('partner-dim');
+  const dimImg = $('.partner-dim .logo-box img');
+  if (dimImg) dimImg.alt = 'DIM.RIA';
 
   // Final sales push and contacts from the TZ.
   const finalTitle = $('.final-copy h2');
