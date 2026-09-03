@@ -1,0 +1,57 @@
+name: Replace payment field with city
+
+on:
+  push:
+    paths:
+      - '.github/workflows/city-field.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace payment field with city
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('participants.html')
+          s = p.read_text()
+          s = s.replace('Номер або призначення платежу', 'Місто')
+          s = s.replace('name="paymentRef"', 'name="city"')
+          s = s.replace('Номер транзакції з квитанції', 'Наприклад: Вінниця')
+          s = s.replace("data.get('paymentRef')", "data.get('city')")
+          s = s.replace("payment=String(data.get('city')||'').trim()", "city=String(data.get('city')||'').trim()")
+          s = s.replace('!payment||!consent', '!city||!consent')
+          s = s.replace('items.push({name,agency,createdAt:new Date().toISOString()})', 'items.push({name,agency,city,createdAt:new Date().toISOString()})')
+          s = s.replace('Публічно показуються тільки ПІБ та агентство / компанія. Номер платежу не відображається у списку.', 'Публічно показуються тільки ПІБ та агентство / компанія.')
+          s = s.replace('participants-data.js?v=20260903-1', 'participants-data.js?v=20260903-city-1')
+          p.write_text(s)
+
+          # Keep any reusable registration markup/scripts consistent too.
+          for name in ['index.html', 'app.js', 'participants.js']:
+              path = Path(name)
+              if not path.exists():
+                  continue
+              text = path.read_text()
+              text = text.replace('НОМЕР АБО ПРИЗНАЧЕННЯ ПЛАТЕЖУ', 'МІСТО')
+              text = text.replace('Номер або призначення платежу', 'Місто')
+              text = text.replace('name="paymentRef"', 'name="city"')
+              text = text.replace('Номер транзакції з квитанції', 'Наприклад: Вінниця')
+              text = text.replace("fd.get('paymentRef')", "fd.get('city')")
+              text = text.replace("data.get('paymentRef')", "data.get('city')")
+              text = text.replace('payment=String(fd.get(\'city\')||\'\').trim()', 'city=String(fd.get(\'city\')||\'\').trim()')
+              text = text.replace('payment=String(data.get(\'city\')||\'\').trim()', 'city=String(data.get(\'city\')||\'\').trim()')
+              text = text.replace('!payment||!consent', '!city||!consent')
+              path.write_text(text)
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add participants.html index.html app.js participants.js
+          git commit -m 'Replace payment reference with city' || exit 0
+          git push
