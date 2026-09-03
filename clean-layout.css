@@ -1,45 +1,45 @@
 /* Final clean editorial pass — 2026-09-03 */
 
 /* Remove small decorative labels, background numbers and non-essential ornaments. */
-.section-kicker,
-.edition-stamp,
-.speaker-index,
-.benefit > span,
-.outcome-item > span,
-.outcomes-marker,
-.location-pin,
-.speaker-dialog-number,
-.speaker-dialog-hint {
+html body .section-kicker,
+html body .edition-stamp,
+html body .speaker-index,
+html body .benefit > span,
+html body .outcome-item > span,
+html body .outcomes-marker,
+html body .location-pin,
+html body .speaker-dialog-number,
+html body .speaker-dialog-hint {
   display:none !important;
 }
 
-.hero-grid,
-.hero-orb,
-.marquee {
+html body .hero-grid,
+html body .hero-orb,
+html body .marquee {
   display:none !important;
 }
 
-.hero-copy::after,
-.about::before,
-.program-head::after,
-.speakers::before,
-.tickets::before,
-.outcomes::after,
-.location-copy h2::after {
+html body .hero-copy::after,
+html body .about::before,
+html body .program-head::after,
+html body .speakers::before,
+html body .tickets::before,
+html body .outcomes::after,
+html body .location-copy h2::after {
   content:none !important;
   display:none !important;
 }
 
-/* Remove decorative arrows from program rows while keeping the useful content. */
-.schedule-row .arrow {
+/* Remove decorative arrows from program rows while keeping useful content. */
+html body .schedule-row .arrow {
   display:none !important;
 }
-.schedule-row {
+html body .schedule-row {
   grid-template-columns:180px minmax(0,1fr) !important;
 }
 
 /* HERO: clean left editorial copy + venue photo on the right with a seamless green fade. */
-.hero {
+html body .hero {
   position:relative !important;
   isolation:isolate !important;
   min-height:820px !important;
@@ -49,7 +49,7 @@
   background:linear-gradient(110deg,#041d19 0%,#052a23 52%,#06352b 100%) !important;
 }
 
-.hero::after {
+html body .hero::after {
   content:"" !important;
   display:block !important;
   position:absolute !important;
@@ -71,94 +71,93 @@
   pointer-events:none !important;
 }
 
-.hero .container,
-.hero-inner,
-.hero-copy {
+html body .hero .container,
+html body .hero-inner,
+html body .hero-copy {
   position:relative !important;
   z-index:2 !important;
 }
 
-.hero-inner {
+html body .hero-inner {
   display:block !important;
   padding-top:104px !important;
 }
 
-.hero-copy {
+html body .hero-copy {
   width:min(900px,64vw) !important;
   max-width:none !important;
 }
 
-.hero-meta {
+html body .hero-meta {
   display:none !important;
 }
 
-.hero .eyebrow {
+html body .hero .eyebrow {
   margin-bottom:34px !important;
 }
 
-.hero h1 {
+html body .hero h1 {
   max-width:900px !important;
   font-size:clamp(76px,8.2vw,132px) !important;
   line-height:.80 !important;
 }
 
-.hero-lead {
+html body .hero-lead {
   max-width:680px !important;
   margin-top:42px !important;
 }
 
-.hero-actions {
+html body .hero-actions {
   margin-top:30px !important;
 }
 
-/* Main-page participant block: form only. The full participant list can remain on its dedicated page. */
-.participants-section {
+/* Main-page participant block: form only. */
+html body .participants-section {
   padding-top:clamp(72px,7vw,105px) !important;
   padding-bottom:clamp(80px,8vw,120px) !important;
 }
 
-.participants-head {
+html body .participants-head {
   display:block !important;
   max-width:820px !important;
   margin-bottom:40px !important;
 }
 
-.participants-head p {
+html body .participants-head p {
   max-width:620px !important;
 }
 
-.registration-layout {
+html body .registration-layout {
   display:grid !important;
   grid-template-columns:minmax(0,760px) !important;
   justify-content:start !important;
   gap:0 !important;
 }
 
-.registration-form {
+html body .registration-form {
   width:100% !important;
   max-width:760px !important;
 }
 
-.participant-list {
+html body .participant-list {
   display:none !important;
 }
 
 /* Partner PNGs are user-provided assets. Never replace them here. */
-.partners .logo-box,
-.partners .wide-logo {
+html body .partners .logo-box,
+html body .partners .wide-logo {
   background:transparent !important;
   border:0 !important;
   padding:0 !important;
   overflow:visible !important;
 }
-.partners .logo-box img {
+html body .partners .logo-box img {
   object-fit:contain !important;
   filter:none !important;
 }
 
-/* Mobile */
 @media (max-width:760px) {
-  .hero {
+  html body .hero {
     height:auto !important;
     max-height:none !important;
     min-height:760px !important;
@@ -166,7 +165,7 @@
     background:#052720 !important;
   }
 
-  .hero::after {
+  html body .hero::after {
     top:auto !important;
     left:0 !important;
     right:0 !important;
@@ -183,57 +182,57 @@
       url("https://forumneruhomosti.com.ua/wp-content/uploads/2026/08/bg-bot.webp") center 58% / cover no-repeat !important;
   }
 
-  .hero-inner {
+  html body .hero-inner {
     padding-top:18px !important;
   }
 
-  .hero-copy {
+  html body .hero-copy {
     width:100% !important;
   }
 
-  .hero h1 {
+  html body .hero h1 {
     font-size:clamp(48px,14.5vw,68px) !important;
     line-height:.84 !important;
     max-width:100% !important;
   }
 
-  .hero-lead {
+  html body .hero-lead {
     margin-top:26px !important;
     font-size:15px !important;
     line-height:1.55 !important;
   }
 
-  .hero-actions {
+  html body .hero-actions {
     display:grid !important;
     grid-template-columns:1fr !important;
     gap:8px !important;
   }
 
-  .hero-actions .button {
+  html body .hero-actions .button {
     width:100% !important;
     min-width:0 !important;
     margin:0 !important;
   }
 
-  .schedule-row {
+  html body .schedule-row {
     grid-template-columns:1fr !important;
     gap:9px !important;
   }
 
-  .participants-section {
+  html body .participants-section {
     padding-top:62px !important;
     padding-bottom:78px !important;
   }
 
-  .participants-head {
+  html body .participants-head {
     margin-bottom:28px !important;
   }
 
-  .registration-layout {
+  html body .registration-layout {
     grid-template-columns:1fr !important;
   }
 
-  .registration-form {
+  html body .registration-form {
     max-width:none !important;
   }
 }
