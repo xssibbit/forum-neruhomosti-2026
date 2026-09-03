@@ -1,14 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 260" role="img" aria-labelledby="title desc">
-  <title id="title">DIM.RIA</title>
-  <desc id="desc">Векторний логотип DIM.RIA для темного фону</desc>
-  <g fill="none" fill-rule="evenodd">
-    <g transform="translate(24 34)">
-      <text x="0" y="124" fill="#F6931D" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="800" letter-spacing="-5">DIM</text>
-      <circle cx="253" cy="105" r="10" fill="#F6931D"/>
-      <text x="277" y="124" fill="#F4F2EA" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="800" letter-spacing="-4">RIA</text>
-      <path d="M673 53l29 18 35-8-18 30 17 31-34-8-29 18 3-35-24-26 36-5z" fill="#F4F2EA" transform="rotate(-12 694 94)"/>
-      <line x1="0" y1="154" x2="820" y2="154" stroke="#DDE7E2" stroke-width="1" opacity=".3"/>
-      <text x="2" y="190" fill="#AFC0B9" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="4">ПЕРЕВІРЕНИЙ ПАРТНЕР</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 260" role="img" aria-labelledby="title desc">
+  <title id="title">DIM.RIA — перевірений партнер</title>
+  <desc id="desc">Контрастний векторний логотип DIM.RIA для темно-зеленого фону</desc>
+  <defs>
+    <linearGradient id="orange" x1="0" x2="1"><stop stop-color="#FFAE23"/><stop offset="1" stop-color="#F28A12"/></linearGradient>
+    <linearGradient id="navy" x1="0" x2="1"><stop stop-color="#0D3D67"/><stop offset="1" stop-color="#062D4D"/></linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity=".2"/></filter>
+  </defs>
+  <g filter="url(#soft)">
+    <g transform="translate(18 46)">
+      <rect x="0" y="0" width="225" height="130" rx="18" fill="url(#orange)"/>
+      <rect x="216" y="0" width="205" height="130" rx="12" fill="url(#navy)"/>
+      <text x="35" y="96" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="-5">dim</text>
+      <text x="246" y="91" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="70" font-style="italic" font-weight="700">RIA</text>
+      <text x="316" y="116" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">.com</text>
+      <path d="M291 18l14 10 17-4-9 14 8 15-16-4-14 9 1-16-11-12 17-2z" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(490 62)">
+      <text x="0" y="58" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="900" letter-spacing="1.5">ПЕРЕВІРЕНИЙ</text>
+      <text x="0" y="115" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="900" letter-spacing="1.5">ПАРТНЕР</text>
+      <line x1="0" y1="142" x2="430" y2="142" stroke="#FFFFFF" stroke-width="1.5" opacity=".4"/>
+      <text x="0" y="174" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3" opacity=".84">DIM.RIA</text>
     </g>
   </g>
 </svg>
