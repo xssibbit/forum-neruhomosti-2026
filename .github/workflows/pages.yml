@@ -23,6 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Connect registration backend
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          tag = '<script src="registration-backend.js?v=20260903-1"></script>'
+          if tag not in s:
+              s = s.replace('</body>', f'  {tag}\n</body>')
+              p.write_text(s)
+          PY
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload site
