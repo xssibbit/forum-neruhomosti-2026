@@ -23,6 +23,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Restore participant seed data
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text()
+          seed = '<script src="participants-data.js?v=20260903-main"></script>'
+          marker = '<script src="tz-enhancements.js?v=20260903-final"></script>'
+          if seed not in s and marker in s:
+              s = s.replace(marker, seed + '\n  ' + marker)
+              p.write_text(s)
+          PY
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload site
