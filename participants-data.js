@@ -62,7 +62,7 @@
 
   localStorage.setItem(KEY, JSON.stringify([...merged.values()]));
 
-  // Replace the old payment-reference field with City without changing the rest of the form markup.
+  // Replace the old payment-reference field with City without changing the rest of the page layout.
   const form = document.querySelector('#participantForm');
   const cityField = form?.querySelector('[name="paymentRef"]');
   if (cityField) {
@@ -74,10 +74,8 @@
     cityField.setAttribute('aria-label', 'Місто');
   }
 
-  const consentText = form?.querySelector('.form-consent span');
-  if (consentText) {
-    consentText.textContent = 'Погоджуюся на публікацію мого ПІБ та агентства у списку учасників.';
-  }
+  const privacy = document.querySelector('.privacy');
+  if (privacy) privacy.textContent = 'Публічно показуються тільки ПІБ та агентство / компанія.';
 
   // Persist the entered city alongside the participant after the existing submit handler runs.
   form?.addEventListener('submit', () => {
