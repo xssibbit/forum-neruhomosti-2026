@@ -1,4 +1,5 @@
-/* Crisp white partner marks for the dark emerald section. */
+/* Partner logos: use ONLY the user-provided PNG files from /assets.
+   Do not replace, convert or regenerate these images. */
 .partners .logo-box{
   background:transparent!important;
   border:0!important;
@@ -8,40 +9,51 @@
   place-items:center!important;
   width:100%!important;
   height:auto!important;
-  min-height:190px!important;
+  min-height:150px!important;
 }
+
+/* Hide the old remote <img> elements. The exact PNGs below are the source of truth. */
 .partners .logo-box img{display:none!important}
+
 .partners .logo-box::before{
   content:""!important;
   display:block!important;
   background-repeat:no-repeat!important;
   background-position:center!important;
   background-size:contain!important;
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.22))!important;
+  filter:none!important;
 }
-/* Вінницьке регіональне відділення АФНУ — white high-contrast vector lockup. */
+
+/* Вінницьке регіональне відділення АФНУ — exact uploaded PNG. */
 .partners .partner-row:nth-child(1) .logo-box::before{
-  width:min(930px,64vw)!important;
-  aspect-ratio:1240/320!important;
-  background-image:url("assets/vrv-afnu.svg?v=white-20260903")!important;
+  width:min(900px,64vw)!important;
+  aspect-ratio:2175/181!important;
+  background-image:url("assets/vrv-afnu.png?v=user-final-1")!important;
 }
-/* DIM.RIA — white high-contrast verified partner lockup. */
+
+/* DIM.RIA — exact uploaded PNG. */
 .partners .partner-row:nth-child(2) .logo-box::before{
-  width:min(760px,54vw)!important;
-  aspect-ratio:980/260!important;
-  background-image:url("assets/dim-ria.svg?v=white-20260903")!important;
+  width:min(820px,58vw)!important;
+  aspect-ratio:2175/181!important;
+  background-image:url("assets/dim-ria.png?v=user-final-1")!important;
 }
+
 @media(max-width:900px){
-  .partners .logo-box{min-height:150px!important}
-  .partners .partner-row:nth-child(1) .logo-box::before{width:min(820px,90vw)!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:min(690px,84vw)!important}
+  .partners .logo-box{min-height:125px!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:min(820px,88vw)!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:min(760px,84vw)!important}
 }
+
 @media(max-width:760px){
-  .partners .logo-box{min-height:118px!important;justify-items:start!important}
-  .partners .partner-row:nth-child(1) .logo-box::before{width:min(680px,94vw)!important}
-  .partners .partner-row:nth-child(2) .logo-box::before{width:min(560px,90vw)!important}
+  .partners .logo-box{
+    min-height:100px!important;
+    justify-items:start!important;
+  }
+  .partners .partner-row:nth-child(1) .logo-box::before{width:92vw!important;max-width:100%!important}
+  .partners .partner-row:nth-child(2) .logo-box::before{width:88vw!important;max-width:100%!important}
 }
+
 @media(max-width:390px){
-  .partners .partner-row:nth-child(1) .logo-box::before{width:95vw!important}
+  .partners .partner-row:nth-child(1) .logo-box::before{width:94vw!important}
   .partners .partner-row:nth-child(2) .logo-box::before{width:90vw!important}
 }
