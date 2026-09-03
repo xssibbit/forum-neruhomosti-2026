@@ -23,17 +23,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Restore participant seed data
+      - name: Restore participant list on landing page
         run: |
           python3 - <<'PY'
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text()
-          seed = '<script src="participants-data.js?v=20260903-main"></script>'
+          seed = '<script src="participants-data.js?v=20260903-main2"></script>'
           marker = '<script src="tz-enhancements.js?v=20260903-final"></script>'
+          css = '<link rel="stylesheet" href="participants-return.css?v=20260903-main2">'
           if seed not in s and marker in s:
-              s = s.replace(marker, seed + '\n  ' + marker)
-              p.write_text(s)
+              s = s.replace(marker, seed + '\n  ' + marker + '\n  ' + css)
+          elif css not in s:
+              s = s.replace('</body>', '  ' + css + '\n</body>')
+          p.write_text(s)
           PY
       - name: Setup Pages
         uses: actions/configure-pages@v5
