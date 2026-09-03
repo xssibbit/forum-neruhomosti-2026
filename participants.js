@@ -1,4 +1,15 @@
 (() => {
+  const id = 'partner-logo-fix-css';
+  if (!document.getElementById(id)) {
+    const link = document.createElement('link');
+    link.id = id;
+    link.rel = 'stylesheet';
+    link.href = 'partner-logos.css?v=white-20260903-2';
+    document.head.appendChild(link);
+  }
+})();
+
+(() => {
   const form = document.querySelector('#participantForm');
   const list = document.querySelector('#participantList');
   const count = document.querySelector('#participantCount');
