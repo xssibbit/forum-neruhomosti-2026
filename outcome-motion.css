@@ -1,0 +1,122 @@
+/* Outcome motion accents — restrained symbols, no emoji artwork */
+@keyframes outcomeGlyphFloat{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg)}
+  50%{transform:translate3d(0,-9px,0) rotate(2deg)}
+}
+@keyframes outcomeGlowPulse{
+  0%,100%{opacity:.12}
+  50%{opacity:.22}
+}
+
+html body .outcomes{
+  isolation:isolate!important;
+}
+
+/* soft moving atmosphere behind the list */
+html body .outcomes::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  width:520px!important;
+  height:520px!important;
+  right:-130px!important;
+  bottom:-170px!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(40,211,160,.16) 0%,rgba(40,211,160,.05) 38%,transparent 70%)!important;
+  filter:blur(8px)!important;
+  pointer-events:none!important;
+  z-index:0!important;
+  animation:outcomeGlowPulse 7s ease-in-out infinite!important;
+}
+
+html body .outcomes .outcome-grid{
+  z-index:2!important;
+}
+
+html body .outcomes .outcome-item{
+  overflow:hidden!important;
+  isolation:isolate!important;
+  min-height:175px!important;
+}
+
+/* Large typographic symbols: graphic, monochrome, intentionally not emoji. */
+html body .outcomes .outcome-item::after{
+  position:absolute!important;
+  right:8px!important;
+  bottom:-18px!important;
+  z-index:-1!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:clamp(78px,7vw,118px)!important;
+  font-weight:300!important;
+  line-height:1!important;
+  color:#33d5a5!important;
+  opacity:.16!important;
+  text-shadow:0 0 34px rgba(51,213,165,.08)!important;
+  transition:opacity .32s ease,transform .32s ease,color .32s ease!important;
+  animation:outcomeGlyphFloat 6.5s ease-in-out infinite!important;
+  pointer-events:none!important;
+}
+html body .outcomes .outcome-item:nth-child(1)::after{content:"↗"!important;animation-delay:-.8s!important}
+html body .outcomes .outcome-item:nth-child(2)::after{content:"→"!important;animation-delay:-2.1s!important}
+html body .outcomes .outcome-item:nth-child(3)::after{content:"◎"!important;color:#c79a60!important;animation-delay:-3.2s!important}
+html body .outcomes .outcome-item:nth-child(4)::after{content:"◇"!important;animation-delay:-1.4s!important}
+html body .outcomes .outcome-item:nth-child(5)::after{content:"?"!important;color:#d6ae79!important;animation-delay:-4s!important}
+html body .outcomes .outcome-item:nth-child(6)::after{content:"∞"!important;animation-delay:-2.7s!important}
+html body .outcomes .outcome-item:nth-child(7)::after{content:"✦"!important;color:#c79a60!important;animation-delay:-1.9s!important}
+
+html body .outcomes .outcome-item:hover::after{
+  opacity:.48!important;
+  transform:translate3d(-8px,-9px,0) scale(1.04)!important;
+}
+
+/* keep the copy above the graphic */
+html body .outcomes .outcome-item strong{
+  position:relative!important;
+  z-index:2!important;
+  max-width:72%!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.18)!important;
+}
+
+/* Slightly more editorial contrast on alternating items */
+html body .outcomes .outcome-item:nth-child(3),
+html body .outcomes .outcome-item:nth-child(7){
+  background:linear-gradient(135deg,rgba(185,140,82,.07),rgba(255,255,255,0))!important;
+}
+html body .outcomes .outcome-item:nth-child(1),
+html body .outcomes .outcome-item:nth-child(6){
+  background:linear-gradient(135deg,rgba(32,201,149,.055),rgba(255,255,255,0))!important;
+}
+
+@media(max-width:900px){
+  html body .outcomes .outcome-item{
+    min-height:180px!important;
+    padding-right:18px!important;
+  }
+  html body .outcomes .outcome-item::after{
+    right:12px!important;
+    bottom:-10px!important;
+    font-size:82px!important;
+    opacity:.20!important;
+    animation-duration:8s!important;
+  }
+  html body .outcomes .outcome-item strong{
+    max-width:74%!important;
+  }
+}
+
+@media(max-width:520px){
+  html body .outcomes .outcome-item::after{
+    font-size:72px!important;
+    opacity:.18!important;
+  }
+  html body .outcomes .outcome-item strong{
+    max-width:76%!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html body .outcomes::after,
+  html body .outcomes .outcome-item::after{
+    animation:none!important;
+  }
+}
