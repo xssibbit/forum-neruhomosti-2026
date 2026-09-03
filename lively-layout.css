@@ -1,0 +1,224 @@
+/* Lively editorial accents — lightweight, no external GIFs */
+
+@keyframes forumFloat {
+  0%,100% { transform:translateY(0) rotate(0deg); }
+  50% { transform:translateY(-7px) rotate(2deg); }
+}
+@keyframes forumPulse {
+  0%,100% { transform:scale(1); opacity:.92; }
+  50% { transform:scale(1.08); opacity:1; }
+}
+
+/* Contextual emoji badges: large enough to feel intentional, not tiny decorative noise. */
+html body .benefit,
+html body .outcome-item,
+html body .ticket-card,
+html body .location-card,
+html body .final-cta,
+html body .registration-form {
+  position:relative !important;
+}
+
+html body .benefit::before,
+html body .outcome-item::before {
+  position:absolute !important;
+  top:16px !important;
+  right:17px !important;
+  width:42px !important;
+  height:42px !important;
+  display:grid !important;
+  place-items:center !important;
+  border:1px solid rgba(238,245,241,.14) !important;
+  background:rgba(255,255,255,.045) !important;
+  border-radius:50% !important;
+  font-size:21px !important;
+  line-height:1 !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.12) !important;
+  animation:forumFloat 4.8s ease-in-out infinite !important;
+}
+
+html body .benefit:nth-child(1)::before { content:"🛠️" !important; }
+html body .benefit:nth-child(2)::before { content:"💡" !important; animation-delay:.35s !important; }
+html body .benefit:nth-child(3)::before { content:"🤝" !important; animation-delay:.7s !important; }
+html body .benefit:nth-child(4)::before { content:"🚀" !important; animation-delay:1.05s !important; }
+
+html body .outcome-item:nth-child(1)::before { content:"📚" !important; }
+html body .outcome-item:nth-child(2)::before { content:"🧭" !important; }
+html body .outcome-item:nth-child(3)::before { content:"👥" !important; }
+html body .outcome-item:nth-child(4)::before { content:"📈" !important; }
+html body .outcome-item:nth-child(5)::before { content:"💬" !important; }
+html body .outcome-item:nth-child(6)::before { content:"🤝" !important; }
+html body .outcome-item:nth-child(7)::before { content:"✨" !important; }
+
+html body .benefit h3,
+html body .outcome-item strong {
+  padding-right:46px !important;
+}
+
+/* Tickets: one strong icon per offer. */
+html body .ticket-card::before {
+  position:absolute !important;
+  right:22px !important;
+  bottom:22px !important;
+  font-size:38px !important;
+  line-height:1 !important;
+  opacity:.23 !important;
+  filter:grayscale(.08) !important;
+  animation:forumPulse 5s ease-in-out infinite !important;
+  pointer-events:none !important;
+}
+html body .ticket-card:nth-child(1)::before { content:"🏠" !important; }
+html body .ticket-card:nth-child(2)::before { content:"🎟️" !important; animation-delay:.5s !important; }
+html body .ticket-card:nth-child(3)::before { content:"👥" !important; animation-delay:1s !important; }
+
+/* Location and final CTA get one readable contextual accent. */
+html body .location-copy h2::before {
+  content:"📍" !important;
+  display:inline-block !important;
+  margin-right:14px !important;
+  font-family:Apple Color Emoji,"Segoe UI Emoji",sans-serif !important;
+  font-size:.48em !important;
+  vertical-align:.18em !important;
+  animation:forumFloat 4.2s ease-in-out infinite !important;
+}
+html body .final-copy h2::before {
+  content:"✨" !important;
+  display:block !important;
+  width:max-content !important;
+  margin-bottom:16px !important;
+  font-family:Apple Color Emoji,"Segoe UI Emoji",sans-serif !important;
+  font-size:34px !important;
+  animation:forumPulse 4s ease-in-out infinite !important;
+}
+
+/* Registration section: centered, cleaner and more premium. */
+html body .participants-section {
+  text-align:center !important;
+}
+html body .participants-head {
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+  max-width:900px !important;
+}
+html body .participants-head .section-title {
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body .participants-head p {
+  margin:22px auto 0 !important;
+  max-width:620px !important;
+  text-align:center !important;
+}
+html body .registration-layout {
+  display:grid !important;
+  grid-template-columns:minmax(0,720px) !important;
+  justify-content:center !important;
+  justify-items:center !important;
+  width:100% !important;
+  margin:0 auto !important;
+}
+html body .registration-form {
+  width:100% !important;
+  max-width:720px !important;
+  margin:0 auto !important;
+  text-align:left !important;
+  padding:clamp(28px,4vw,48px) !important;
+  border:1px solid rgba(212,232,224,.18) !important;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(24,193,145,.10),transparent 34%),
+    linear-gradient(145deg,#0b4939 0%,#0a3c31 52%,#082c26 100%) !important;
+  box-shadow:0 34px 90px rgba(0,0,0,.22) !important;
+}
+html body .registration-form::before {
+  content:"📝" !important;
+  position:absolute !important;
+  top:-27px !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  width:54px !important;
+  height:54px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  border:1px solid rgba(230,240,235,.22) !important;
+  background:#b98c52 !important;
+  font-size:26px !important;
+  box-shadow:0 14px 36px rgba(0,0,0,.22) !important;
+  animation:forumFloat 4.5s ease-in-out infinite !important;
+}
+html body .registration-form h3 {
+  text-align:center !important;
+  margin-top:8px !important;
+}
+html body .registration-form > p:first-of-type {
+  text-align:center !important;
+}
+html body .registration-form .button {
+  margin-left:auto !important;
+  margin-right:auto !important;
+  min-width:min(100%,320px) !important;
+}
+
+/* Inputs get a subtle interactive lift rather than more decoration. */
+html body .registration-form input:not([type="checkbox"]) {
+  transition:border-color .2s ease,background .2s ease,transform .2s ease !important;
+}
+html body .registration-form input:not([type="checkbox"]):focus {
+  transform:translateY(-1px) !important;
+  border-color:rgba(39,214,161,.68) !important;
+  background:rgba(255,255,255,.045) !important;
+}
+
+@media (max-width:760px) {
+  html body .benefit::before,
+  html body .outcome-item::before {
+    width:36px !important;
+    height:36px !important;
+    top:12px !important;
+    right:12px !important;
+    font-size:18px !important;
+  }
+  html body .benefit h3,
+  html body .outcome-item strong {
+    padding-right:38px !important;
+  }
+  html body .ticket-card::before {
+    right:16px !important;
+    bottom:16px !important;
+    font-size:30px !important;
+  }
+  html body .participants-section {
+    padding-top:78px !important;
+  }
+  html body .participants-head {
+    max-width:100% !important;
+  }
+  html body .registration-layout {
+    grid-template-columns:1fr !important;
+  }
+  html body .registration-form {
+    max-width:none !important;
+    padding:34px 20px 24px !important;
+  }
+  html body .registration-form::before {
+    top:-24px !important;
+    width:48px !important;
+    height:48px !important;
+    font-size:23px !important;
+  }
+  html body .location-copy h2::before {
+    margin-right:8px !important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html body .benefit::before,
+  html body .outcome-item::before,
+  html body .ticket-card::before,
+  html body .location-copy h2::before,
+  html body .final-copy h2::before,
+  html body .registration-form::before {
+    animation:none !important;
+  }
+}
