@@ -41,7 +41,7 @@
     const data = new FormData(form);
     const name = String(data.get('fullName') || '').trim();
     const agency = String(data.get('agency') || '').trim();
-    const city = String(data.get('city') || data.get('paymentRef') || '').trim();
+    const city = String(data.get('city') || data.get('city') || '').trim();
     const consent = data.get('consent');
     message.className = 'form-message';
 
