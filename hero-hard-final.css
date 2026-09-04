@@ -99,13 +99,27 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   overflow:hidden!important;
   background:#f7f6f2!important;
 }
+.ref-hero-visual::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:2!important;
+  inset:0 auto 0 0!important;
+  width:22%!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,#03362d 0%,rgba(3,54,45,.82) 35%,rgba(3,54,45,.38) 68%,rgba(3,54,45,0) 100%)!important;
+}
 .ref-hero-visual .ref-hero-poster{
+  position:absolute!important;
+  left:0!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:0!important;
   display:block!important;
   width:100%!important;
-  height:100%!important;
+  height:auto!important;
   max-width:none!important;
-  object-fit:cover!important;
-  object-position:center bottom!important;
+  object-fit:unset!important;
+  object-position:initial!important;
   opacity:1!important;
   filter:none!important;
   transform:none!important;
@@ -113,10 +127,10 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
 .ref-hero-visual .ref-hero-partner{
   position:absolute!important;
   z-index:3!important;
-  left:-1%!important;
-  top:2.5%!important;
+  left:-4%!important;
+  top:1%!important;
   display:block!important;
-  width:68%!important;
+  width:52%!important;
   height:auto!important;
   max-width:none!important;
   object-fit:contain!important;
@@ -125,18 +139,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   transform:none!important;
 }
 .ref-hero-blend{
-  position:absolute!important;
-  z-index:2!important;
-  inset:0 auto 0 49%!important;
-  width:14%!important;
-  pointer-events:none!important;
-  background:linear-gradient(90deg,
-    #03362d 0%,
-    rgba(3,54,45,.98) 16%,
-    rgba(3,54,45,.84) 37%,
-    rgba(3,54,45,.56) 59%,
-    rgba(3,54,45,.22) 81%,
-    rgba(3,54,45,0) 100%)!important;
+  display:none!important;
 }
 .ref-hero-left{
   position:absolute!important;
@@ -203,9 +206,9 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
 .ref-hero-title em{
   margin-top:.27em!important;
   color:#20d19c!important;
-  font-size:clamp(50px,6.78vw,96px)!important;
+  font-size:clamp(54px,7.6vw,108px)!important;
   font-style:normal!important;
-  letter-spacing:-.035em!important;
+  letter-spacing:-.02em!important;
 }
 .ref-hero-desc{
   position:absolute!important;
@@ -339,8 +342,9 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
     aspect-ratio:1/1!important;
     background:#f7f6f2!important;
   }
-  .ref-hero-visual .ref-hero-poster{object-fit:cover!important;object-position:center bottom!important}
-  .ref-hero-visual .ref-hero-partner{left:-1%!important;top:2.5%!important;width:68%!important;height:auto!important}
+  .ref-hero-visual::before{display:none!important}
+  .ref-hero-visual .ref-hero-poster{position:absolute!important;left:0!important;bottom:0!important;width:100%!important;height:auto!important;object-fit:unset!important}
+  .ref-hero-visual .ref-hero-partner{left:-4%!important;top:1%!important;width:52%!important;height:auto!important}
   .ref-hero-blend{display:none!important}
 }
 
