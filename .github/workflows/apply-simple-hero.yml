@@ -1,0 +1,39 @@
+name: Apply simple hero
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-simple-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add final hero stylesheet
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          link='  <link rel="stylesheet" href="hero-simple.css?v=20260904-simple1">\n'
+          if 'hero-simple.css?v=20260904-simple1' not in s:
+              marker='  <link rel="stylesheet" href="final-live.css?v=20260904-1605">\n'
+              if marker in s:
+                  s=s.replace(marker, marker+link, 1)
+              else:
+                  s=s.replace('</head>', link+'</head>', 1)
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: grep -q 'hero-simple.css?v=20260904-simple1' index.html
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Use simple replaceable hero image' || exit 0
+          git push
