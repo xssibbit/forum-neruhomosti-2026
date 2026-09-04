@@ -1,0 +1,19 @@
+name: Bump hero v3
+on: push
+permissions:
+  contents: write
+jobs:
+  bump:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sed -i 's/hero-hard-final.css?v=20260904-hardfinal2/hero-hard-final.css?v=20260904-hardfinal3/g' index.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Load approved hero v3"
+            git push
+          fi
