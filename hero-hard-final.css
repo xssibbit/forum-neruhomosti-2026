@@ -108,7 +108,7 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{
   position:absolute!important;
   left:0!important;
   right:auto!important;
-  top:calc(-1 * var(--poster-lift))!important;
+  top:calc(0px - var(--poster-lift))!important;
   bottom:auto!important;
   display:block!important;
   width:100%!important;
