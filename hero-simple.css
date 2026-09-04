@@ -1,103 +1,111 @@
-@import url("about-stickers.css?v=20260904-stickers2");
-@import url("about-stickers-v2.css?v=20260904-stickers2");
+@import url("about-stickers.css?v=20260904-stickers3");
+@import url("about-stickers-v2.css?v=20260904-stickers3");
 
-/* Stable first screen: full poster visible, compact title, soft overlap gradient. */
+/* Final stable first screen. The user's own file assets/hero-main.jpg is the source of truth. */
 html body .hero{
   position:relative!important;
   isolation:isolate!important;
   box-sizing:border-box!important;
-  min-height:680px!important;
+  min-height:650px!important;
   height:calc(100svh - 78px)!important;
-  max-height:820px!important;
+  max-height:790px!important;
   padding:0!important;
   display:flex!important;
   align-items:center!important;
   overflow:hidden!important;
   background:#052a23!important;
 }
-html body .hero::before,
-html body .hero::after{content:none!important;display:none!important}
+
+/* Guaranteed artwork layer: independent of JS, backgrounds and old hero artwork rules. */
+html body .hero::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0 0 0 32%!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background-color:#052a23!important;
+  background-image:url("assets/hero-main.jpg?v=20260904-photo1")!important;
+  background-repeat:no-repeat!important;
+  background-position:right center!important;
+  background-size:contain!important;
+  opacity:1!important;
+}
+
+/* Soft green overlap only on the left side of the poster. */
+html body .hero::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,
+    #052a23 0%,
+    #052a23 27%,
+    rgba(5,42,35,.98) 34%,
+    rgba(5,42,35,.84) 40%,
+    rgba(5,42,35,.55) 46%,
+    rgba(5,42,35,.22) 52%,
+    rgba(5,42,35,0) 58%)!important;
+}
+
+/* Old dynamically inserted artwork cannot cover or crop the final layer. */
+html body .hero-artwork{display:none!important}
 html body .hero-grid,
 html body .hero-orb,
 html body .hero-meta,
 html body .marquee{display:none!important}
 
-/* Use the real hero artwork element instead of cropping it as a CSS cover background. */
-html body .hero-artwork{
-  display:block!important;
-  position:absolute!important;
-  z-index:1!important;
-  top:0!important;
-  right:0!important;
-  width:57%!important;
-  height:100%!important;
-  overflow:hidden!important;
-  background:#f6f5f1!important;
-  pointer-events:none!important;
-}
-html body .hero-artwork::before{
-  content:""!important;
-  display:block!important;
-  position:absolute!important;
-  z-index:2!important;
-  inset:0 auto 0 0!important;
-  width:27%!important;
-  background:linear-gradient(90deg,#052a23 0%,rgba(5,42,35,.94) 28%,rgba(5,42,35,.62) 58%,rgba(5,42,35,.18) 84%,rgba(5,42,35,0) 100%)!important;
-  pointer-events:none!important;
-}
-html body .hero-artwork::after{content:none!important;display:none!important}
-html body .hero-artwork img{
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  max-width:none!important;
-  max-height:none!important;
-  object-fit:contain!important;
-  object-position:center center!important;
-  transform:none!important;
-  filter:none!important;
-}
-
 html body .hero .hero-inner{
   position:relative!important;
   z-index:3!important;
   display:block!important;
-  width:min(1360px,calc(100% - 128px))!important;
+  width:min(1320px,calc(100% - 128px))!important;
   margin:0 auto!important;
-  padding:72px 0 26px!important;
+  padding:64px 0 26px!important;
   min-height:0!important;
 }
-html body .hero .hero-copy{
+html body .hero .hero-copy,
+html body .hero .hero-copy.reveal{
   position:relative!important;
   z-index:4!important;
-  width:min(760px,53vw)!important;
-  max-width:760px!important;
+  width:min(650px,46vw)!important;
+  max-width:650px!important;
   margin:0!important;
   padding:0!important;
+  opacity:1!important;
   transform:none!important;
   overflow:visible!important;
 }
-html body .hero .hero-copy.reveal{opacity:1!important;transform:none!important}
-html body .hero .eyebrow{margin:0 0 18px!important;max-width:100%!important}
+html body .hero .edition-stamp{display:none!important}
 
+html body .hero .eyebrow{
+  width:min(500px,100%)!important;
+  max-width:100%!important;
+  margin:0 0 20px!important;
+}
 html body .hero h1{
   display:block!important;
   width:100%!important;
-  max-width:760px!important;
+  max-width:650px!important;
   margin:0!important;
   padding:0!important;
   overflow:visible!important;
   font-family:Georgia,"Times New Roman",serif!important;
-  font-size:clamp(60px,5.7vw,88px)!important;
+  font-size:clamp(56px,5.15vw,82px)!important;
   font-weight:400!important;
-  line-height:.78!important;
+  line-height:.82!important;
   letter-spacing:-.052em!important;
   white-space:normal!important;
+  text-wrap:initial!important;
 }
 html body .hero h1 br{display:none!important}
 html body .hero h1 span,
 html body .hero h1 em{
   display:block!important;
+  width:max-content!important;
+  max-width:100%!important;
   visibility:visible!important;
   opacity:1!important;
   transform:none!important;
@@ -109,111 +117,120 @@ html body .hero h1 em{
   color:#26d5a0!important;
   -webkit-text-stroke:0!important;
   font-style:normal!important;
-  margin-top:.01em!important;
+  margin-top:-.015em!important;
 }
-/* Venue line requested directly under the main title. */
+
+/* Venue requested directly under “ФОРУМ НЕРУХОМОСТІ”. */
 html body .hero h1::after{
-  content:"Місце проведення заходу: готельно-ресторанний комплекс «Mont Blanc», Hotel France · вул. Соборна, 34 · Вінниця"!important;
+  content:"Місце проведення: готельно-ресторанний комплекс «Mont Blanc» · Hotel France · вул. Соборна, 34 · Вінниця"!important;
   display:block!important;
-  max-width:650px!important;
-  margin-top:22px!important;
-  color:#d6e1dc!important;
-  font-family:Inter,Arial,Helvetica,sans-serif!important;
-  font-size:clamp(13px,1.05vw,16px)!important;
-  font-weight:650!important;
-  line-height:1.45!important;
-  letter-spacing:.01em!important;
+  width:min(610px,100%)!important;
+  margin:22px 0 0!important;
+  color:#e3ebe7!important;
+  font-family:Arial,sans-serif!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  line-height:1.5!important;
+  letter-spacing:.025em!important;
+  text-transform:none!important;
   white-space:normal!important;
 }
 html body .hero .hero-lead{
-  max-width:620px!important;
-  margin:18px 0 22px!important;
-  color:#c7d3ce!important;
-  font-size:clamp(15px,1.2vw,18px)!important;
-  line-height:1.52!important;
-}
-html body .hero .hero-actions{display:flex!important;gap:0!important;margin:0!important;align-items:stretch!important;flex-wrap:wrap!important}
-html body .hero .hero-actions .button{min-height:56px!important;margin:0!important}
-/* Visible labels requested by the user; keep existing href targets unchanged. */
-html body .hero .hero-actions .button.primary,
-html body .hero .hero-actions .button.ghost{font-size:0!important}
-html body .hero .hero-actions .button.primary span,
-html body .hero .hero-actions .button.ghost span{display:none!important}
-html body .hero .hero-actions .button.primary::before{
-  content:"КУПИТИ КВИТОК"!important;
-  display:inline!important;
-  font-size:14px!important;
-  font-weight:800!important;
-  letter-spacing:.06em!important;
-}
-html body .hero .hero-actions .button.ghost::before{
-  content:"БРОНЮВАННЯ МІСЦЯ"!important;
-  display:inline!important;
-  font-size:14px!important;
-  font-weight:800!important;
-  letter-spacing:.055em!important;
+  max-width:590px!important;
+  margin:18px 0 24px!important;
+  color:#cbd8d3!important;
+  font-size:clamp(16px,1.22vw,19px)!important;
+  line-height:1.55!important;
 }
 
+/* Requested button labels, while preserving the existing links and arrows. */
+html body .hero .hero-actions{display:flex!important;margin:0!important;gap:0!important}
+html body .hero .hero-actions .button{min-height:56px!important}
+html body .hero .hero-actions .button.primary,
+html body .hero .hero-actions .button.ghost{font-size:0!important}
+html body .hero .hero-actions .button.primary::before,
+html body .hero .hero-actions .button.ghost::before{
+  position:static!important;
+  inset:auto!important;
+  display:inline!important;
+  width:auto!important;
+  height:auto!important;
+  opacity:1!important;
+  background:none!important;
+  transform:none!important;
+  font-family:Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:.015em!important;
+  white-space:nowrap!important;
+}
+html body .hero .hero-actions .button.primary::before{content:"КУПИТИ КВИТОК"!important}
+html body .hero .hero-actions .button.ghost::before{content:"БРОНЮВАННЯ МІСЦЯ"!important}
+html body .hero .hero-actions .button span{font-size:16px!important;margin-left:16px!important}
+
 @media(max-width:1180px) and (min-width:761px){
-  html body .hero{min-height:660px!important;max-height:790px!important}
-  html body .hero-artwork{width:54%!important}
-  html body .hero-artwork::before{width:24%!important}
-  html body .hero .hero-inner{width:calc(100% - 80px)!important;padding-top:68px!important}
-  html body .hero .hero-copy{width:min(650px,52vw)!important}
-  html body .hero h1{font-size:clamp(55px,5.8vw,76px)!important}
+  html body .hero{min-height:640px!important;max-height:760px!important}
+  html body .hero::after{inset-left:35%!important}
+  html body .hero .hero-inner{width:calc(100% - 72px)!important}
+  html body .hero .hero-copy{width:min(570px,48vw)!important;max-width:570px!important}
+  html body .hero h1{max-width:570px!important;font-size:clamp(52px,5.3vw,70px)!important}
+  html body .hero h1::after{font-size:12px!important;max-width:540px!important}
 }
 
 @media(max-width:760px){
   html body .hero{
-    min-height:760px!important;
+    min-height:0!important;
     height:auto!important;
     max-height:none!important;
+    padding:0!important;
     display:block!important;
     background:#052720!important;
   }
-  html body .hero-artwork{
-    top:auto!important;
-    bottom:0!important;
-    right:0!important;
-    width:100%!important;
-    height:285px!important;
-    background:#f6f5f1!important;
+  html body .hero::before{
+    background:linear-gradient(180deg,#052720 0%,#052720 57%,rgba(5,39,32,.96) 66%,rgba(5,39,32,.46) 78%,rgba(5,39,32,0) 88%)!important;
   }
-  html body .hero-artwork::before{
-    inset:0 0 auto 0!important;
+  html body .hero::after{
+    inset:auto 0 0 0!important;
     width:100%!important;
-    height:28%!important;
-    background:linear-gradient(180deg,#052720 0%,rgba(5,39,32,.88) 34%,rgba(5,39,32,.42) 66%,rgba(5,39,32,0) 100%)!important;
+    height:300px!important;
+    background-position:center bottom!important;
+    background-size:contain!important;
+    background-color:#052720!important;
   }
-  html body .hero-artwork img{object-fit:contain!important;object-position:center center!important}
   html body .hero .hero-inner{
     width:calc(100% - 32px)!important;
-    padding:90px 0 310px!important;
+    margin:0 auto!important;
+    padding:92px 0 310px!important;
   }
-  html body .hero .hero-copy{width:100%!important;max-width:100%!important}
-  html body .hero .eyebrow{margin-bottom:14px!important}
+  html body .hero .hero-copy,
+  html body .hero .hero-copy.reveal{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  html body .hero .eyebrow{margin-bottom:16px!important}
   html body .hero h1{
     max-width:100%!important;
-    font-size:clamp(42px,11.9vw,56px)!important;
-    line-height:.80!important;
+    font-size:clamp(43px,12.4vw,58px)!important;
+    line-height:.83!important;
     letter-spacing:-.045em!important;
   }
+  html body .hero h1 span,
+  html body .hero h1 em{width:auto!important;max-width:100%!important;white-space:nowrap!important}
   html body .hero h1::after{
-    margin-top:17px!important;
-    max-width:100%!important;
-    font-size:12.5px!important;
-    line-height:1.45!important;
+    width:100%!important;
+    margin-top:18px!important;
+    font-size:12px!important;
+    line-height:1.48!important;
   }
-  html body .hero .hero-lead{margin:16px 0 18px!important;font-size:14px!important;line-height:1.48!important}
+  html body .hero .hero-lead{margin:16px 0 20px!important;font-size:15px!important}
   html body .hero .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
-  html body .hero .hero-actions .button{width:100%!important;min-height:54px!important}
-  html body .hero .hero-actions .button.primary::before,
-  html body .hero .hero-actions .button.ghost::before{font-size:13px!important}
+  html body .hero .hero-actions .button{width:100%!important;margin:0!important}
 }
 
 @media(max-width:390px){
-  html body .hero{min-height:735px!important}
-  html body .hero-artwork{height:260px!important}
-  html body .hero .hero-inner{padding-bottom:282px!important}
-  html body .hero h1{font-size:clamp(39px,11.6vw,49px)!important}
+  html body .hero::after{height:270px!important}
+  html body .hero .hero-inner{padding-bottom:280px!important}
+  html body .hero h1{font-size:clamp(39px,11.9vw,50px)!important}
+  html body .hero h1::after{font-size:11.5px!important}
 }
