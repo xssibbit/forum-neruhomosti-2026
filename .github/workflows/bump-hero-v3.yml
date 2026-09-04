@@ -1,10 +1,12 @@
-name: Publish conference photo hero
-on: push
+name: Load final mobile polish
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-hero-v3.yml'
 permissions:
   contents: write
 jobs:
-  bump:
-    if: github.actor != 'github-actions[bot]'
+  inject:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,13 +15,16 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace('hero-hard-final.css?v=20260904-reference25','hero-hard-final.css?v=20260904-conference1')
+          link = '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile1">\n'
+          import re
+          s = re.sub(r'\s*<link rel="stylesheet" href="mobile-polish\.css\?v=[^"]+">\s*', '\n', s)
+          s = s.replace('</head>', link + '</head>')
           p.write_text(s, encoding='utf-8')
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m "Load conference photo hero"
+            git commit -m "Load final mobile polish"
             git push
           fi
