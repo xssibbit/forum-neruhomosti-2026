@@ -22,7 +22,7 @@ jobs:
           links = (
               '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile2">\n'
               '  <link rel="stylesheet" href="mobile-hero-rescue.css?v=20260904-rescue2">\n'
-              '  <link rel="stylesheet" href="mobile-hero-emphasis.css?v=20260904-emphasis1">\n'
+              '  <link rel="stylesheet" href="mobile-hero-emphasis.css?v=20260904-emphasis2">\n'
           )
           s = s.replace('</head>', links + '</head>')
           p.write_text(s, encoding='utf-8')
@@ -31,6 +31,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m "Load mobile-first hero emphasis"
+            git commit -m "Load desktop and mobile hero emphasis v2"
             git push
           fi
