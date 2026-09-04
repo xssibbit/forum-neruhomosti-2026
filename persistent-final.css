@@ -1,0 +1,75 @@
+/* Final persistent overrides loaded by participants-main.css in every Pages deployment. */
+
+/* Registration heading: centered, no explanatory paragraph. */
+html body #participants .participants-head{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0 0 44px!important;
+  text-align:center!important;
+}
+html body #participants .participants-head .section-title{
+  width:100%!important;
+  max-width:none!important;
+  margin-inline:auto!important;
+  text-align:center!important;
+}
+html body #participants .participants-head .section-title::after{
+  text-align:center!important;
+}
+html body #participants .participants-head>p{
+  display:none!important;
+}
+
+/* Ticket buttons: visual copy must always read “Купити квиток”. */
+html body #tickets .ticket-card:not(.contact-card) a.button{
+  font-size:0!important;
+}
+html body #tickets .ticket-card:not(.contact-card) a.button::before{
+  content:"Купити квиток"!important;
+  display:inline-block!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  letter-spacing:.045em!important;
+}
+html body #tickets .ticket-card:not(.contact-card) a.button>span{
+  font-size:17px!important;
+}
+
+/* Hero date: slightly quieter than the forum title. */
+html body .hero .eyebrow{
+  min-width:min(100%,530px)!important;
+  padding:15px 20px!important;
+  gap:18px!important;
+}
+html body .hero .eyebrow::before{
+  font-size:clamp(48px,4.5vw,66px)!important;
+}
+html body .hero .eyebrow::after{
+  font-size:clamp(16px,1.3vw,20px)!important;
+}
+
+@media(max-width:760px){
+  html body #participants .participants-head{
+    margin-bottom:30px!important;
+  }
+  html body .hero .eyebrow{
+    padding:12px 13px!important;
+    gap:10px!important;
+  }
+  html body .hero .eyebrow::before{
+    font-size:clamp(36px,9.8vw,45px)!important;
+  }
+  html body .hero .eyebrow::after{
+    font-size:clamp(13px,3.4vw,15px)!important;
+    padding-left:10px!important;
+  }
+  html body #tickets .ticket-card:not(.contact-card) a.button::before{
+    font-size:14px!important;
+  }
+}
+
+@media(max-width:360px){
+  html body .hero .eyebrow::before{font-size:32px!important}
+  html body .hero .eyebrow::after{font-size:12px!important}
+}
