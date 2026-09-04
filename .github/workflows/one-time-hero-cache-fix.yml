@@ -1,0 +1,52 @@
+name: One-time hero cache fix
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/one-time-hero-cache-fix.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Force fresh hero assets into the real page
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          idx = Path('index.html')
+          s = idx.read_text()
+          s = s.replace('tz-enhancements.js?v=20260903-final', 'tz-enhancements.js?v=20260904-hero4')
+          link = '<link rel="stylesheet" href="participants-main.css?v=20260904-hero4">'
+          if link not in s:
+              s = s.replace('</head>', f'  {link}\n</head>')
+          idx.write_text(s)
+
+          js = Path('tz-enhancements.js')
+          j = js.read_text()
+          j = j.replace('participants-main.css?v=20260903-2', 'participants-main.css?v=20260904-hero4')
+          js.write_text(j)
+
+          css = Path('persistent-final.css')
+          c = css.read_text()
+          c = c.replace('assets/hero-forum-main.webp")', 'assets/hero-forum-main.webp?v=20260904-hero4")')
+          css.write_text(c)
+          PY
+
+      - name: Commit source fix and remove this one-time workflow
+        run: |
+          rm .github/workflows/one-time-hero-cache-fix.yml
+          git config user.name "xssibbit"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html tz-enhancements.js persistent-final.css .github/workflows/one-time-hero-cache-fix.yml
+          git commit -m "Force fresh hero artwork on landing page"
+          git push origin main
