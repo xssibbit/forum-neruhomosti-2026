@@ -100,16 +100,11 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   background:#f7f6f2!important;
 }
 .ref-hero-visual::before{
-  content:""!important;
-  position:absolute!important;
-  z-index:2!important;
-  inset:0 auto 0 0!important;
-  width:22%!important;
-  pointer-events:none!important;
-  background:linear-gradient(90deg,#03362d 0%,rgba(3,54,45,.82) 35%,rgba(3,54,45,.38) 68%,rgba(3,54,45,0) 100%)!important;
+  content:none!important;
+  display:none!important;
 }
 html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{
-  --poster-lift:clamp(62px,7.65vw,110px);
+  --poster-lift:clamp(124px,15.3vw,220px);
   position:absolute!important;
   left:0!important;
   right:auto!important;
@@ -128,10 +123,10 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{
 html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
   position:absolute!important;
   z-index:3!important;
-  left:-4%!important;
+  left:-13%!important;
   top:1%!important;
   display:block!important;
-  width:52%!important;
+  width:46%!important;
   height:auto!important;
   max-width:none!important;
   object-fit:contain!important;
@@ -140,7 +135,13 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
   transform:none!important;
 }
 .ref-hero-blend{
-  display:none!important;
+  position:absolute!important;
+  z-index:4!important;
+  inset:0 auto 0 46%!important;
+  display:block!important;
+  width:16%!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,#03362d 0%,rgba(3,54,45,.98) 20%,rgba(3,54,45,.78) 45%,rgba(3,54,45,.38) 72%,rgba(3,54,45,0) 100%)!important;
 }
 .ref-hero-left{
   position:absolute!important;
@@ -207,7 +208,7 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 html body main#top .ref-hero .ref-hero-title em{
   margin-top:.27em!important;
   color:#20d19c!important;
-  font-size:clamp(54px,7.6vw,108px)!important;
+  font-size:clamp(48px,6vw,86px)!important;
   font-style:normal!important;
   letter-spacing:-.02em!important;
 }
@@ -345,7 +346,7 @@ html body main#top .ref-hero .ref-hero-title em{
   }
   .ref-hero-visual::before{display:none!important}
   html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{--poster-lift:0px;position:absolute!important;left:0!important;top:0!important;bottom:auto!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center bottom!important}
-  html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{left:-4%!important;top:1%!important;width:52%!important;height:auto!important}
+  html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{left:-13%!important;top:1%!important;width:46%!important;height:auto!important}
   .ref-hero-blend{display:none!important}
 }
 
