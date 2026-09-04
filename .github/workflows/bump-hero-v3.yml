@@ -13,7 +13,7 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace('hero-hard-final.css?v=20260904-reference5','hero-hard-final.css?v=20260904-conference1')
+          s = s.replace('hero-hard-final.css?v=20260904-reference25','hero-hard-final.css?v=20260904-conference1')
           p.write_text(s, encoding='utf-8')
           PY
           git config user.name "github-actions[bot]"
