@@ -1,45 +1,84 @@
-/* Seamless hero photo transition — loaded LAST.
-   The source photo and PNG logos are untouched; only a very wide two-stop alpha fade is used. */
+/* CLEAR + SMOOTH HERO TRANSITION — loaded LAST.
+   Photo and PNG logos remain untouched. Only a wide green alpha-mask is used. */
 
 @media (min-width:761px){
-  /* Remove the old layered gradients that could read as visible bands. */
   html body main#top .ref-hero-left{
     background:#032f27!important;
   }
 
-  /* Start the photo farther underneath the green side and let one continuous
-     alpha transition reveal it over a broad area. */
+  /* Keep the photo itself clean and unfiltered. */
   html body main#top .ref-hero-visual{
-    left:34%!important;
-    background-color:#032f27!important;
-    background-image:
-      linear-gradient(90deg,#032f27 0%,rgba(3,47,39,0) 50%),
-      url("assets/conference-main.jpg")!important;
-    background-size:100% 100%,cover!important;
-    background-position:left center,center center!important;
-    background-repeat:no-repeat,no-repeat!important;
+    left:42%!important;
+    background-color:#061a24!important;
+    background-image:url("assets/conference-main.jpg")!important;
+    background-size:cover!important;
+    background-position:center center!important;
+    background-repeat:no-repeat!important;
   }
 
-  /* The previous extra blend layer is intentionally disabled: one continuous
-     fade is smoother than several overlapping gradient systems. */
+  /* One wide soft green mask over the seam. This is intentionally obvious,
+     but the alpha fade is continuous so there are no visible bands. */
   html body main#top .ref-hero-blend{
-    display:none!important;
+    display:block!important;
+    position:absolute!important;
+    z-index:4!important;
+    top:-3%!important;
+    bottom:-3%!important;
+    left:40%!important;
+    width:31%!important;
+    height:auto!important;
+    pointer-events:none!important;
+    background:#032f27!important;
+    opacity:1!important;
+    filter:blur(14px)!important;
+    transform:translateX(-8px) scaleX(1.05)!important;
+    transform-origin:left center!important;
+    -webkit-mask-image:linear-gradient(90deg,
+      #000 0%,
+      #000 20%,
+      rgba(0,0,0,.96) 30%,
+      rgba(0,0,0,.82) 43%,
+      rgba(0,0,0,.60) 56%,
+      rgba(0,0,0,.36) 69%,
+      rgba(0,0,0,.16) 82%,
+      rgba(0,0,0,.05) 92%,
+      transparent 100%)!important;
+    mask-image:linear-gradient(90deg,
+      #000 0%,
+      #000 20%,
+      rgba(0,0,0,.96) 30%,
+      rgba(0,0,0,.82) 43%,
+      rgba(0,0,0,.60) 56%,
+      rgba(0,0,0,.36) 69%,
+      rgba(0,0,0,.16) 82%,
+      rgba(0,0,0,.05) 92%,
+      transparent 100%)!important;
   }
 }
 
 @media (max-width:760px){
-  /* On phones the same approach runs vertically. Logos remain separate pseudo
-     elements above the image and therefore stay crisp and unchanged. */
+  /* On phones, use a vertical transition over the top of the photo. */
   html body main#top .ref-hero-visual{
-    background-color:#032f27!important;
+    position:relative!important;
+    background-color:#061a24!important;
     background-image:
-      linear-gradient(180deg,#032f27 0%,rgba(3,47,39,0) 42%),
+      linear-gradient(180deg,
+        #032f27 0%,
+        rgba(3,47,39,.98) 10%,
+        rgba(3,47,39,.88) 22%,
+        rgba(3,47,39,.68) 36%,
+        rgba(3,47,39,.42) 50%,
+        rgba(3,47,39,.20) 64%,
+        rgba(3,47,39,.07) 76%,
+        rgba(3,47,39,0) 88%),
       url("assets/conference-main.jpg")!important;
     background-size:100% 100%,cover!important;
     background-position:center top,center center!important;
     background-repeat:no-repeat,no-repeat!important;
   }
 
+  /* No second overlay on mobile: the photo background already contains
+     the single smooth vertical fade above. */
   html body main#top .ref-hero-blend{
     display:none!important;
   }
