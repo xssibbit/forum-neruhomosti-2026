@@ -1,0 +1,46 @@
+/* Seamless hero photo transition — loaded LAST.
+   The source photo and PNG logos are untouched; only a very wide two-stop alpha fade is used. */
+
+@media (min-width:761px){
+  /* Remove the old layered gradients that could read as visible bands. */
+  html body main#top .ref-hero-left{
+    background:#032f27!important;
+  }
+
+  /* Start the photo farther underneath the green side and let one continuous
+     alpha transition reveal it over a broad area. */
+  html body main#top .ref-hero-visual{
+    left:34%!important;
+    background-color:#032f27!important;
+    background-image:
+      linear-gradient(90deg,#032f27 0%,rgba(3,47,39,0) 50%),
+      url("assets/conference-main.jpg")!important;
+    background-size:100% 100%,cover!important;
+    background-position:left center,center center!important;
+    background-repeat:no-repeat,no-repeat!important;
+  }
+
+  /* The previous extra blend layer is intentionally disabled: one continuous
+     fade is smoother than several overlapping gradient systems. */
+  html body main#top .ref-hero-blend{
+    display:none!important;
+  }
+}
+
+@media (max-width:760px){
+  /* On phones the same approach runs vertically. Logos remain separate pseudo
+     elements above the image and therefore stay crisp and unchanged. */
+  html body main#top .ref-hero-visual{
+    background-color:#032f27!important;
+    background-image:
+      linear-gradient(180deg,#032f27 0%,rgba(3,47,39,0) 42%),
+      url("assets/conference-main.jpg")!important;
+    background-size:100% 100%,cover!important;
+    background-position:center top,center center!important;
+    background-repeat:no-repeat,no-repeat!important;
+  }
+
+  html body main#top .ref-hero-blend{
+    display:none!important;
+  }
+}
