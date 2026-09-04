@@ -24,7 +24,7 @@ jobs:
               count=1,
               flags=re.S,
           )
-          for css_name in ('mobile-polish','mobile-hero-rescue','mobile-hero-emphasis','mobile-final','hero-readable','hero-seamless'):
+          for css_name in ('mobile-polish','mobile-hero-rescue','mobile-hero-emphasis','mobile-final','hero-readable','hero-seamless','mobile-screenshot-fixes'):
               s = re.sub(rf'\s*<link rel="stylesheet" href="{css_name}\.css\?v=[^"]+">\s*', '\n', s)
           links = (
               '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile2">\n'
@@ -33,6 +33,7 @@ jobs:
               '  <link rel="stylesheet" href="mobile-final.css?v=20260904-mobile-final2">\n'
               '  <link rel="stylesheet" href="hero-readable.css?v=20260904-readable3">\n'
               '  <link rel="stylesheet" href="hero-seamless.css?v=20260904-seamless2">\n'
+              '  <link rel="stylesheet" href="mobile-screenshot-fixes.css?v=20260904-iphone1">\n'
           )
           s = s.replace('</head>', links + '</head>')
           p.write_text(s, encoding='utf-8')
@@ -46,8 +47,8 @@ jobs:
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html mobile-hero-emphasis.css mobile-final.css hero-readable.css hero-seamless.css
+          git add index.html mobile-hero-emphasis.css mobile-final.css hero-readable.css hero-seamless.css mobile-screenshot-fixes.css
           if ! git diff --cached --quiet; then
-            git commit -m "Load obvious first-screen line spacing"
+            git commit -m "Load iPhone logo and consent fixes"
             git push
           fi
