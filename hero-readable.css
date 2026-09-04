@@ -1,0 +1,133 @@
+/* Final first-screen typography pass: readable on desktop and phones. Loaded LAST. */
+
+/* Desktop / tablet */
+@media (min-width:761px){
+  html body main#top .ref-hero-title{
+    line-height:.92!important;
+  }
+  html body main#top .ref-hero-title span{
+    line-height:.9!important;
+  }
+  html body main#top .ref-hero-title em{
+    margin-top:.22em!important;
+    line-height:.94!important;
+  }
+
+  html body main#top .ref-hero-desc{
+    width:min(34vw,540px)!important;
+    color:#e5ece8!important;
+    font:500 clamp(15px,1.16vw,19px)/1.65 Arial,sans-serif!important;
+    letter-spacing:.003em!important;
+  }
+
+  html body main#top .ref-hero-venue{
+    width:min(35vw,555px)!important;
+    gap:12px!important;
+    color:#e7eeea!important;
+    font:500 clamp(13px,.98vw,16px)/1.6 Arial,sans-serif!important;
+  }
+  html body main#top .ref-hero-venue b{
+    margin-bottom:4px!important;
+    font-size:1.02em!important;
+    line-height:1.35!important;
+  }
+
+  html body main#top .ref-hero-date span{
+    font-size:clamp(10px,.9vw,14px)!important;
+    line-height:1.2!important;
+  }
+
+  html body main#top .ref-hero-btn{
+    font-size:clamp(11px,.9vw,14px)!important;
+    line-height:1.15!important;
+    letter-spacing:.025em!important;
+  }
+}
+
+/* Short laptop screens: keep the larger type without hiding the actions. */
+@media (min-width:761px) and (max-height:700px){
+  html body main#top .ref-hero-desc{
+    font-size:14px!important;
+    line-height:1.55!important;
+  }
+  html body main#top .ref-hero-venue{
+    font-size:12.5px!important;
+    line-height:1.5!important;
+  }
+}
+
+/* Phones */
+@media (max-width:760px){
+  html body main#top .ref-hero-left{
+    padding-top:24px!important;
+    padding-bottom:32px!important;
+  }
+
+  html body main#top .ref-hero-star{
+    margin-bottom:14px!important;
+  }
+
+  html body main#top .ref-hero-date{
+    margin-bottom:24px!important;
+  }
+  html body main#top .ref-hero-date span{
+    font-size:10.5px!important;
+    line-height:1.25!important;
+  }
+
+  html body main#top .ref-hero-title{
+    line-height:.95!important;
+  }
+  html body main#top .ref-hero-title span{
+    font-size:clamp(58px,17.4vw,74px)!important;
+    line-height:.9!important;
+  }
+  html body main#top .ref-hero-title em{
+    margin-top:.22em!important;
+    font-size:clamp(43px,12.7vw,57px)!important;
+    line-height:.95!important;
+  }
+
+  html body main#top .ref-hero-desc{
+    margin-top:26px!important;
+    color:#edf3f0!important;
+    font-size:17px!important;
+    line-height:1.65!important;
+    letter-spacing:0!important;
+  }
+
+  html body main#top .ref-hero-venue{
+    margin-top:22px!important;
+    gap:11px!important;
+    color:#eef3f0!important;
+    font-size:14.5px!important;
+    line-height:1.6!important;
+  }
+  html body main#top .ref-hero-venue b{
+    margin-bottom:4px!important;
+    font-size:15px!important;
+    line-height:1.35!important;
+  }
+
+  html body main#top .ref-hero-actions{
+    margin-top:28px!important;
+    gap:12px!important;
+  }
+  html body main#top .ref-hero-btn,
+  html body main#top .ref-hero-btn.primary,
+  html body main#top .ref-hero-btn.secondary{
+    min-height:60px!important;
+    height:60px!important;
+  }
+  html body main#top .ref-hero-btn::before{
+    font-size:12.5px!important;
+    line-height:1.15!important;
+  }
+}
+
+@media (max-width:390px){
+  html body main#top .ref-hero-title span{font-size:clamp(54px,16.8vw,66px)!important}
+  html body main#top .ref-hero-title em{font-size:clamp(40px,12.1vw,49px)!important}
+  html body main#top .ref-hero-desc{font-size:16.5px!important;line-height:1.62!important}
+  html body main#top .ref-hero-venue{font-size:14px!important;line-height:1.58!important}
+}
