@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href^="participants-main.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'participants-main.css?v=20260904-wayforpay1';
+    link.href = 'participants-main.css?v=20260904-reference2';
     document.head.append(link);
   }
 
