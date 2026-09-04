@@ -1,4 +1,4 @@
-name: Load final mobile polish
+name: Load stable hero layout
 on:
   push:
     paths:
@@ -13,18 +13,22 @@ jobs:
       - run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          link = '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile1">\n'
-          import re
           s = re.sub(r'\s*<link rel="stylesheet" href="mobile-polish\.css\?v=[^"]+">\s*', '\n', s)
-          s = s.replace('</head>', link + '</head>')
+          s = re.sub(r'\s*<link rel="stylesheet" href="mobile-hero-rescue\.css\?v=[^"]+">\s*', '\n', s)
+          links = (
+              '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile2">\n'
+              '  <link rel="stylesheet" href="mobile-hero-rescue.css?v=20260904-rescue1">\n'
+          )
+          s = s.replace('</head>', links + '</head>')
           p.write_text(s, encoding='utf-8')
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m "Load final mobile polish"
+            git commit -m "Load stable hero layout last"
             git push
           fi
