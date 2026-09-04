@@ -49,6 +49,17 @@ html body .hero .eyebrow::after{
   font-size:clamp(16px,1.3vw,20px)!important;
 }
 
+/* About section: no animated/decorative sweep above “Чому варто бути тут?”. */
+html body .about::before,
+html body .about>.container::before,
+html body .about-layout::before,
+html body .about .section-title::before{
+  content:none!important;
+  display:none!important;
+  animation:none!important;
+  background:none!important;
+}
+
 @media(max-width:760px){
   html body #participants .participants-head{
     margin-bottom:30px!important;
