@@ -1,4 +1,4 @@
-name: Publish exact reference hero v5
+name: Publish conference photo hero
 on: push
 permissions:
   contents: write
@@ -13,18 +13,13 @@ jobs:
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          s = s.replace('hero-hard-final.css?v=20260904-hardfinal4','hero-hard-final.css?v=20260904-reference5')
-          s = s.replace('hero-main.jpg?v=20260904-hardfinal2','hero-main.jpg?v=20260904-reference5')
-          s = s.replace('готельно-ресторанний комплекс «Mont Blanc», Hotel France · вул. Соборна, 34 · Вінниця','готельно-ресторанний комплекс «Mont Blanc», Вінниця.')
-          needle = '      <a href="#about">Про форум</a>\n      <a href="#program">Програма</a>'
-          repl = '      <a href="#about">Про форум</a>\n      <a href="#outcomes">Що отримаєте</a>\n      <a href="#program">Програма</a>'
-          s = s.replace(needle, repl)
+          s = s.replace('hero-hard-final.css?v=20260904-reference5','hero-hard-final.css?v=20260904-conference1')
           p.write_text(s, encoding='utf-8')
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if ! git diff --cached --quiet; then
-            git commit -m "Load exact reference hero v5"
+            git commit -m "Load conference photo hero"
             git push
           fi
