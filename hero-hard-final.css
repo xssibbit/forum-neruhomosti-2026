@@ -94,7 +94,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   position:absolute!important;
   z-index:0!important;
   inset:0 0 0 auto!important;
-  width:51%!important;
+  width:50%!important;
   height:100%!important;
   overflow:hidden!important;
   background:#f7f6f2!important;
@@ -108,23 +108,24 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   pointer-events:none!important;
   background:linear-gradient(90deg,#03362d 0%,rgba(3,54,45,.82) 35%,rgba(3,54,45,.38) 68%,rgba(3,54,45,0) 100%)!important;
 }
-.ref-hero-visual .ref-hero-poster{
+html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{
+  --poster-lift:clamp(62px,7.65vw,110px);
   position:absolute!important;
   left:0!important;
   right:auto!important;
-  top:auto!important;
-  bottom:0!important;
+  top:calc(-1 * var(--poster-lift))!important;
+  bottom:auto!important;
   display:block!important;
   width:100%!important;
-  height:auto!important;
+  height:calc(100% + var(--poster-lift))!important;
   max-width:none!important;
-  object-fit:unset!important;
-  object-position:initial!important;
+  object-fit:cover!important;
+  object-position:center bottom!important;
   opacity:1!important;
   filter:none!important;
   transform:none!important;
 }
-.ref-hero-visual .ref-hero-partner{
+html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
   position:absolute!important;
   z-index:3!important;
   left:-4%!important;
@@ -203,7 +204,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
 .ref-hero-title span,
 .ref-hero-title em{display:block!important;white-space:nowrap!important}
 .ref-hero-title span{color:#f5efe6!important;font-size:clamp(52px,6.45vw,100px)!important}
-.ref-hero-title em{
+html body main#top .ref-hero .ref-hero-title em{
   margin-top:.27em!important;
   color:#20d19c!important;
   font-size:clamp(54px,7.6vw,108px)!important;
@@ -327,7 +328,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   .ref-hero-date span{font-size:10px!important}
   .ref-hero-title{width:100%!important}
   .ref-hero-title span{font-size:clamp(48px,14vw,62px)!important}
-  .ref-hero-title em{margin-top:.16em!important;font-size:clamp(38px,10.8vw,48px)!important;white-space:normal!important;line-height:.92!important}
+  html body main#top .ref-hero .ref-hero-title em{margin-top:.16em!important;font-size:clamp(38px,10.8vw,48px)!important;white-space:normal!important;line-height:.92!important}
   .ref-hero-desc{width:100%!important;margin-top:22px!important;font-size:15px!important}
   .ref-hero-venue{width:100%!important;margin-top:20px!important;font-size:12px!important}
   .ref-hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin-top:26px!important}
@@ -343,8 +344,8 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
     background:#f7f6f2!important;
   }
   .ref-hero-visual::before{display:none!important}
-  .ref-hero-visual .ref-hero-poster{position:absolute!important;left:0!important;bottom:0!important;width:100%!important;height:auto!important;object-fit:unset!important}
-  .ref-hero-visual .ref-hero-partner{left:-4%!important;top:1%!important;width:52%!important;height:auto!important}
+  html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{--poster-lift:0px;position:absolute!important;left:0!important;top:0!important;bottom:auto!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center bottom!important}
+  html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{left:-4%!important;top:1%!important;width:52%!important;height:auto!important}
   .ref-hero-blend{display:none!important}
 }
 
