@@ -118,9 +118,9 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-poster{
   bottom:auto!important;
   display:block!important;
   width:100%!important;
-  height:auto!important;
+  height:100%!important;
   max-width:none!important;
-  object-fit:initial!important;
+  object-fit:fill!important;
   object-position:initial!important;
   opacity:1!important;
   filter:none!important;
@@ -132,11 +132,11 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 .ref-hero-blend{
   position:absolute!important;
   z-index:4!important;
-  inset:0 auto 0 46%!important;
+  inset:0 auto 0 41.5%!important;
   display:block!important;
-  width:16%!important;
+  width:8.5%!important;
   pointer-events:none!important;
-  background:linear-gradient(90deg,#03362d 0%,rgba(3,54,45,.98) 20%,rgba(3,54,45,.78) 45%,rgba(3,54,45,.38) 72%,rgba(3,54,45,0) 100%)!important;
+  background:linear-gradient(90deg,rgba(3,54,45,0),rgba(108,131,123,.94))!important;
 }
 .ref-hero-left{
   position:absolute!important;
@@ -201,9 +201,9 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 .ref-hero-title em{display:block!important;white-space:nowrap!important}
 .ref-hero-title span{color:#f5efe6!important;font-size:clamp(52px,6.45vw,100px)!important}
 html body main#top .ref-hero .ref-hero-title em{
-  margin-top:.27em!important;
+  margin-top:.39em!important;
   color:#20d19c!important;
-  font-size:clamp(48px,6vw,86px)!important;
+  font-size:clamp(46px,5.7vw,82px)!important;
   font-style:normal!important;
   letter-spacing:-.02em!important;
 }
