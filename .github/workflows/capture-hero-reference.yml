@@ -1,0 +1,27 @@
+name: Capture hero reference
+
+on:
+  push:
+    paths:
+      - '.github/workflows/capture-hero-reference.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture published landing page at reference viewport
+        run: |
+          sleep 8
+          google-chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=838,518 --screenshot=hero-verification.png 'https://xssibbit.github.io/forum-neruhomosti-2026/?v=hardfinal4'
+          test -s hero-verification.png
+      - name: Commit verification screenshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hero-verification.png
+          git commit -m 'Capture published hero for visual verification' || exit 0
+          git push
