@@ -48,11 +48,11 @@ html body .site-header .desktop-nav{
   display:flex!important;
   min-width:0!important;
   justify-content:center!important;
-  gap:clamp(11px,1.75vw,30px)!important;
+  gap:clamp(14px,2.6vw,30px)!important;
 }
 html body .site-header .desktop-nav a{
   color:#d7e1dd!important;
-  font-size:clamp(8px,.86vw,12px)!important;
+  font-size:clamp(9px,.95vw,12px)!important;
   font-weight:700!important;
   line-height:1!important;
   white-space:nowrap!important;
@@ -61,7 +61,7 @@ html body .site-header .desktop-nav a:hover{color:#31d6a3!important}
 html body .site-header .header-cta{
   min-height:0!important;
   height:clamp(32px,3.75vw,48px)!important;
-  padding:0 clamp(12px,1.6vw,21px)!important;
+  padding:0 clamp(10px,1.3vw,18px)!important;
   border-radius:0!important;
   font-size:clamp(8px,.8vw,11px)!important;
   white-space:nowrap!important;
@@ -160,9 +160,9 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
   left:5.75vw!important;
   top:6.7vw!important;
   width:clamp(164px,19.35vw,300px)!important;
-  height:clamp(54px,5.95vw,92px)!important;
+  height:clamp(50px,5.95vw,92px)!important;
   min-height:0!important;
-  padding:clamp(9px,1vw,15px) clamp(12px,1.25vw,19px)!important;
+  padding:clamp(6px,.75vw,12px) clamp(10px,1.05vw,16px)!important;
   border:1px solid rgba(47,197,151,.58)!important;
   background:linear-gradient(100deg,rgba(190,141,79,.98),rgba(153,111,66,.96) 58%,rgba(21,91,73,.92))!important;
   box-shadow:none!important;
@@ -170,14 +170,14 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 .ref-hero-date strong{
   display:block!important;
   color:#f5efe6!important;
-  font:400 clamp(29px,3.15vw,48px)/.84 Georgia,"Times New Roman",serif!important;
+  font:400 clamp(25px,2.85vw,44px)/.84 Georgia,"Times New Roman",serif!important;
   letter-spacing:-.04em!important;
 }
 .ref-hero-date span{
   display:block!important;
-  margin-top:clamp(6px,.62vw,10px)!important;
-  padding-left:clamp(8px,.82vw,12px)!important;
-  border-left:1px solid rgba(255,255,255,.68)!important;
+  margin-top:clamp(5px,.55vw,8px)!important;
+  padding-left:0!important;
+  border-left:0!important;
   color:#fbf6ee!important;
   font:800 clamp(9px,.88vw,13px)/1 Arial,sans-serif!important;
   letter-spacing:.075em!important;
@@ -201,17 +201,17 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 .ref-hero-title em{display:block!important;white-space:nowrap!important}
 .ref-hero-title span{color:#f5efe6!important;font-size:clamp(57px,7.3vw,106px)!important}
 html body main#top .ref-hero .ref-hero-title em{
-  margin-top:.39em!important;
+  margin-top:.29em!important;
   color:#20d19c!important;
-  font-size:clamp(46px,5.7vw,82px)!important;
+  font-size:clamp(47px,5.8vw,83px)!important;
   font-style:normal!important;
   letter-spacing:-.02em!important;
 }
 .ref-hero-desc{
   position:absolute!important;
   left:6.2vw!important;
-  top:30.55vw!important;
-  width:min(33vw,505px)!important;
+  top:30.3vw!important;
+  width:min(34vw,520px)!important;
   max-width:none!important;
   margin:0!important;
   color:#d2ddd8!important;
@@ -220,7 +220,7 @@ html body main#top .ref-hero .ref-hero-title em{
 .ref-hero-venue{
   position:absolute!important;
   left:6.2vw!important;
-  top:36.85vw!important;
+  top:36.7vw!important;
   display:flex!important;
   align-items:flex-start!important;
   gap:clamp(8px,.8vw,12px)!important;
@@ -262,7 +262,7 @@ html body main#top .ref-hero .ref-hero-title em{
   display:inline-flex!important;
   align-items:center!important;
   justify-content:space-between!important;
-  height:clamp(42px,4.65vw,71px)!important;
+  height:clamp(40px,4.5vw,68px)!important;
   min-height:0!important;
   padding:0 clamp(14px,1.4vw,22px)!important;
   border:1px solid rgba(215,229,223,.34)!important;
