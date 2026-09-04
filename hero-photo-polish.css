@@ -1,0 +1,120 @@
+/* Hero photo polish only. Loaded through participants-main.css, but uses higher specificity so it wins over older hero layers. */
+html body main#top section.hero{
+  min-height:680px!important;
+  height:calc(100svh - 78px)!important;
+  max-height:820px!important;
+  background:linear-gradient(135deg,#03271f 0%,#06372c 58%,#082f28 100%)!important;
+}
+
+html body main#top section.hero::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  left:auto!important;
+  width:57%!important;
+  pointer-events:none!important;
+  background-color:#f7f5ef!important;
+  background-image:url("assets/hero-main.jpg?v=20260904-photo-polish2")!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:contain!important;
+  box-shadow:-34px 0 80px rgba(0,0,0,.16)!important;
+  opacity:1!important;
+}
+
+html body main#top section.hero::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,
+    #03271f 0%,
+    #03271f 35%,
+    rgba(3,39,31,.98) 40%,
+    rgba(3,39,31,.88) 44%,
+    rgba(3,39,31,.64) 48%,
+    rgba(3,39,31,.34) 52%,
+    rgba(3,39,31,.10) 56%,
+    rgba(3,39,31,0) 60%)!important;
+}
+
+html body main#top section.hero .hero-inner{
+  width:min(1360px,calc(100% - 128px))!important;
+  padding-top:70px!important;
+  padding-bottom:34px!important;
+}
+
+html body main#top section.hero .hero-copy,
+html body main#top section.hero .hero-copy.reveal{
+  width:min(610px,43vw)!important;
+  max-width:610px!important;
+}
+
+html body main#top section.hero h1{
+  max-width:610px!important;
+  font-size:clamp(54px,4.85vw,76px)!important;
+  line-height:.84!important;
+}
+html body main#top section.hero h1 em{
+  font-size:.86em!important;
+}
+
+@media(max-width:1180px) and (min-width:761px){
+  html body main#top section.hero::after{width:55%!important}
+  html body main#top section.hero::before{
+    background:linear-gradient(90deg,#03271f 0%,#03271f 38%,rgba(3,39,31,.94) 44%,rgba(3,39,31,.52) 51%,rgba(3,39,31,.10) 58%,transparent 63%)!important;
+  }
+  html body main#top section.hero .hero-inner{width:calc(100% - 72px)!important}
+  html body main#top section.hero .hero-copy{width:min(540px,46vw)!important;max-width:540px!important}
+  html body main#top section.hero h1{font-size:clamp(48px,5vw,66px)!important;max-width:540px!important}
+}
+
+@media(max-width:760px){
+  html body main#top section.hero{
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    display:block!important;
+    background:#03271f!important;
+  }
+  html body main#top section.hero::before{
+    z-index:1!important;
+    background:linear-gradient(180deg,#03271f 0%,#03271f 58%,rgba(3,39,31,.96) 66%,rgba(3,39,31,.42) 75%,rgba(3,39,31,0) 84%)!important;
+  }
+  html body main#top section.hero::after{
+    top:auto!important;
+    left:12px!important;
+    right:12px!important;
+    bottom:14px!important;
+    width:auto!important;
+    height:330px!important;
+    border-radius:18px!important;
+    background-color:#f7f5ef!important;
+    background-position:center center!important;
+    background-size:contain!important;
+    box-shadow:0 18px 50px rgba(0,0,0,.28)!important;
+  }
+  html body main#top section.hero .hero-inner{
+    width:calc(100% - 32px)!important;
+    padding-top:90px!important;
+    padding-bottom:366px!important;
+  }
+  html body main#top section.hero .hero-copy,
+  html body main#top section.hero .hero-copy.reveal{width:100%!important;max-width:100%!important}
+  html body main#top section.hero h1{
+    max-width:100%!important;
+    font-size:clamp(42px,11.7vw,56px)!important;
+  }
+}
+
+@media(max-width:390px){
+  html body main#top section.hero::after{height:292px!important}
+  html body main#top section.hero .hero-inner{padding-bottom:326px!important}
+  html body main#top section.hero h1{font-size:clamp(38px,11.2vw,48px)!important}
+}
