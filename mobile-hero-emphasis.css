@@ -1,0 +1,111 @@
+/* Mobile-first hero emphasis: bigger title + visible transition into the photo. Loaded LAST. */
+
+@media (max-width:760px){
+  html body main#top .ref-hero-left{
+    padding:18px 16px 24px!important;
+  }
+
+  html body main#top .ref-hero-title{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+
+  html body main#top .ref-hero-title span{
+    display:block!important;
+    color:#fff8ee!important;
+    font-size:clamp(52px,16vw,70px)!important;
+    line-height:.82!important;
+    letter-spacing:-.06em!important;
+    white-space:nowrap!important;
+    text-shadow:0 2px 18px rgba(0,0,0,.12)!important;
+  }
+
+  html body main#top .ref-hero-title em{
+    display:block!important;
+    margin-top:.11em!important;
+    color:#22d9a4!important;
+    font-size:clamp(39px,11.8vw,54px)!important;
+    line-height:.88!important;
+    letter-spacing:-.055em!important;
+    white-space:nowrap!important;
+    text-shadow:0 2px 18px rgba(0,0,0,.14)!important;
+  }
+
+  html body main#top .ref-hero-desc{
+    margin-top:18px!important;
+    color:#e4ece8!important;
+    font-size:15px!important;
+    line-height:1.52!important;
+  }
+
+  html body main#top .ref-hero-venue{
+    color:#e7efeb!important;
+  }
+
+  html body main#top .ref-hero-actions{
+    margin-top:20px!important;
+  }
+
+  /* The green block visibly melts into the photo. */
+  html body main#top .ref-hero-visual{
+    position:relative!important;
+    margin-top:-1px!important;
+    min-height:280px!important;
+    aspect-ratio:16/10!important;
+    background-image:
+      linear-gradient(180deg,
+        #032f27 0%,
+        rgba(3,47,39,.98) 5%,
+        rgba(3,47,39,.88) 12%,
+        rgba(3,47,39,.66) 20%,
+        rgba(3,47,39,.38) 29%,
+        rgba(3,47,39,.14) 38%,
+        rgba(3,47,39,0) 48%),
+      url("assets/conference-main.jpg")!important;
+    background-size:100% 100%,cover!important;
+    background-position:center top,center center!important;
+    background-repeat:no-repeat,no-repeat!important;
+  }
+
+  html body main#top .ref-hero-visual{
+    box-shadow:inset 0 36px 46px -34px rgba(3,47,39,.96)!important;
+  }
+
+  html body main#top .ref-hero-blend{
+    display:none!important;
+  }
+}
+
+@media (max-width:390px){
+  html body main#top .ref-hero-left{padding-inline:14px!important}
+  html body main#top .ref-hero-title span{font-size:clamp(50px,15.7vw,61px)!important}
+  html body main#top .ref-hero-title em{font-size:clamp(37px,11.3vw,44px)!important}
+  html body main#top .ref-hero-desc{font-size:14.5px!important}
+}
+
+/* Desktop / tablet: stronger horizontal blend without changing the actual photo or logos. */
+@media (min-width:761px){
+  html body main#top .ref-hero-blend{
+    display:block!important;
+    left:37%!important;
+    width:31%!important;
+    background:linear-gradient(90deg,
+      #032f27 0%,
+      rgba(3,47,39,1) 14%,
+      rgba(3,47,39,.96) 28%,
+      rgba(3,47,39,.82) 43%,
+      rgba(3,47,39,.58) 60%,
+      rgba(3,47,39,.32) 76%,
+      rgba(3,47,39,.12) 89%,
+      rgba(3,47,39,0) 100%)!important;
+  }
+
+  html body main#top .ref-hero-title span{
+    color:#fff8ee!important;
+  }
+  html body main#top .ref-hero-title em{
+    color:#22d9a4!important;
+  }
+}
