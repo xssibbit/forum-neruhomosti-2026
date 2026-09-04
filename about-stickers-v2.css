@@ -1,0 +1,161 @@
+/* Composition pass matching the approved mockup: larger premium sticker illustrations + corner accents. */
+html body #about{position:relative!important;overflow:hidden!important}
+html body #about::before{
+  content:""!important;
+  position:absolute!important;
+  right:-58px!important;
+  top:18px!important;
+  width:190px!important;
+  height:190px!important;
+  border:1px solid rgba(215,166,94,.26)!important;
+  border-radius:50%!important;
+  box-shadow:0 0 0 18px rgba(215,166,94,.055),0 0 0 38px rgba(67,213,168,.035)!important;
+  background-image:radial-gradient(circle,rgba(215,166,94,.65) 1.3px,transparent 1.5px)!important;
+  background-size:12px 12px!important;
+  background-position:48px 34px!important;
+  opacity:.72!important;
+  pointer-events:none!important;
+}
+html body #about::after{
+  content:""!important;
+  position:absolute!important;
+  left:-72px!important;
+  bottom:-92px!important;
+  width:180px!important;
+  height:180px!important;
+  border:1px solid rgba(67,213,168,.25)!important;
+  border-radius:50%!important;
+  box-shadow:0 0 0 22px rgba(215,166,94,.045)!important;
+  opacity:.8!important;
+  pointer-events:none!important;
+}
+
+/* Building sticker between title and intro, as in the visual mock. */
+html body #about .about-layout::after{
+  left:42%!important;
+  top:-12%!important;
+  width:138px!important;
+  height:118px!important;
+  opacity:1!important;
+  transform:rotate(-5deg)!important;
+  filter:drop-shadow(0 16px 22px rgba(0,0,0,.34)) drop-shadow(0 0 1px rgba(232,215,181,.65))!important;
+  animation:aboutStickerFloat 7s ease-in-out infinite!important;
+}
+
+html body #about .benefit{overflow:visible!important;isolation:isolate!important}
+html body #about .benefit::before{
+  z-index:4!important;
+  opacity:1!important;
+  box-sizing:border-box!important;
+  padding:7px!important;
+  border-radius:22px!important;
+  background-color:rgba(4,55,45,.92)!important;
+  background-size:84% 84%!important;
+  background-position:center!important;
+  border:1px solid rgba(232,215,181,.46)!important;
+  box-shadow:0 16px 30px rgba(0,0,0,.35),inset 0 0 0 1px rgba(67,213,168,.12)!important;
+  filter:none!important;
+  transition:transform .32s ease,box-shadow .32s ease!important;
+}
+html body #about .benefit:hover::before{
+  transform:translateY(-6px) rotate(-2deg) scale(1.03)!important;
+  box-shadow:0 22px 36px rgba(0,0,0,.42),inset 0 0 0 1px rgba(67,213,168,.18)!important;
+}
+
+/* Practice: large checklist in the free lower-left area. */
+html body #about .benefit:nth-child(1){padding-bottom:132px!important}
+html body #about .benefit:nth-child(1)::before{
+  left:28px!important;
+  bottom:18px!important;
+  width:126px!important;
+  height:126px!important;
+  transform:rotate(-7deg)!important;
+}
+
+/* Real cases: report card low/right, slightly angled. */
+html body #about .benefit:nth-child(2){padding-right:112px!important;overflow:visible!important}
+html body #about .benefit:nth-child(2)::before{
+  right:16px!important;
+  bottom:-9px!important;
+  width:94px!important;
+  height:108px!important;
+  transform:rotate(7deg)!important;
+}
+
+/* Networking: handshake peeks above the bronze card edge. */
+html body #about .benefit:nth-child(3){padding-right:124px!important;overflow:visible!important}
+html body #about .benefit:nth-child(3)::before{
+  right:18px!important;
+  top:-42px!important;
+  width:122px!important;
+  height:100px!important;
+  transform:rotate(6deg)!important;
+  background-color:rgba(7,58,48,.94)!important;
+}
+
+/* Partnerships: property/key sticker centered toward the bottom. */
+html body #about .benefit:nth-child(4){padding-right:150px!important;overflow:visible!important}
+html body #about .benefit:nth-child(4)::before{
+  right:34%!important;
+  bottom:-18px!important;
+  width:124px!important;
+  height:118px!important;
+  transform:rotate(-5deg)!important;
+}
+
+/* Small gold stars and dot fields from the mockup. */
+html body #about .benefit-grid{position:relative!important}
+html body #about .benefit-grid::before{
+  content:"✦"!important;
+  position:absolute!important;
+  left:5.5%!important;
+  bottom:-52px!important;
+  color:#d7a65e!important;
+  font-size:34px!important;
+  line-height:1!important;
+  text-shadow:0 0 18px rgba(215,166,94,.22)!important;
+  z-index:5!important;
+  pointer-events:none!important;
+}
+html body #about .benefit-grid::after{
+  content:""!important;
+  position:absolute!important;
+  right:-34px!important;
+  bottom:-48px!important;
+  width:108px!important;
+  height:76px!important;
+  background-image:radial-gradient(circle,rgba(215,166,94,.68) 1.25px,transparent 1.5px)!important;
+  background-size:11px 11px!important;
+  opacity:.65!important;
+  pointer-events:none!important;
+}
+
+@media(max-width:1180px){
+  html body #about .about-layout::after{left:40%!important;top:0!important;width:108px!important;height:92px!important}
+  html body #about .benefit:nth-child(1)::before{width:104px!important;height:104px!important}
+  html body #about .benefit:nth-child(2)::before{width:82px!important;height:94px!important}
+  html body #about .benefit:nth-child(3)::before{width:104px!important;height:84px!important;top:-34px!important}
+  html body #about .benefit:nth-child(4)::before{width:102px!important;height:96px!important}
+}
+
+@media(max-width:760px){
+  html body #about::before{right:-84px!important;top:18px!important;width:150px!important;height:150px!important;opacity:.46!important}
+  html body #about::after{left:-96px!important;bottom:-112px!important;opacity:.52!important}
+  html body #about .about-layout::after{right:0!important;left:auto!important;top:-8px!important;width:76px!important;height:66px!important;opacity:.82!important}
+  html body #about .benefit{overflow:hidden!important;min-height:168px!important}
+  html body #about .benefit:nth-child(1){padding-bottom:78px!important}
+  html body #about .benefit:nth-child(1)::before{left:16px!important;bottom:10px!important;width:76px!important;height:76px!important;border-radius:16px!important}
+  html body #about .benefit:nth-child(2){padding-right:76px!important}
+  html body #about .benefit:nth-child(2)::before{right:8px!important;bottom:8px!important;width:64px!important;height:72px!important;border-radius:15px!important}
+  html body #about .benefit:nth-child(3){padding-right:78px!important}
+  html body #about .benefit:nth-child(3)::before{right:8px!important;top:10px!important;width:68px!important;height:58px!important;border-radius:15px!important}
+  html body #about .benefit:nth-child(4){padding-right:84px!important}
+  html body #about .benefit:nth-child(4)::before{right:8px!important;bottom:8px!important;width:72px!important;height:68px!important;border-radius:15px!important}
+  html body #about .benefit-grid::before{left:auto!important;right:16px!important;bottom:-34px!important;font-size:24px!important}
+  html body #about .benefit-grid::after{display:none!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html body #about .about-layout::after{animation:none!important}
+  html body #about .benefit::before{transition:none!important}
+}
