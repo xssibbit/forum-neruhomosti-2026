@@ -1,4 +1,12 @@
 /* Mobile fixes based on real iPhone screenshots. Loaded LAST. */
+
+/* Final desktop + mobile guard: do not render generated duplicate text around the About title. */
+html body section#about .about-layout h2.section-title::before,
+html body section#about .about-layout h2.section-title::after{
+  content:none!important;
+  display:none!important;
+}
+
 @media (max-width:760px){
   /* Keep both partner logos clearly visible on the hero photo. */
   html body main#top .ref-hero-visual::before{
