@@ -1,0 +1,48 @@
+name: Apply live 16-05 fixes
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-live-1605.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch landing page
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = '<link rel="stylesheet" href="final-live.css?v=20260904-1605">'
+          if marker not in s:
+              s = s.replace('</head>', '  <link rel="preload" as="image" href="assets/hero-forum-main.webp?v=20260904-1605">\n  ' + marker + '\n</head>', 1)
+          s = s.replace('<h2 class="section-title reveal">25–26 вересня.<br><span>Повна програма.</span></h2>', '<h2 class="section-title reveal">Повна програма</h2>')
+          s = s.replace('<h2 class="section-title reveal">Спікери<br><span>форуму 2026.</span></h2>', '<h2 class="section-title reveal">Спікери<br><span>форуму 2026</span></h2>')
+          s = s.replace('<h2 class="section-title reveal">Квитки<br><span>на два дні форуму.</span></h2>', '<h2 class="section-title reveal">Квитки<br><span>на два дні форуму</span></h2>')
+          s = s.replace('<div><div class="section-kicker">ДО ПОЧАТКУ ФОРУМУ</div><h2>25 вересня.<br><span>Початок о 09:00.</span></h2></div>', '<div><div class="section-kicker">ДО ПОЧАТКУ ФОРУМУ</div><h2>25 вересня<br><span>Початок о 09:00</span></h2></div>')
+          s = s.replace('<h2>До зустрічі<br><span>25–26 вересня</span><br>у Вінниці.</h2>', '<h2>До зустрічі<br><span>25–26 вересня</span><br>у Вінниці</h2>')
+          s = s.replace('<h2 class="section-title reveal">Практика, угоди,<br><span>маркетинг і право.</span></h2>', '<h2 class="section-title reveal">Чому варто<br><span>бути тут?</span></h2>')
+          s = re.sub(r'tz-enhancements\.js\?v=[^"\']+', 'tz-enhancements.js?v=20260904-1605', s)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Verify
+        run: |
+          grep -q 'final-live.css?v=20260904-1605' index.html
+          grep -q 'assets/hero-forum-main.webp?v=20260904-1605' index.html
+          grep -q '>Повна програма</h2>' index.html
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Fix live hero, headings and footer layout' || exit 0
+          git push
