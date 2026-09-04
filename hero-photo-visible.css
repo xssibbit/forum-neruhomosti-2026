@@ -1,0 +1,109 @@
+/* Final override: preserve all meaningful objects on the user's hero poster. */
+html body main#top section.hero::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  left:auto!important;
+  width:58%!important;
+  height:100%!important;
+  pointer-events:none!important;
+  background-color:#f7f5ef!important;
+  background-image:url("assets/hero-main.jpg?v=20260904-visible1")!important;
+  background-repeat:no-repeat!important;
+  /* Scale by height and anchor right: this crops only the empty left side of the source,
+     while keeping DIM.RIA, QR, AFNU/Vinnytsia and the lower building collage visible. */
+  background-size:auto 100%!important;
+  background-position:right center!important;
+  opacity:1!important;
+  box-shadow:none!important;
+}
+
+/* Stronger emerald blend, visibly entering the left edge of the photo. */
+html body main#top section.hero::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,
+    #042b23 0%,
+    #042b23 34%,
+    rgba(4,43,35,1) 38%,
+    rgba(4,43,35,.98) 42%,
+    rgba(4,43,35,.92) 46%,
+    rgba(4,43,35,.76) 50%,
+    rgba(4,43,35,.52) 54%,
+    rgba(4,43,35,.28) 58%,
+    rgba(4,43,35,.10) 61%,
+    rgba(4,43,35,0) 65%)!important;
+}
+
+html body main#top section.hero .hero-copy,
+html body main#top section.hero .hero-copy.reveal{
+  width:min(585px,41.5vw)!important;
+  max-width:585px!important;
+}
+html body main#top section.hero h1{
+  max-width:585px!important;
+}
+
+@media(max-width:1180px) and (min-width:761px){
+  html body main#top section.hero::after{
+    width:57%!important;
+    background-size:auto 100%!important;
+    background-position:right center!important;
+  }
+  html body main#top section.hero::before{
+    background:linear-gradient(90deg,
+      #042b23 0%,
+      #042b23 36%,
+      rgba(4,43,35,.99) 41%,
+      rgba(4,43,35,.88) 46%,
+      rgba(4,43,35,.62) 51%,
+      rgba(4,43,35,.32) 56%,
+      rgba(4,43,35,.08) 61%,
+      rgba(4,43,35,0) 65%)!important;
+  }
+  html body main#top section.hero .hero-copy{width:min(500px,42vw)!important;max-width:500px!important}
+}
+
+@media(max-width:760px){
+  html body main#top section.hero::after{
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    width:100%!important;
+    height:clamp(340px,100vw,500px)!important;
+    background-size:auto 100%!important;
+    background-position:right center!important;
+    background-color:#f7f5ef!important;
+  }
+  html body main#top section.hero::before{
+    background:linear-gradient(180deg,
+      #042b23 0%,
+      #042b23 54%,
+      rgba(4,43,35,.99) 61%,
+      rgba(4,43,35,.88) 67%,
+      rgba(4,43,35,.58) 73%,
+      rgba(4,43,35,.26) 79%,
+      rgba(4,43,35,0) 86%)!important;
+  }
+  html body main#top section.hero .hero-inner{
+    padding-bottom:calc(clamp(340px,100vw,500px) + 20px)!important;
+  }
+  html body main#top section.hero .hero-copy,
+  html body main#top section.hero .hero-copy.reveal{
+    width:100%!important;
+    max-width:100%!important;
+  }
+}
+
+@media(max-width:390px){
+  html body main#top section.hero::after{height:330px!important}
+  html body main#top section.hero .hero-inner{padding-bottom:350px!important}
+}
