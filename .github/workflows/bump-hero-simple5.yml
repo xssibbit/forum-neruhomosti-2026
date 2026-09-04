@@ -1,0 +1,27 @@
+name: Bump final hero cache
+
+on:
+  push:
+    paths:
+      - '.github/workflows/bump-hero-simple5.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump final CSS versions
+        run: |
+          sed -i 's/hero-simple.css?v=20260904-simple3/hero-simple.css?v=20260904-simple5/g' index.html
+          sed -i 's/participants-main.css?v=20260904-stickers1/participants-main.css?v=20260904-stickers3/g' index.html
+          rm .github/workflows/bump-hero-simple5.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html .github/workflows/bump-hero-simple5.yml
+          git commit -m 'Publish final hero and sticker composition' || exit 0
+          git push
