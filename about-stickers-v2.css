@@ -1,161 +1,318 @@
-/* Composition pass matching the approved mockup: larger premium sticker illustrations + corner accents. */
-html body #about{position:relative!important;overflow:hidden!important}
+/* Final composition for “Чому варто бути тут?” — matches the approved visual mockup. */
+html body #about{
+  position:relative!important;
+  overflow:hidden!important;
+  padding-top:clamp(64px,6vw,92px)!important;
+  padding-bottom:clamp(78px,7vw,108px)!important;
+  background:
+    radial-gradient(circle at 15% 34%,rgba(20,112,84,.28),transparent 28%),
+    radial-gradient(circle at 82% 18%,rgba(17,88,69,.18),transparent 30%),
+    linear-gradient(135deg,#06261f 0%,#04241d 48%,#073328 100%)!important;
+}
+
+/* Corner rings + dot field from the approved mockup. */
 html body #about::before{
   content:""!important;
   position:absolute!important;
-  right:-58px!important;
-  top:18px!important;
-  width:190px!important;
-  height:190px!important;
-  border:1px solid rgba(215,166,94,.26)!important;
+  right:-78px!important;
+  top:-34px!important;
+  width:228px!important;
+  height:228px!important;
+  border:1px solid rgba(215,166,94,.28)!important;
   border-radius:50%!important;
-  box-shadow:0 0 0 18px rgba(215,166,94,.055),0 0 0 38px rgba(67,213,168,.035)!important;
-  background-image:radial-gradient(circle,rgba(215,166,94,.65) 1.3px,transparent 1.5px)!important;
-  background-size:12px 12px!important;
-  background-position:48px 34px!important;
-  opacity:.72!important;
+  box-shadow:0 0 0 22px rgba(215,166,94,.055),0 0 0 44px rgba(67,213,168,.03)!important;
+  background-image:radial-gradient(circle,rgba(215,166,94,.72) 1.15px,transparent 1.4px)!important;
+  background-size:11px 11px!important;
+  background-position:54px 42px!important;
+  opacity:.68!important;
   pointer-events:none!important;
+  z-index:0!important;
 }
 html body #about::after{
   content:""!important;
   position:absolute!important;
-  left:-72px!important;
-  bottom:-92px!important;
-  width:180px!important;
-  height:180px!important;
-  border:1px solid rgba(67,213,168,.25)!important;
+  left:-92px!important;
+  bottom:-104px!important;
+  width:210px!important;
+  height:210px!important;
+  border:1px solid rgba(67,213,168,.28)!important;
   border-radius:50%!important;
-  box-shadow:0 0 0 22px rgba(215,166,94,.045)!important;
-  opacity:.8!important;
+  box-shadow:0 0 0 24px rgba(215,166,94,.05)!important;
+  opacity:.72!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+html body #about .container{position:relative!important;z-index:1!important}
+html body #about .container::after{
+  content:""!important;
+  position:absolute!important;
+  left:-70px!important;
+  top:46%!important;
+  width:104px!important;
+  height:88px!important;
+  background-image:radial-gradient(circle,rgba(215,166,94,.68) 1.2px,transparent 1.5px)!important;
+  background-size:10px 10px!important;
+  opacity:.58!important;
   pointer-events:none!important;
 }
 
-/* Building sticker between title and intro, as in the visual mock. */
+/* Header composition. */
+html body #about .about-layout{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(320px,.72fr)!important;
+  gap:clamp(72px,9vw,150px)!important;
+  align-items:end!important;
+  margin-bottom:0!important;
+}
+html body #about .section-title{
+  max-width:690px!important;
+  margin:0!important;
+  color:#f3f0e6!important;
+  font-size:clamp(58px,5.8vw,92px)!important;
+  line-height:.88!important;
+  letter-spacing:-.055em!important;
+}
+html body #about .section-title span{color:#f3f0e6!important;opacity:1!important}
+html body #about .about-copy{align-self:center!important;padding-top:32px!important}
+html body #about .about-copy p{
+  max-width:470px!important;
+  margin:0!important;
+  color:#c7d3cf!important;
+  font-size:clamp(17px,1.28vw,20px)!important;
+  line-height:1.62!important;
+}
+
+/* Small star at upper left. */
+html body #about .about-layout::before{
+  content:"✦"!important;
+  position:absolute!important;
+  left:-58px!important;
+  top:8px!important;
+  color:#d8ab67!important;
+  font-size:34px!important;
+  line-height:1!important;
+  text-shadow:0 0 18px rgba(215,166,94,.18)!important;
+  pointer-events:none!important;
+}
+
+/* Building sticker between heading and intro. Uses the line-art asset from about-stickers.css. */
 html body #about .about-layout::after{
-  left:42%!important;
-  top:-12%!important;
-  width:138px!important;
-  height:118px!important;
+  left:43%!important;
+  top:0!important;
+  width:126px!important;
+  height:108px!important;
   opacity:1!important;
+  background-color:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.30)) drop-shadow(0 0 1px rgba(232,215,181,.7))!important;
   transform:rotate(-5deg)!important;
-  filter:drop-shadow(0 16px 22px rgba(0,0,0,.34)) drop-shadow(0 0 1px rgba(232,215,181,.65))!important;
   animation:aboutStickerFloat 7s ease-in-out infinite!important;
 }
 
-html body #about .benefit{overflow:visible!important;isolation:isolate!important}
-html body #about .benefit::before{
-  z-index:4!important;
-  opacity:1!important;
-  box-sizing:border-box!important;
-  padding:7px!important;
-  border-radius:22px!important;
-  background-color:rgba(4,55,45,.92)!important;
-  background-size:84% 84%!important;
-  background-position:center!important;
-  border:1px solid rgba(232,215,181,.46)!important;
-  box-shadow:0 16px 30px rgba(0,0,0,.35),inset 0 0 0 1px rgba(67,213,168,.12)!important;
-  filter:none!important;
-  transition:transform .32s ease,box-shadow .32s ease!important;
+/* Exact 3-column / 2-row mosaic from the mockup. */
+html body #about .benefit-grid{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:1.18fr .82fr 1fr!important;
+  grid-template-rows:168px 168px!important;
+  gap:12px!important;
+  margin-top:56px!important;
+  overflow:visible!important;
+  border:0!important;
 }
-html body #about .benefit:hover::before{
-  transform:translateY(-6px) rotate(-2deg) scale(1.03)!important;
-  box-shadow:0 22px 36px rgba(0,0,0,.42),inset 0 0 0 1px rgba(67,213,168,.18)!important;
+html body #about .benefit{
+  position:relative!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:26px 28px!important;
+  border:1px solid rgba(210,230,221,.16)!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  isolation:isolate!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  background:#0a3028!important;
+  box-shadow:none!important;
+  transform:none!important;
 }
+html body #about .benefit:nth-child(1){
+  grid-column:1!important;
+  grid-row:1/3!important;
+  background:linear-gradient(145deg,#0c7457 0%,#0b5b46 54%,#0a4235 100%)!important;
+}
+html body #about .benefit:nth-child(2){
+  grid-column:2!important;
+  grid-row:1!important;
+  background:linear-gradient(145deg,#0a2822,#09241f)!important;
+}
+html body #about .benefit:nth-child(3){
+  grid-column:3!important;
+  grid-row:1!important;
+  background:linear-gradient(135deg,#b8874d 0%,#9e6d39 100%)!important;
+}
+html body #about .benefit:nth-child(4){
+  grid-column:2/4!important;
+  grid-row:2!important;
+  background:linear-gradient(120deg,#0c664f 0%,#0a4034 58%,#0a322a 100%)!important;
+}
+html body #about .benefit>span{display:none!important}
+html body #about .benefit>div{position:relative!important;z-index:3!important;max-width:78%!important}
+html body #about .benefit h3{
+  margin:0 0 10px!important;
+  color:#f3efe4!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(28px,2.5vw,40px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:-.035em!important;
+}
+html body #about .benefit:nth-child(1) h3{font-size:clamp(40px,3.7vw,58px)!important}
+html body #about .benefit p{
+  max-width:330px!important;
+  margin:0!important;
+  color:#c8d6d0!important;
+  font-size:15px!important;
+  line-height:1.48!important;
+}
+html body #about .benefit:nth-child(3) p{color:#f4e8d8!important}
 
-/* Practice: large checklist in the free lower-left area. */
-html body #about .benefit:nth-child(1){padding-bottom:132px!important}
+/* Sticker art: raw illustrated shapes, no rounded icon boxes. */
+html body #about .benefit::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:4!important;
+  pointer-events:none!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background-color:transparent!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+  box-shadow:none!important;
+  opacity:1!important;
+  filter:drop-shadow(0 13px 16px rgba(0,0,0,.34)) drop-shadow(0 0 1px rgba(237,220,186,.68))!important;
+  transition:transform .32s ease!important;
+}
 html body #about .benefit:nth-child(1)::before{
-  left:28px!important;
-  bottom:18px!important;
-  width:126px!important;
-  height:126px!important;
+  left:34px!important;
+  bottom:26px!important;
+  width:128px!important;
+  height:128px!important;
   transform:rotate(-7deg)!important;
 }
-
-/* Real cases: report card low/right, slightly angled. */
-html body #about .benefit:nth-child(2){padding-right:112px!important;overflow:visible!important}
 html body #about .benefit:nth-child(2)::before{
-  right:16px!important;
-  bottom:-9px!important;
-  width:94px!important;
+  right:18px!important;
+  bottom:-14px!important;
+  width:92px!important;
+  height:104px!important;
+  transform:rotate(7deg)!important;
+}
+html body #about .benefit:nth-child(3)::before{
+  right:-16px!important;
+  top:-56px!important;
+  width:130px!important;
   height:108px!important;
   transform:rotate(7deg)!important;
 }
-
-/* Networking: handshake peeks above the bronze card edge. */
-html body #about .benefit:nth-child(3){padding-right:124px!important;overflow:visible!important}
-html body #about .benefit:nth-child(3)::before{
-  right:18px!important;
-  top:-42px!important;
-  width:122px!important;
-  height:100px!important;
-  transform:rotate(6deg)!important;
-  background-color:rgba(7,58,48,.94)!important;
-}
-
-/* Partnerships: property/key sticker centered toward the bottom. */
-html body #about .benefit:nth-child(4){padding-right:150px!important;overflow:visible!important}
 html body #about .benefit:nth-child(4)::before{
-  right:34%!important;
-  bottom:-18px!important;
-  width:124px!important;
+  right:38%!important;
+  bottom:-22px!important;
+  width:126px!important;
   height:118px!important;
   transform:rotate(-5deg)!important;
 }
+html body #about .benefit:hover::before{transform:translateY(-5px) scale(1.03)!important}
 
-/* Small gold stars and dot fields from the mockup. */
-html body #about .benefit-grid{position:relative!important}
+/* Gold star beside networking and dot field at lower right. */
+html body #about .benefit:nth-child(3)::after{
+  content:"✦"!important;
+  position:absolute!important;
+  right:-34px!important;
+  top:-120px!important;
+  color:#d8ab67!important;
+  font-size:36px!important;
+  line-height:1!important;
+  text-shadow:0 0 18px rgba(215,166,94,.18)!important;
+  pointer-events:none!important;
+}
 html body #about .benefit-grid::before{
   content:"✦"!important;
   position:absolute!important;
   left:5.5%!important;
-  bottom:-52px!important;
-  color:#d7a65e!important;
-  font-size:34px!important;
+  bottom:-48px!important;
+  color:#d8ab67!important;
+  font-size:32px!important;
   line-height:1!important;
-  text-shadow:0 0 18px rgba(215,166,94,.22)!important;
   z-index:5!important;
   pointer-events:none!important;
 }
 html body #about .benefit-grid::after{
   content:""!important;
   position:absolute!important;
-  right:-34px!important;
-  bottom:-48px!important;
-  width:108px!important;
-  height:76px!important;
-  background-image:radial-gradient(circle,rgba(215,166,94,.68) 1.25px,transparent 1.5px)!important;
-  background-size:11px 11px!important;
-  opacity:.65!important;
+  right:-42px!important;
+  bottom:-52px!important;
+  width:116px!important;
+  height:82px!important;
+  background-image:radial-gradient(circle,rgba(215,166,94,.72) 1.2px,transparent 1.5px)!important;
+  background-size:10px 10px!important;
+  opacity:.60!important;
   pointer-events:none!important;
 }
 
+@keyframes aboutStickerFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-7px) rotate(-2deg)}}
+
 @media(max-width:1180px){
-  html body #about .about-layout::after{left:40%!important;top:0!important;width:108px!important;height:92px!important}
-  html body #about .benefit:nth-child(1)::before{width:104px!important;height:104px!important}
-  html body #about .benefit:nth-child(2)::before{width:82px!important;height:94px!important}
-  html body #about .benefit:nth-child(3)::before{width:104px!important;height:84px!important;top:-34px!important}
-  html body #about .benefit:nth-child(4)::before{width:102px!important;height:96px!important}
+  html body #about .about-layout{gap:56px!important}
+  html body #about .about-layout::after{left:41%!important;width:104px!important;height:90px!important}
+  html body #about .benefit-grid{grid-template-rows:156px 156px!important}
+  html body #about .benefit h3{font-size:30px!important}
+  html body #about .benefit:nth-child(1) h3{font-size:44px!important}
+  html body #about .benefit p{font-size:14px!important}
+  html body #about .benefit:nth-child(1)::before{width:108px!important;height:108px!important}
+  html body #about .benefit:nth-child(2)::before{width:78px!important;height:90px!important}
+  html body #about .benefit:nth-child(3)::before{width:108px!important;height:90px!important;top:-46px!important}
+  html body #about .benefit:nth-child(4)::before{width:104px!important;height:98px!important}
 }
 
 @media(max-width:760px){
-  html body #about::before{right:-84px!important;top:18px!important;width:150px!important;height:150px!important;opacity:.46!important}
-  html body #about::after{left:-96px!important;bottom:-112px!important;opacity:.52!important}
-  html body #about .about-layout::after{right:0!important;left:auto!important;top:-8px!important;width:76px!important;height:66px!important;opacity:.82!important}
-  html body #about .benefit{overflow:hidden!important;min-height:168px!important}
-  html body #about .benefit:nth-child(1){padding-bottom:78px!important}
-  html body #about .benefit:nth-child(1)::before{left:16px!important;bottom:10px!important;width:76px!important;height:76px!important;border-radius:16px!important}
-  html body #about .benefit:nth-child(2){padding-right:76px!important}
-  html body #about .benefit:nth-child(2)::before{right:8px!important;bottom:8px!important;width:64px!important;height:72px!important;border-radius:15px!important}
-  html body #about .benefit:nth-child(3){padding-right:78px!important}
-  html body #about .benefit:nth-child(3)::before{right:8px!important;top:10px!important;width:68px!important;height:58px!important;border-radius:15px!important}
-  html body #about .benefit:nth-child(4){padding-right:84px!important}
-  html body #about .benefit:nth-child(4)::before{right:8px!important;bottom:8px!important;width:72px!important;height:68px!important;border-radius:15px!important}
-  html body #about .benefit-grid::before{left:auto!important;right:16px!important;bottom:-34px!important;font-size:24px!important}
+  html body #about{padding-top:58px!important;padding-bottom:72px!important}
+  html body #about::before{right:-100px!important;top:-46px!important;width:170px!important;height:170px!important;opacity:.42!important}
+  html body #about::after{left:-118px!important;bottom:-130px!important;opacity:.46!important}
+  html body #about .container::after{display:none!important}
+  html body #about .about-layout{display:block!important}
+  html body #about .about-layout::before{left:-4px!important;top:-30px!important;font-size:25px!important}
+  html body #about .about-layout::after{right:4px!important;left:auto!important;top:12px!important;width:70px!important;height:62px!important;opacity:.85!important}
+  html body #about .section-title{max-width:300px!important;font-size:clamp(43px,12vw,58px)!important;line-height:.9!important}
+  html body #about .about-copy{padding-top:24px!important;padding-right:54px!important}
+  html body #about .about-copy p{font-size:15px!important;line-height:1.55!important}
+  html body #about .benefit-grid{
+    grid-template-columns:1fr 1fr!important;
+    grid-template-rows:auto!important;
+    gap:8px!important;
+    margin-top:34px!important;
+  }
+  html body #about .benefit{min-height:164px!important;padding:18px!important;overflow:hidden!important}
+  html body #about .benefit:nth-child(1){grid-column:1/3!important;grid-row:auto!important;min-height:205px!important}
+  html body #about .benefit:nth-child(2){grid-column:1!important;grid-row:auto!important}
+  html body #about .benefit:nth-child(3){grid-column:2!important;grid-row:auto!important}
+  html body #about .benefit:nth-child(4){grid-column:1/3!important;grid-row:auto!important;min-height:176px!important}
+  html body #about .benefit>div{max-width:82%!important}
+  html body #about .benefit h3{font-size:25px!important}
+  html body #about .benefit:nth-child(1) h3{font-size:36px!important}
+  html body #about .benefit p{font-size:13px!important}
+  html body #about .benefit:nth-child(1)::before{left:18px!important;bottom:12px!important;width:82px!important;height:82px!important}
+  html body #about .benefit:nth-child(2)::before{right:6px!important;bottom:4px!important;width:58px!important;height:68px!important}
+  html body #about .benefit:nth-child(3)::before{right:4px!important;top:8px!important;width:66px!important;height:56px!important}
+  html body #about .benefit:nth-child(4)::before{right:14px!important;bottom:4px!important;width:78px!important;height:74px!important}
+  html body #about .benefit:nth-child(3)::after{display:none!important}
+  html body #about .benefit-grid::before{left:auto!important;right:14px!important;bottom:-30px!important;font-size:22px!important}
   html body #about .benefit-grid::after{display:none!important}
 }
 
-@media(prefers-reduced-motion:reduce){
-  html body #about .about-layout::after{animation:none!important}
-  html body #about .benefit::before{transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){html body #about .about-layout::after{animation:none!important}}
