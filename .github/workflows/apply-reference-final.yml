@@ -1,0 +1,45 @@
+name: Apply final reference hero
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load exact hero last
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Remove any older explicit final hero loader so there is one source of truth.
+          s = re.sub(r'\s*<script[^>]+src=["\']hero-reference-final\.js[^"\']*["\'][^>]*></script>\s*', '\n', s)
+          loader = '  <script src="hero-reference-final.js?v=20260904-ref-final"></script>\n'
+          s = s.replace('</body>', loader + '</body>')
+
+          # Force a fresh participants-main request too, so Safari cannot reuse the pre-reference chain.
+          s = re.sub(r'participants-main\.css\?v=[^"\']+', 'participants-main.css?v=20260904-ref-final', s)
+          s = re.sub(r'tz-enhancements\.js\?v=[^"\']+', 'tz-enhancements.js?v=20260904-ref-final', s)
+          p.write_text(s, encoding='utf-8')
+
+          tz = Path('tz-enhancements.js')
+          js = tz.read_text(encoding='utf-8')
+          js = re.sub(r"participants-main\.css\?v=[^'\"]+", 'participants-main.css?v=20260904-ref-final', js)
+          tz.write_text(js, encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html tz-enhancements.js
+          if ! git diff --cached --quiet; then
+            git commit -m "Apply exact reference hero to landing page"
+            git push
+          fi
