@@ -75,3 +75,19 @@ html body #program .program-head .section-title::after{
 
 @media(max-width:430px){html body .hero{padding-bottom:520px!important}}
 @media(max-width:360px){html body .hero{padding-bottom:475px!important}}
+
+/* Real DOM artwork so the approved image cannot disappear behind pseudo-elements. */
+html body .hero-artwork{
+  position:absolute!important;z-index:1!important;top:0!important;right:0!important;bottom:0!important;width:62%!important;
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;overflow:hidden!important;background:#fff!important;pointer-events:none!important;
+}
+html body .hero-artwork img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:right center!important;background:#fff!important}
+html body .hero-artwork::before{
+  content:""!important;position:absolute!important;z-index:2!important;inset:0!important;pointer-events:none!important;
+  background:linear-gradient(90deg,#052a23 0%,rgba(5,42,35,.98) 13%,rgba(5,42,35,.84) 25%,rgba(5,42,35,.52) 38%,rgba(5,42,35,.20) 49%,rgba(5,42,35,0) 59%)!important;
+}
+@media(max-width:760px){
+  html body .hero-artwork{top:auto!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;height:520px!important;align-items:flex-end!important}
+  html body .hero-artwork img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center bottom!important}
+  html body .hero-artwork::before{background:linear-gradient(180deg,#052720 0%,rgba(5,39,32,.95) 8%,rgba(5,39,32,.68) 17%,rgba(5,39,32,.22) 26%,rgba(5,39,32,0) 34%)!important}
+}

@@ -6,7 +6,7 @@
   if (!document.querySelector('link[href^="participants-main.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'participants-main.css?v=20260904-hero4';
+    link.href = 'participants-main.css?v=20260904-wayforpay1';
     document.head.append(link);
   }
 
@@ -144,6 +144,15 @@
       else nav.append(link);
     }
   });
+
+  // Guaranteed visible hero artwork.
+  const hero = $('.hero');
+  if (hero && !$('.hero-artwork', hero)) {
+    const artwork = document.createElement('div');
+    artwork.className = 'hero-artwork';
+    artwork.innerHTML = '<img src="assets/hero-forum-main.webp?v=20260904-final" alt="Вінницьке регіональне відділення АФНУ та DIM.RIA — перевірений партнер">';
+    hero.prepend(artwork);
+  }
 
   // Hero copy from the customer TZ.
   const heroLead = $('.hero-lead');
@@ -415,7 +424,7 @@
 
   // Final sales push and contacts from the TZ.
   const finalTitle = $('.final-copy h2');
-  if (finalTitle) finalTitle.innerHTML = 'Не відкладайте<br><span>рішення.</span>';
+  if (finalTitle) finalTitle.innerHTML = 'Не відкладайте<br><span>рішення</span>';
   const finalText = $('.final-copy > p');
   if (finalText) finalText.textContent = 'До початку форуму залишилося небагато часу. Забронюйте місце вже сьогодні.';
   const finalButton = $('.final-copy .button');
@@ -435,6 +444,7 @@
   // Footer: keep registration on the main page.
   const footerLinks = $('.footer-links');
   if (footerLinks) {
+    if (!footerLinks.querySelector('a[href="terms.html"]')) footerLinks.insertAdjacentHTML('beforeend','<a href="terms.html">Правила і умови</a><a href="refund.html">Повернення коштів</a>');
     const oldParticipant = footerLinks.querySelector('a[href="participants.html"]');
     if (oldParticipant) {
       oldParticipant.href = registrationUrl;
