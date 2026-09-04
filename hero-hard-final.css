@@ -1,77 +1,142 @@
-/* Landing hero matched to the user's supplied reference. Loaded LAST. */
+/* Reference-matched header and opening screen. Loaded last. */
+:root{
+  --header-h:clamp(50px,5.8vw,76px);
+}
+
+/* Flat full-width header from the supplied layout. */
+html body .site-header,
+html body .site-header.scrolled{
+  position:fixed!important;
+  inset:0 0 auto 0!important;
+  z-index:900!important;
+  width:100%!important;
+  height:var(--header-h)!important;
+  transform:none!important;
+  padding:0 clamp(20px,4vw,60px)!important;
+  border:0!important;
+  border-bottom:1px solid rgba(213,231,223,.17)!important;
+  border-radius:0!important;
+  background:rgba(3,52,43,.98)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:clamp(12px,2vw,30px)!important;
+}
+html body .site-header .brand{
+  min-width:clamp(150px,20.5vw,235px)!important;
+  gap:clamp(7px,1vw,12px)!important;
+}
+html body .site-header .brand-mark{
+  width:clamp(24px,2.9vw,39px)!important;
+  height:clamp(24px,2.9vw,39px)!important;
+  border-radius:0!important;
+}
+html body .site-header .brand-mark svg{width:70%!important}
+html body .site-header .brand-text b{
+  font-size:clamp(9px,1.05vw,14px)!important;
+  letter-spacing:.12em!important;
+}
+html body .site-header .brand-text small{
+  margin-top:clamp(3px,.45vw,6px)!important;
+  font-size:clamp(6px,.7vw,9px)!important;
+  letter-spacing:.14em!important;
+}
+html body .site-header .desktop-nav{
+  display:flex!important;
+  min-width:0!important;
+  justify-content:center!important;
+  gap:clamp(11px,1.75vw,30px)!important;
+}
+html body .site-header .desktop-nav a{
+  color:#d7e1dd!important;
+  font-size:clamp(8px,.86vw,12px)!important;
+  font-weight:700!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+html body .site-header .desktop-nav a:hover{color:#31d6a3!important}
+html body .site-header .header-cta{
+  min-height:0!important;
+  height:clamp(32px,3.75vw,48px)!important;
+  padding:0 clamp(12px,1.6vw,21px)!important;
+  border-radius:0!important;
+  font-size:clamp(8px,.8vw,11px)!important;
+  white-space:nowrap!important;
+}
+html body .site-header .header-cta span{font-size:1.15em!important}
+html body .site-header .menu-toggle{display:none!important}
+
+/* Desktop/tablet hero: copy on emerald, artwork only on the right half. */
 html body main#top .ref-hero{
   position:relative!important;
   display:block!important;
   width:100%!important;
-  height:clamp(460px,54.55vw,840px)!important;
+  height:clamp(457px,54.55vw,840px)!important;
   min-height:0!important;
   max-height:none!important;
-  margin:var(--header-h,76px) 0 0!important;
+  margin:var(--header-h) 0 0!important;
   padding:0!important;
   overflow:hidden!important;
   isolation:isolate!important;
-  background:#032f27!important;
+  background:#03362d!important;
   border:0!important;
-  border-radius:0 0 18px 18px!important;
+  border-bottom:1px solid rgba(49,211,162,.24)!important;
+  border-radius:0 0 14px 14px!important;
 }
 html body main#top .ref-hero::before,
 html body main#top .ref-hero::after{content:none!important;display:none!important}
 html body main#top .ref-hero>.hero-artwork{display:none!important}
 
-/* Use the user's whole composition as the hero canvas so every logo/QR/building stays in place. */
 .ref-hero-visual{
   position:absolute!important;
   z-index:0!important;
-  inset:0!important;
-  width:100%!important;
+  inset:0 0 0 auto!important;
+  width:51%!important;
   height:100%!important;
   overflow:hidden!important;
-  background:#032f27!important;
+  background:#f7f6f2!important;
 }
 .ref-hero-visual img{
-  position:absolute!important;
-  inset:0!important;
   display:block!important;
   width:100%!important;
   height:100%!important;
   max-width:none!important;
-  object-fit:fill!important;
+  object-fit:cover!important;
   object-position:center center!important;
   opacity:1!important;
   filter:none!important;
   transform:none!important;
 }
-
-/* Soft green overlap like the reference, without covering the objects on the artwork. */
 .ref-hero-blend{
   position:absolute!important;
   z-index:2!important;
-  top:0!important;
-  bottom:0!important;
-  left:35.5%!important;
+  inset:0 auto 0 39%!important;
   width:18%!important;
   pointer-events:none!important;
   background:linear-gradient(90deg,
-    rgba(3,47,39,.78) 0%,
-    rgba(3,47,39,.56) 24%,
-    rgba(3,47,39,.32) 50%,
-    rgba(3,47,39,.12) 76%,
-    rgba(3,47,39,0) 100%)!important;
+    #03362d 0%,
+    rgba(3,54,45,.97) 18%,
+    rgba(3,54,45,.82) 38%,
+    rgba(3,54,45,.55) 60%,
+    rgba(3,54,45,.22) 82%,
+    rgba(3,54,45,0) 100%)!important;
 }
-
 .ref-hero-left{
   position:absolute!important;
   z-index:5!important;
   inset:0 auto 0 0!important;
-  width:46.8%!important;
+  width:50.5%!important;
   min-width:0!important;
   padding:0!important;
   background:transparent!important;
 }
 .ref-hero-star{
   position:absolute!important;
-  left:5.75vw!important;
-  top:3.25vw!important;
+  left:5.05vw!important;
+  top:3.15vw!important;
   color:#d4a05b!important;
   font-size:clamp(17px,1.5vw,24px)!important;
   line-height:1!important;
@@ -85,7 +150,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   min-height:0!important;
   padding:clamp(9px,1vw,15px) clamp(12px,1.25vw,19px)!important;
   border:1px solid rgba(47,197,151,.58)!important;
-  background:linear-gradient(100deg,rgba(190,141,79,.98) 0%,rgba(153,111,66,.96) 58%,rgba(21,91,73,.92) 100%)!important;
+  background:linear-gradient(100deg,rgba(190,141,79,.98),rgba(153,111,66,.96) 58%,rgba(21,91,73,.92))!important;
   box-shadow:none!important;
 }
 .ref-hero-date strong{
@@ -120,13 +185,10 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
 }
 .ref-hero-title span,
 .ref-hero-title em{display:block!important;white-space:nowrap!important}
-.ref-hero-title span{
-  color:#f5efe6!important;
-  font-size:clamp(52px,6.45vw,100px)!important;
-}
+.ref-hero-title span{color:#f5efe6!important;font-size:clamp(52px,6.45vw,100px)!important}
 .ref-hero-title em{
   margin-top:.15em!important;
-  color:#19c995!important;
+  color:#20d19c!important;
   font-size:clamp(43px,5.62vw,86px)!important;
   font-style:normal!important;
   letter-spacing:-.045em!important;
@@ -166,8 +228,7 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
 }
 .ref-hero-pin::before{
   content:""!important;position:absolute!important;left:50%!important;bottom:-5px!important;width:6px!important;height:6px!important;
-  border-right:2px solid #c89245!important;border-bottom:2px solid #c89245!important;background:transparent!important;
-  transform:translateX(-50%) rotate(45deg)!important;
+  border-right:2px solid #c89245!important;border-bottom:2px solid #c89245!important;transform:translateX(-50%) rotate(45deg)!important;
 }
 .ref-hero-pin::after{
   content:""!important;position:absolute!important;left:50%!important;top:50%!important;width:4px!important;height:4px!important;
@@ -197,63 +258,75 @@ html body main#top .ref-hero>.hero-artwork{display:none!important}
   letter-spacing:.01em!important;
   text-transform:uppercase!important;
   white-space:nowrap!important;
+  transition:background .25s ease,border-color .25s ease,transform .25s ease!important;
 }
-.ref-hero-btn.primary{width:clamp(145px,17.35vw,264px)!important;min-width:0!important;background:#bd8c50!important;border-color:#bd8c50!important;color:#fff!important}
-.ref-hero-btn.secondary{width:clamp(164px,19.4vw,295px)!important;min-width:0!important;background:rgba(3,47,39,.18)!important;color:#f0f3ef!important}
-.ref-hero-btn i{position:relative!important;display:block!important;flex:0 0 18px!important;width:18px!important;height:18px!important;margin-left:14px!important;font-size:0!important;opacity:.9!important}
-.ref-hero-btn.primary i::before,
-.ref-hero-btn.primary i::after{
-  content:""!important;position:absolute!important;width:9px!important;height:9px!important;border:1px solid rgba(255,255,255,.72)!important;transform:rotate(45deg)!important;
-}
-.ref-hero-btn.primary i::before{left:1px!important;top:4px!important}
-.ref-hero-btn.primary i::after{left:5px!important;top:1px!important;opacity:.45!important}
-.ref-hero-btn.secondary i::before{
-  content:""!important;position:absolute!important;left:1px!important;top:3px!important;width:13px!important;height:12px!important;border:1px solid rgba(255,255,255,.68)!important;
-}
-.ref-hero-btn.secondary i::after{
-  content:""!important;position:absolute!important;left:4px!important;top:1px!important;width:7px!important;height:3px!important;border-left:1px solid rgba(255,255,255,.68)!important;border-right:1px solid rgba(255,255,255,.68)!important;
-}
-
-@media(max-width:1100px) and (min-width:761px){
-  html body main#top .ref-hero{height:clamp(500px,58vw,640px)!important}
-  .ref-hero-left{width:48%!important}
-  .ref-hero-title span{font-size:clamp(48px,6.3vw,68px)!important}
-  .ref-hero-title em{font-size:clamp(39px,5.4vw,58px)!important}
-  .ref-hero-desc{width:35vw!important;font-size:12px!important}
-  .ref-hero-venue{width:36vw!important;font-size:10px!important}
-  .ref-hero-actions{top:45.2vw!important}
-}
+.ref-hero-btn:hover{transform:translateY(-2px)!important}
+.ref-hero-btn.primary{width:clamp(145px,17.35vw,264px)!important;background:#bd8c50!important;border-color:#bd8c50!important;color:#fff!important}
+.ref-hero-btn.primary:hover{background:#c99a60!important;border-color:#c99a60!important}
+.ref-hero-btn.secondary{width:clamp(164px,19.4vw,295px)!important;background:rgba(3,47,39,.18)!important;color:#f0f3ef!important}
+.ref-hero-btn.secondary:hover{border-color:rgba(49,214,165,.7)!important}
+.ref-hero-btn i{display:block!important;flex:0 0 18px!important;margin-left:12px!important;font-size:15px!important;font-style:normal!important;opacity:.85!important}
 
 @media(max-width:760px){
+  :root{--header-h:64px}
+  html body .site-header,
+  html body .site-header.scrolled{
+    height:64px!important;
+    padding:0 10px!important;
+    grid-template-columns:minmax(0,1fr) auto auto!important;
+    gap:8px!important;
+  }
+  html body .site-header .brand{min-width:0!important}
+  html body .site-header .brand-mark{width:38px!important;height:38px!important}
+  html body .site-header .brand-text b{font-size:12px!important}
+  html body .site-header .brand-text small{display:none!important}
+  html body .site-header .desktop-nav{display:none!important}
+  html body .site-header .header-cta{height:40px!important;padding:0 12px!important;font-size:9px!important}
+  html body .site-header .menu-toggle{display:block!important}
+
   html body main#top .ref-hero{
     height:auto!important;
     min-height:0!important;
     margin-top:64px!important;
-    padding:0!important;
-    border-radius:0 0 14px 14px!important;
-    background:#032f27!important;
+    border-radius:0 0 12px 12px!important;
   }
-  .ref-hero-visual{
-    position:relative!important;inset:auto!important;width:100%!important;height:72vw!important;min-height:285px!important;max-height:430px!important;background:#f4f2ed!important;
-  }
-  .ref-hero-visual img{object-fit:cover!important;object-position:right center!important}
   .ref-hero-left{
-    position:relative!important;inset:auto!important;width:100%!important;min-height:520px!important;padding:26px 16px 30px!important;background:#032f27!important;
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    min-height:0!important;
+    padding:30px 16px 32px!important;
+    background:#03362d!important;
   }
-  .ref-hero-blend{
-    left:0!important;right:0!important;top:calc(72vw - 70px)!important;bottom:auto!important;width:100%!important;height:90px!important;
-    background:linear-gradient(180deg,rgba(3,47,39,0) 0%,rgba(3,47,39,.72) 50%,#032f27 100%)!important;
-  }
-  .ref-hero-star,.ref-hero-date,.ref-hero-title,.ref-hero-desc,.ref-hero-venue,.ref-hero-actions{position:relative!important;left:auto!important;top:auto!important}
+  .ref-hero-star,
+  .ref-hero-date,
+  .ref-hero-title,
+  .ref-hero-desc,
+  .ref-hero-venue,
+  .ref-hero-actions{position:relative!important;left:auto!important;top:auto!important}
   .ref-hero-star{margin-bottom:14px!important;font-size:18px!important}
-  .ref-hero-date{width:215px!important;height:66px!important;margin-bottom:20px!important}
+  .ref-hero-date{width:215px!important;height:66px!important;margin-bottom:22px!important}
   .ref-hero-date strong{font-size:34px!important}
   .ref-hero-date span{font-size:10px!important}
-  .ref-hero-title{width:100%!important;margin:0!important}
-  .ref-hero-title span{font-size:clamp(48px,14vw,60px)!important}
-  .ref-hero-title em{font-size:clamp(37px,10.5vw,46px)!important;white-space:normal!important;line-height:.9!important}
-  .ref-hero-desc{width:100%!important;margin-top:20px!important;font-size:14px!important}
-  .ref-hero-venue{width:100%!important;margin-top:18px!important;font-size:12px!important}
-  .ref-hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin-top:24px!important}
-  .ref-hero-btn,.ref-hero-btn.primary,.ref-hero-btn.secondary{width:100%!important;height:54px!important}
+  .ref-hero-title{width:100%!important}
+  .ref-hero-title span{font-size:clamp(48px,14vw,62px)!important}
+  .ref-hero-title em{font-size:clamp(38px,10.8vw,48px)!important;white-space:normal!important;line-height:.92!important}
+  .ref-hero-desc{width:100%!important;margin-top:22px!important;font-size:15px!important}
+  .ref-hero-venue{width:100%!important;margin-top:20px!important;font-size:12px!important}
+  .ref-hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin-top:26px!important}
+  .ref-hero-btn,
+  .ref-hero-btn.primary,
+  .ref-hero-btn.secondary{width:100%!important;height:54px!important;font-size:11px!important}
+  .ref-hero-visual{
+    position:relative!important;
+    inset:auto!important;
+    width:100%!important;
+    height:auto!important;
+    aspect-ratio:1/1!important;
+    background:#f7f6f2!important;
+  }
+  .ref-hero-visual img{object-fit:cover!important;object-position:center center!important}
+  .ref-hero-blend{display:none!important}
 }
+
+@media(prefers-reduced-motion:reduce){.ref-hero-btn{transition:none!important}}
