@@ -270,7 +270,7 @@
     white-space:nowrap!important;
   }
   html body main#top .ref-hero-btn.primary::before{content:"КУПИТИ КВИТОК"!important}
-  html body main#top .ref-hero-btn.secondary::before{content:"РЕЄСТРАЦІЯ"!important}
+  html body main#top .ref-hero-btn.secondary::before{content:"ЗАБРОНЮВАТИ МІСЦЕ"!important}
   html body main#top .ref-hero-btn.primary{
     background:var(--m-gold)!important;
     border:1px solid var(--m-gold)!important;
