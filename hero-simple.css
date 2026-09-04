@@ -1,4 +1,5 @@
 @import url("about-stickers.css?v=20260904-stickers2");
+@import url("about-stickers-v2.css?v=20260904-stickers2");
 
 /* Stable first screen: full poster visible, compact title, soft overlap gradient. */
 html body .hero{
