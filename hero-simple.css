@@ -75,11 +75,13 @@ html body .hero h1{
   font-family:Georgia,"Times New Roman",serif!important;
   font-size:clamp(64px,7vw,108px)!important;
   font-weight:400!important;
-  line-height:.88!important;
+  line-height:.80!important;
   letter-spacing:-.045em!important;
   white-space:normal!important;
   text-wrap:balance!important;
 }
+/* span and em are already block-level lines; hide the legacy BR so it cannot create a blank row. */
+html body .hero h1 br{display:none!important}
 html body .hero h1 span,
 html body .hero h1 em{
   display:block!important;
@@ -93,6 +95,7 @@ html body .hero h1 em{
   color:#26d5a0!important;
   -webkit-text-stroke:0!important;
   font-style:normal!important;
+  margin-top:-.03em!important;
 }
 html body .hero .eyebrow{
   margin:0 0 24px!important;
@@ -113,7 +116,7 @@ html body .hero .hero-actions{margin:0!important}
     background-size:100% 100%,56% auto,56% auto,56% auto,56% auto!important;
   }
   html body .hero .hero-copy{width:min(620px,52vw)!important}
-  html body .hero h1{font-size:clamp(58px,7.2vw,86px)!important}
+  html body .hero h1{font-size:clamp(58px,7.2vw,86px)!important;line-height:.80!important}
 }
 
 @media(max-width:760px){
@@ -152,9 +155,10 @@ html body .hero .hero-actions{margin:0!important}
   html body .hero h1{
     max-width:100%!important;
     font-size:clamp(44px,13vw,62px)!important;
-    line-height:.88!important;
+    line-height:.80!important;
     letter-spacing:-.04em!important;
   }
+  html body .hero h1 em{margin-top:-.02em!important}
   html body .hero .hero-lead{
     margin:22px 0 22px!important;
     font-size:15px!important;
