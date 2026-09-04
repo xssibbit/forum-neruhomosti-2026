@@ -1,0 +1,29 @@
+name: Apply hero final polish
+
+on:
+  push:
+    paths:
+      - '.github/workflows/apply-hero-final-polish.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable refined stickers and bump hero cache
+        run: |
+          if ! grep -q 'about-stickers-v2.css' hero-simple.css; then
+            sed -i '1a @import url("about-stickers-v2.css?v=20260904-stickers2");' hero-simple.css
+          fi
+          sed -i 's/hero-simple.css?v=20260904-simple2/hero-simple.css?v=20260904-simple3/g' index.html
+          rm .github/workflows/apply-hero-final-polish.yml
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html hero-simple.css .github/workflows/apply-hero-final-polish.yml
+          git commit -m 'Polish hero and topic stickers' || exit 0
+          git push
