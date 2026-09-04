@@ -1,0 +1,165 @@
+/* Final live fixes — 2026-09-04 16:05. Loaded directly by index.html. */
+
+/* HERO: use the approved artwork as a real visible layer on the hero itself. */
+html body .hero{
+  position:relative!important;
+  isolation:isolate!important;
+  background:
+    linear-gradient(90deg,
+      #052720 0%,
+      #052720 35%,
+      rgba(5,39,32,.98) 44%,
+      rgba(5,39,32,.86) 52%,
+      rgba(5,39,32,.60) 59%,
+      rgba(5,39,32,.30) 66%,
+      rgba(5,39,32,.08) 72%,
+      rgba(5,39,32,0) 78%),
+    url("assets/hero-forum-main.webp?v=20260904-1605") right center / auto 100% no-repeat,
+    #052720!important;
+}
+html body .hero::after,
+html body .hero-artwork,
+html body .hero-artwork-live{display:none!important}
+html body .hero .container,
+html body .hero-inner,
+html body .hero-copy{position:relative!important;z-index:4!important}
+html body .hero-copy{width:min(800px,52vw)!important;max-width:none!important}
+html body .hero h1,
+html body .hero h1 span,
+html body .hero h1 em{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+  clip:auto!important;
+  overflow:visible!important;
+}
+html body .hero h1{
+  max-width:780px!important;
+  font-size:clamp(66px,7.2vw,116px)!important;
+  line-height:.82!important;
+  letter-spacing:-.055em!important;
+}
+html body .hero h1 span{color:#f4f1e8!important}
+html body .hero h1 em{color:#27d4a2!important;-webkit-text-stroke:0!important;font-style:normal!important}
+
+/* Remove final dots from all major section headings/subheadings. */
+html body #about .section-title,
+html body #program .section-title,
+html body #speakers .section-title,
+html body #tickets .section-title,
+html body .outcomes .section-title,
+html body .countdown-wrap h2,
+html body .final-copy h2{
+  font-size:0!important;
+  line-height:1!important;
+}
+html body #about .section-title br,
+html body #about .section-title span,
+html body #program .section-title br,
+html body #program .section-title span,
+html body #speakers .section-title br,
+html body #speakers .section-title span,
+html body #tickets .section-title br,
+html body #tickets .section-title span,
+html body .outcomes .section-title br,
+html body .outcomes .section-title span,
+html body .countdown-wrap h2 br,
+html body .countdown-wrap h2 span,
+html body .final-copy h2 br,
+html body .final-copy h2 span{display:none!important}
+
+html body #about .section-title::after,
+html body #program .section-title::after,
+html body #speakers .section-title::after,
+html body #tickets .section-title::after,
+html body .outcomes .section-title::after,
+html body .countdown-wrap h2::after,
+html body .final-copy h2::after{
+  display:block!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-weight:400!important;
+  line-height:.94!important;
+  letter-spacing:-.05em!important;
+  white-space:pre-line!important;
+}
+html body #about .section-title::after{content:"Чому варто\A бути тут?"!important;font-size:clamp(56px,5.6vw,88px)!important;color:#f4f1e8!important}
+html body #program .section-title::after{content:"Повна програма"!important;font-size:clamp(58px,6vw,94px)!important;color:#f4f1e8!important}
+html body #speakers .section-title::after{content:"Спікери\A форуму 2026"!important;font-size:clamp(54px,5.7vw,88px)!important;color:#f4f1e8!important}
+html body #tickets .section-title::after{content:"Квитки\A на два дні форуму"!important;font-size:clamp(54px,5.7vw,88px)!important;color:#17392f!important}
+html body .outcomes .section-title::after{content:"Що залишиться\A після форуму"!important;font-size:clamp(52px,5.4vw,82px)!important;color:#f4f1e8!important}
+html body .countdown-wrap h2::after{content:"25 вересня\A Початок о 09:00"!important;font-size:clamp(44px,5vw,76px)!important;color:#f4f1e8!important}
+html body .final-copy h2::after{content:"Не відкладайте\A рішення"!important;font-size:clamp(58px,7vw,104px)!important;color:#f4f1e8!important}
+
+/* Footer: every navigation label stays on one line. */
+html body .footer-inner{
+  grid-template-columns:auto minmax(0,1fr) auto!important;
+  gap:clamp(24px,3vw,54px)!important;
+  align-items:center!important;
+}
+html body .footer-links{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:clamp(14px,1.6vw,28px)!important;
+  min-width:0!important;
+  white-space:nowrap!important;
+}
+html body .footer-links a{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  word-break:normal!important;
+  overflow-wrap:normal!important;
+  font-size:clamp(11px,.9vw,14px)!important;
+}
+html body .copyright{white-space:nowrap!important}
+
+@media(max-width:1100px) and (min-width:761px){
+  html body .hero{
+    background:
+      linear-gradient(90deg,#052720 0%,#052720 38%,rgba(5,39,32,.96) 48%,rgba(5,39,32,.72) 58%,rgba(5,39,32,.32) 68%,rgba(5,39,32,0) 78%),
+      url("assets/hero-forum-main.webp?v=20260904-1605") right center / auto 100% no-repeat,
+      #052720!important;
+  }
+  html body .hero-copy{width:min(650px,55vw)!important}
+  html body .footer-inner{grid-template-columns:1fr!important;gap:18px!important}
+  html body .footer-links{justify-content:flex-start!important;overflow-x:auto!important;padding-bottom:5px!important;scrollbar-width:none!important}
+  html body .footer-links::-webkit-scrollbar{display:none!important}
+  html body .copyright{text-align:left!important}
+}
+
+@media(max-width:760px){
+  html body .hero{
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    padding:92px 0 285px!important;
+    background:
+      linear-gradient(180deg,#052720 0%,#052720 58%,rgba(5,39,32,.96) 67%,rgba(5,39,32,.60) 75%,rgba(5,39,32,.18) 83%,rgba(5,39,32,0) 90%),
+      url("assets/hero-forum-main.webp?v=20260904-1605") center bottom / 100% auto no-repeat,
+      #052720!important;
+  }
+  html body .hero-copy{width:100%!important;max-width:100%!important}
+  html body .hero h1{font-size:clamp(46px,13.4vw,64px)!important;line-height:.86!important;max-width:100%!important}
+  html body #about .section-title::after,
+  html body #program .section-title::after,
+  html body #speakers .section-title::after,
+  html body #tickets .section-title::after,
+  html body .outcomes .section-title::after{font-size:clamp(40px,11vw,54px)!important}
+  html body .countdown-wrap h2::after{font-size:clamp(36px,10vw,48px)!important}
+  html body .final-copy h2::after{font-size:clamp(41px,11.8vw,54px)!important}
+  html body .footer-inner{display:block!important}
+  html body .footer-links{
+    justify-content:flex-start!important;
+    overflow-x:auto!important;
+    width:100%!important;
+    margin-top:24px!important;
+    padding:0 0 8px!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  html body .footer-links::-webkit-scrollbar{display:none!important}
+  html body .footer-links a{font-size:13px!important}
+  html body .copyright{margin-top:18px!important;text-align:left!important}
+}
