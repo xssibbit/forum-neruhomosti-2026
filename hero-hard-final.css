@@ -1,6 +1,6 @@
 /* Reference-matched header and opening screen. Loaded last. */
 :root{
-  --header-h:clamp(50px,5.8vw,76px);
+  --header-h:clamp(49px,5.8vw,76px);
 }
 
 /* Flat full-width header from the supplied layout. */
@@ -70,7 +70,7 @@ html body .site-header .header-cta span{font-size:1.15em!important}
 html body .site-header .menu-toggle{display:none!important}
 
 /* Desktop/tablet hero: copy on emerald, artwork only on the right half. */
-html body main#top .ref-hero{
+html body main#top section.hero.ref-hero{
   position:relative!important;
   display:block!important;
   width:100%!important;
@@ -199,7 +199,7 @@ html body main#top .ref-hero .ref-hero-visual .ref-hero-partner{
 }
 .ref-hero-title span,
 .ref-hero-title em{display:block!important;white-space:nowrap!important}
-.ref-hero-title span{color:#f5efe6!important;font-size:clamp(52px,6.45vw,100px)!important}
+.ref-hero-title span{color:#f5efe6!important;font-size:clamp(57px,7.3vw,106px)!important}
 html body main#top .ref-hero .ref-hero-title em{
   margin-top:.39em!important;
   color:#20d19c!important;
@@ -298,7 +298,7 @@ html body main#top .ref-hero .ref-hero-title em{
   html body .site-header .header-cta{height:40px!important;padding:0 12px!important;font-size:9px!important}
   html body .site-header .menu-toggle{display:block!important}
 
-  html body main#top .ref-hero{
+  html body main#top section.hero.ref-hero{
     height:auto!important;
     min-height:0!important;
     margin-top:64px!important;
