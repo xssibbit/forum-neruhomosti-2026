@@ -1,0 +1,177 @@
+/* Simple, stable hero layer. Loaded last. User image: assets/hero-main.jpg (or .png/.webp). */
+html body .hero{
+  position:relative!important;
+  isolation:isolate!important;
+  box-sizing:border-box!important;
+  min-height:720px!important;
+  height:100svh!important;
+  max-height:900px!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  overflow:hidden!important;
+  background-color:#052a23!important;
+  background-image:
+    linear-gradient(90deg,
+      #052a23 0%,
+      #052a23 40%,
+      rgba(5,42,35,.98) 46%,
+      rgba(5,42,35,.84) 52%,
+      rgba(5,42,35,.56) 58%,
+      rgba(5,42,35,.26) 64%,
+      rgba(5,42,35,.06) 70%,
+      rgba(5,42,35,0) 75%),
+    url("assets/hero-main.jpg"),
+    url("assets/hero-main.png"),
+    url("assets/hero-main.webp"),
+    url("assets/hero-forum-main.webp")!important;
+  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat!important;
+  background-position:center,right center,right center,right center,right center!important;
+  background-size:100% 100%,58% auto,58% auto,58% auto,58% auto!important;
+}
+
+/* Kill all competing hero artwork layers. */
+html body .hero::before,
+html body .hero::after,
+html body .hero-artwork{
+  content:none!important;
+  display:none!important;
+}
+html body .hero-grid,
+html body .hero-orb,
+html body .hero-meta,
+html body .marquee{display:none!important}
+
+html body .hero .hero-inner{
+  position:relative!important;
+  z-index:3!important;
+  display:block!important;
+  width:min(var(--max,1320px),calc(100% - var(--pad,64px) - var(--pad,64px)))!important;
+  margin:0 auto!important;
+  padding:88px 0 24px!important;
+  min-height:0!important;
+}
+html body .hero .hero-copy{
+  position:relative!important;
+  z-index:4!important;
+  width:min(720px,49vw)!important;
+  max-width:720px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  overflow:visible!important;
+}
+html body .hero .hero-copy.reveal{
+  opacity:1!important;
+  transform:none!important;
+}
+html body .hero h1{
+  display:block!important;
+  width:100%!important;
+  max-width:720px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(64px,7vw,108px)!important;
+  font-weight:400!important;
+  line-height:.88!important;
+  letter-spacing:-.045em!important;
+  white-space:normal!important;
+  text-wrap:balance!important;
+}
+html body .hero h1 span,
+html body .hero h1 em{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+  overflow:visible!important;
+}
+html body .hero h1 span{color:#f4f1e8!important}
+html body .hero h1 em{
+  color:#26d5a0!important;
+  -webkit-text-stroke:0!important;
+  font-style:normal!important;
+}
+html body .hero .eyebrow{
+  margin:0 0 24px!important;
+  max-width:100%!important;
+}
+html body .hero .hero-lead{
+  max-width:630px!important;
+  margin:28px 0 26px!important;
+  font-size:clamp(16px,1.35vw,20px)!important;
+  line-height:1.55!important;
+}
+html body .hero .hero-actions{margin:0!important}
+
+@media(max-width:1100px) and (min-width:761px){
+  html body .hero{
+    min-height:700px!important;
+    max-height:840px!important;
+    background-size:100% 100%,56% auto,56% auto,56% auto,56% auto!important;
+  }
+  html body .hero .hero-copy{width:min(620px,52vw)!important}
+  html body .hero h1{font-size:clamp(58px,7.2vw,86px)!important}
+}
+
+@media(max-width:760px){
+  html body .hero{
+    min-height:720px!important;
+    height:auto!important;
+    max-height:none!important;
+    padding:0!important;
+    align-items:flex-start!important;
+    background-color:#052720!important;
+    background-image:
+      linear-gradient(180deg,
+        #052720 0%,
+        #052720 52%,
+        rgba(5,39,32,.98) 58%,
+        rgba(5,39,32,.80) 64%,
+        rgba(5,39,32,.42) 70%,
+        rgba(5,39,32,.10) 76%,
+        rgba(5,39,32,0) 82%),
+      url("assets/hero-main.jpg"),
+      url("assets/hero-main.png"),
+      url("assets/hero-main.webp"),
+      url("assets/hero-forum-main.webp")!important;
+    background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat!important;
+    background-position:center,center bottom,center bottom,center bottom,center bottom!important;
+    background-size:100% 100%,100% auto,100% auto,100% auto,100% auto!important;
+  }
+  html body .hero .hero-inner{
+    width:calc(100% - 32px)!important;
+    padding:94px 0 285px!important;
+  }
+  html body .hero .hero-copy{
+    width:100%!important;
+    max-width:100%!important;
+  }
+  html body .hero h1{
+    max-width:100%!important;
+    font-size:clamp(44px,13vw,62px)!important;
+    line-height:.88!important;
+    letter-spacing:-.04em!important;
+  }
+  html body .hero .hero-lead{
+    margin:22px 0 22px!important;
+    font-size:15px!important;
+  }
+  html body .hero .hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+  html body .hero .hero-actions .button{
+    width:100%!important;
+    margin:0!important;
+  }
+}
+
+@media(max-width:390px){
+  html body .hero{min-height:690px!important}
+  html body .hero .hero-inner{padding-bottom:255px!important}
+  html body .hero h1{font-size:clamp(41px,12.5vw,54px)!important}
+}
