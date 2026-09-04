@@ -16,7 +16,7 @@ jobs:
       - name: Capture published landing page at reference viewport
         run: |
           sleep 8
-          google-chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=838,518 --screenshot=hero-verification.png 'https://xssibbit.github.io/forum-neruhomosti-2026/?v=reference20'
+          google-chrome --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=838,518 --screenshot=hero-verification.png 'https://xssibbit.github.io/forum-neruhomosti-2026/?v=reference22'
           test -s hero-verification.png
       - name: Commit verification screenshot
         run: |
