@@ -14,8 +14,16 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
+
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
+          s = re.sub(
+              r'<a class="ref-hero-btn secondary" href="[^"]+">.*?</a>',
+              '<a class="ref-hero-btn secondary" href="#participants">ЗАБРОНЮВАТИ МІСЦЕ <i>▣</i></a>',
+              s,
+              count=1,
+              flags=re.S,
+          )
           s = re.sub(r'\s*<link rel="stylesheet" href="mobile-polish\.css\?v=[^"]+">\s*', '\n', s)
           s = re.sub(r'\s*<link rel="stylesheet" href="mobile-hero-rescue\.css\?v=[^"]+">\s*', '\n', s)
           s = re.sub(r'\s*<link rel="stylesheet" href="mobile-hero-emphasis\.css\?v=[^"]+">\s*', '\n', s)
@@ -23,16 +31,23 @@ jobs:
           links = (
               '  <link rel="stylesheet" href="mobile-polish.css?v=20260904-mobile2">\n'
               '  <link rel="stylesheet" href="mobile-hero-rescue.css?v=20260904-rescue2">\n'
-              '  <link rel="stylesheet" href="mobile-hero-emphasis.css?v=20260904-emphasis3">\n'
-              '  <link rel="stylesheet" href="mobile-final.css?v=20260904-mobile-final1">\n'
+              '  <link rel="stylesheet" href="mobile-hero-emphasis.css?v=20260904-emphasis4">\n'
+              '  <link rel="stylesheet" href="mobile-final.css?v=20260904-mobile-final2">\n'
           )
           s = s.replace('</head>', links + '</head>')
           p.write_text(s, encoding='utf-8')
+
+          for css_name in ('mobile-hero-emphasis.css', 'mobile-final.css'):
+              css = Path(css_name)
+              if css.exists():
+                  c = css.read_text(encoding='utf-8')
+                  c = c.replace('content:"РЕЄСТРАЦІЯ"!important', 'content:"ЗАБРОНЮВАТИ МІСЦЕ"!important')
+                  css.write_text(c, encoding='utf-8')
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          git add index.html mobile-hero-emphasis.css mobile-final.css
           if ! git diff --cached --quiet; then
-            git commit -m "Load final mobile experience"
+            git commit -m "Make hero booking CTA scroll to registration"
             git push
           fi
