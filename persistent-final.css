@@ -60,37 +60,54 @@ html body .about .section-title::before{
   background:none!important;
 }
 
-/* HERO ARTWORK — exact approved composition, adapted without cropping key branding. */
+/* HERO ARTWORK — exact approved composition, clearly visible on desktop. */
+html body .hero{
+  background:linear-gradient(110deg,#041d19 0%,#052a23 54%,#07372d 100%)!important;
+}
+html body .hero-copy{
+  width:min(820px,52vw)!important;
+  position:relative!important;
+  z-index:3!important;
+}
 html body .hero::after{
   content:""!important;
   display:block!important;
   position:absolute!important;
-  z-index:0!important;
+  z-index:1!important;
   top:0!important;
   right:0!important;
   bottom:0!important;
-  width:58%!important;
+  width:64%!important;
   height:auto!important;
   pointer-events:none!important;
+  opacity:1!important;
   background:
     linear-gradient(90deg,
       #052a23 0%,
-      rgba(5,42,35,.96) 7%,
-      rgba(5,42,35,.72) 17%,
-      rgba(5,42,35,.30) 28%,
-      rgba(5,42,35,0) 40%),
+      rgba(5,42,35,.99) 12%,
+      rgba(5,42,35,.92) 22%,
+      rgba(5,42,35,.72) 32%,
+      rgba(5,42,35,.42) 43%,
+      rgba(5,42,35,.16) 52%,
+      rgba(5,42,35,0) 60%),
     url("assets/hero-forum-main.webp") right center / contain no-repeat!important;
 }
 
 @media(max-width:1100px) and (min-width:761px){
-  html body .hero::after{
-    width:55%!important;
-    background:
-      linear-gradient(90deg,#052a23 0%,rgba(5,42,35,.90) 10%,rgba(5,42,35,.35) 28%,rgba(5,42,35,0) 42%),
-      url("assets/hero-forum-main.webp") right center / contain no-repeat!important;
-  }
   html body .hero-copy{
-    width:min(760px,60vw)!important;
+    width:min(690px,56vw)!important;
+  }
+  html body .hero::after{
+    width:62%!important;
+    background:
+      linear-gradient(90deg,
+        #052a23 0%,
+        rgba(5,42,35,.98) 14%,
+        rgba(5,42,35,.80) 28%,
+        rgba(5,42,35,.45) 40%,
+        rgba(5,42,35,.12) 52%,
+        rgba(5,42,35,0) 62%),
+      url("assets/hero-forum-main.webp") right center / contain no-repeat!important;
   }
 }
 
@@ -113,40 +130,51 @@ html body .hero::after{
     font-size:14px!important;
   }
 
-  /* Mobile: preserve the whole poster and all logos/QR instead of cover-cropping it. */
+  /* Mobile: full approved poster below the copy, with a soft green overlap at the top. */
   html body .hero{
     min-height:0!important;
     height:auto!important;
     max-height:none!important;
-    padding:92px 0 570px!important;
+    padding:92px 0 590px!important;
     background:#052720!important;
+  }
+  html body .hero-copy{
+    width:100%!important;
+    max-width:100%!important;
   }
   html body .hero::after{
     top:auto!important;
     left:0!important;
     right:0!important;
-    bottom:18px!important;
+    bottom:14px!important;
     width:100%!important;
-    height:535px!important;
+    height:555px!important;
+    z-index:1!important;
     background:
-      linear-gradient(180deg,#052720 0%,rgba(5,39,32,.72) 7%,rgba(5,39,32,.18) 16%,rgba(5,39,32,0) 25%),
+      linear-gradient(180deg,
+        #052720 0%,
+        rgba(5,39,32,.96) 6%,
+        rgba(5,39,32,.72) 12%,
+        rgba(5,39,32,.35) 18%,
+        rgba(5,39,32,.08) 24%,
+        rgba(5,39,32,0) 30%),
       url("assets/hero-forum-main.webp") center bottom / contain no-repeat!important;
   }
 }
 
 @media(max-width:430px){
   html body .hero{
-    padding-bottom:535px!important;
+    padding-bottom:550px!important;
   }
   html body .hero::after{
-    height:505px!important;
-    bottom:12px!important;
+    height:520px!important;
+    bottom:10px!important;
   }
 }
 
 @media(max-width:360px){
   html body .hero .eyebrow::before{font-size:32px!important}
   html body .hero .eyebrow::after{font-size:12px!important}
-  html body .hero{padding-bottom:500px!important}
-  html body .hero::after{height:470px!important}
+  html body .hero{padding-bottom:510px!important}
+  html body .hero::after{height:480px!important}
 }
