@@ -1,13 +1,32 @@
 /* Mobile fixes based on real iPhone screenshots. Loaded LAST. */
 
-/* Final desktop + mobile guard: do not render generated duplicate text around the About title. */
-html body section#about .about-layout h2.section-title::before,
-html body section#about .about-layout h2.section-title::after{
-  content:none!important;
+/* Final desktop + mobile guard: show the About title exactly once and without a question mark. */
+html body section#about .about-layout h2.section-title{
+  font-size:0!important;
+  line-height:1!important;
+}
+html body section#about .about-layout h2.section-title br,
+html body section#about .about-layout h2.section-title span,
+html body section#about .about-layout h2.section-title::before{
   display:none!important;
+  content:none!important;
+}
+html body section#about .about-layout h2.section-title::after{
+  content:"Чому варто бути тут"!important;
+  display:block!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(56px,5.6vw,88px)!important;
+  font-weight:400!important;
+  line-height:.94!important;
+  letter-spacing:-.05em!important;
+  color:#f3f2ec!important;
 }
 
 @media (max-width:760px){
+  html body section#about .about-layout h2.section-title::after{
+    font-size:clamp(40px,11vw,52px)!important;
+  }
+
   /* Keep both partner logos clearly visible on the hero photo. */
   html body main#top .ref-hero-visual::before{
     content:""!important;
