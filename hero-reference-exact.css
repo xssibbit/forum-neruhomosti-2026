@@ -1,0 +1,353 @@
+/* Exact hero composition based on the approved reference screenshot. Loaded LAST. */
+html body main#top section.hero{
+  position:relative!important;
+  isolation:isolate!important;
+  box-sizing:border-box!important;
+  min-height:600px!important;
+  height:calc(100svh - 78px)!important;
+  max-height:760px!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  overflow:hidden!important;
+  background:#042d25!important;
+  border-bottom:1px solid rgba(69,211,164,.22)!important;
+  border-radius:0 0 18px 18px!important;
+}
+
+/* Right-side poster: fill the right half by WIDTH and pin to the TOP.
+   This keeps DIM.RIA, QR, AFNU/Vinnytsia and the architectural collage visible,
+   matching the supplied reference instead of center-cropping them. */
+html body main#top section.hero::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:0!important;
+  top:0!important;
+  right:0!important;
+  bottom:0!important;
+  left:auto!important;
+  width:52.5%!important;
+  height:100%!important;
+  pointer-events:none!important;
+  background-color:#f7f5ef!important;
+  background-image:url("assets/hero-main.jpg?v=20260904-reference1")!important;
+  background-repeat:no-repeat!important;
+  background-position:right top!important;
+  background-size:100% auto!important;
+  opacity:1!important;
+  box-shadow:none!important;
+}
+
+/* The visible emerald fade from the reference: it overlaps the left edge of the poster. */
+html body main#top section.hero::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:1!important;
+  inset:0!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(90deg,
+      #042d25 0%,
+      #042d25 38%,
+      rgba(4,45,37,.995) 42%,
+      rgba(4,45,37,.97) 45%,
+      rgba(4,45,37,.88) 48%,
+      rgba(4,45,37,.70) 51%,
+      rgba(4,45,37,.46) 54%,
+      rgba(4,45,37,.22) 57%,
+      rgba(4,45,37,.07) 60%,
+      rgba(4,45,37,0) 63%)!important;
+}
+
+html body main#top section.hero .hero-artwork,
+html body main#top section.hero .hero-grid,
+html body main#top section.hero .hero-orb,
+html body main#top section.hero .hero-meta,
+html body main#top section.hero .marquee{display:none!important}
+
+html body main#top section.hero .hero-inner{
+  position:relative!important;
+  z-index:3!important;
+  display:block!important;
+  width:min(1420px,calc(100% - 96px))!important;
+  margin:0 auto!important;
+  padding:48px 0 28px!important;
+  min-height:0!important;
+}
+
+/* Small gold star in the upper-left area, as in the reference. */
+html body main#top section.hero .hero-inner::before{
+  content:"✦"!important;
+  position:absolute!important;
+  left:-14px!important;
+  top:10px!important;
+  color:#d6a15d!important;
+  font-size:25px!important;
+  line-height:1!important;
+  opacity:.96!important;
+  pointer-events:none!important;
+}
+
+html body main#top section.hero .hero-copy,
+html body main#top section.hero .hero-copy.reveal{
+  position:relative!important;
+  z-index:4!important;
+  width:min(600px,43vw)!important;
+  max-width:600px!important;
+  margin:0!important;
+  padding:0!important;
+  opacity:1!important;
+  transform:none!important;
+  overflow:visible!important;
+}
+
+/* Date plaque */
+html body main#top section.hero .eyebrow{
+  position:relative!important;
+  display:block!important;
+  width:250px!important;
+  min-height:74px!important;
+  margin:0 0 24px!important;
+  padding:11px 16px 10px!important;
+  border:1px solid rgba(73,208,162,.65)!important;
+  border-radius:0!important;
+  background:linear-gradient(100deg,#b8844b 0%,#9b7041 55%,rgba(16,91,70,.88) 100%)!important;
+  color:transparent!important;
+  font-size:0!important;
+  box-shadow:none!important;
+}
+html body main#top section.hero .eyebrow::before{
+  content:"25–26"!important;
+  display:block!important;
+  color:#f8f2e8!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:42px!important;
+  font-weight:400!important;
+  line-height:.9!important;
+  letter-spacing:-.045em!important;
+}
+html body main#top section.hero .eyebrow::after{
+  content:"ВЕРЕСНЯ · ВІННИЦЯ"!important;
+  display:block!important;
+  margin-top:8px!important;
+  padding-left:12px!important;
+  border-left:1px solid rgba(249,240,226,.62)!important;
+  color:#f7f1e8!important;
+  font-family:Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:.075em!important;
+}
+html body main#top section.hero .eyebrow .live-dot{display:none!important}
+
+/* Main title */
+html body main#top section.hero h1{
+  display:block!important;
+  width:100%!important;
+  max-width:600px!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(58px,5.35vw,82px)!important;
+  font-weight:400!important;
+  line-height:.82!important;
+  letter-spacing:-.052em!important;
+  white-space:normal!important;
+}
+html body main#top section.hero h1 br{display:none!important}
+html body main#top section.hero h1 span,
+html body main#top section.hero h1 em{
+  display:block!important;
+  width:max-content!important;
+  max-width:100%!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+  overflow:visible!important;
+  white-space:nowrap!important;
+}
+html body main#top section.hero h1 span{color:#f4efe6!important}
+html body main#top section.hero h1 em{
+  color:#27d59f!important;
+  -webkit-text-stroke:0!important;
+  font-style:normal!important;
+  font-size:.83em!important;
+  margin-top:.09em!important;
+  letter-spacing:-.052em!important;
+}
+html body main#top section.hero h1::after{content:none!important;display:none!important}
+
+/* Intro + venue line */
+html body main#top section.hero .hero-lead{
+  position:relative!important;
+  max-width:520px!important;
+  margin:25px 0 0!important;
+  padding:0 0 78px!important;
+  color:#d0dcd7!important;
+  font-size:clamp(14px,1.05vw,17px)!important;
+  line-height:1.5!important;
+}
+html body main#top section.hero .hero-lead::before{
+  content:"⌾"!important;
+  position:absolute!important;
+  left:0!important;
+  bottom:28px!important;
+  color:#d4a05b!important;
+  font-family:Arial,sans-serif!important;
+  font-size:24px!important;
+  font-weight:400!important;
+  line-height:1!important;
+}
+html body main#top section.hero .hero-lead::after{
+  content:"Місце проведення заходу:\Aготельно-ресторанний комплекс «Mont Blanc», Вінниця."!important;
+  white-space:pre-line!important;
+  display:block!important;
+  position:absolute!important;
+  left:32px!important;
+  bottom:18px!important;
+  width:min(470px,calc(100% - 32px))!important;
+  color:#dce5e1!important;
+  font-family:Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  line-height:1.5!important;
+  letter-spacing:0!important;
+  background:none!important;
+  padding:0!important;
+}
+
+/* Buttons */
+html body main#top section.hero .hero-actions{
+  display:flex!important;
+  align-items:stretch!important;
+  gap:12px!important;
+  margin:14px 0 0!important;
+}
+html body main#top section.hero .hero-actions .button{
+  min-height:56px!important;
+  padding:0 18px!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+html body main#top section.hero .hero-actions .button.primary{
+  min-width:190px!important;
+  background:#be8d51!important;
+  border-color:#be8d51!important;
+  color:#fff!important;
+}
+html body main#top section.hero .hero-actions .button.ghost{
+  min-width:205px!important;
+  background:rgba(4,45,37,.28)!important;
+  border-color:rgba(219,231,225,.30)!important;
+  color:#f2f2ec!important;
+}
+html body main#top section.hero .hero-actions .button.primary,
+html body main#top section.hero .hero-actions .button.ghost{font-size:0!important}
+html body main#top section.hero .hero-actions .button.primary::before,
+html body main#top section.hero .hero-actions .button.ghost::before{
+  position:static!important;
+  display:inline!important;
+  width:auto!important;
+  height:auto!important;
+  opacity:1!important;
+  background:none!important;
+  transform:none!important;
+  font-family:Arial,sans-serif!important;
+  font-size:13px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:.01em!important;
+  white-space:nowrap!important;
+}
+html body main#top section.hero .hero-actions .button.primary::before{content:"КУПИТИ КВИТОК"!important}
+html body main#top section.hero .hero-actions .button.ghost::before{content:"БРОНЮВАННЯ МІСЦЯ"!important}
+html body main#top section.hero .hero-actions .button.primary::after{
+  content:"◇"!important;
+  margin-left:20px!important;
+  color:#f5e8d7!important;
+  font-size:17px!important;
+}
+html body main#top section.hero .hero-actions .button.ghost::after{
+  content:"▣"!important;
+  margin-left:20px!important;
+  color:#b9cbc4!important;
+  font-size:14px!important;
+}
+html body main#top section.hero .hero-actions .button span{display:none!important}
+
+@media(max-width:1180px) and (min-width:761px){
+  html body main#top section.hero{min-height:590px!important;max-height:720px!important}
+  html body main#top section.hero::after{width:52%!important;background-size:100% auto!important;background-position:right top!important}
+  html body main#top section.hero::before{
+    background:linear-gradient(90deg,#042d25 0%,#042d25 38%,rgba(4,45,37,.98) 43%,rgba(4,45,37,.82) 48%,rgba(4,45,37,.50) 53%,rgba(4,45,37,.18) 58%,transparent 63%)!important;
+  }
+  html body main#top section.hero .hero-inner{width:calc(100% - 64px)!important;padding-top:42px!important}
+  html body main#top section.hero .hero-copy{width:min(520px,44vw)!important;max-width:520px!important}
+  html body main#top section.hero h1{max-width:520px!important;font-size:clamp(49px,5vw,66px)!important}
+  html body main#top section.hero .hero-actions .button.primary{min-width:165px!important}
+  html body main#top section.hero .hero-actions .button.ghost{min-width:185px!important}
+}
+
+/* Mobile keeps the same hierarchy but stacks the poster below the copy. */
+@media(max-width:760px){
+  html body main#top section.hero{
+    min-height:0!important;
+    height:auto!important;
+    max-height:none!important;
+    display:block!important;
+    border-radius:0 0 14px 14px!important;
+    background:#042d25!important;
+  }
+  html body main#top section.hero::after{
+    top:auto!important;
+    left:0!important;
+    right:0!important;
+    bottom:0!important;
+    width:100%!important;
+    height:clamp(390px,112vw,560px)!important;
+    background-color:#f7f5ef!important;
+    background-size:100% auto!important;
+    background-position:center top!important;
+  }
+  html body main#top section.hero::before{
+    z-index:1!important;
+    background:linear-gradient(180deg,
+      #042d25 0%,
+      #042d25 51%,
+      rgba(4,45,37,.99) 57%,
+      rgba(4,45,37,.88) 63%,
+      rgba(4,45,37,.62) 69%,
+      rgba(4,45,37,.34) 75%,
+      rgba(4,45,37,.12) 80%,
+      rgba(4,45,37,0) 86%)!important;
+  }
+  html body main#top section.hero .hero-inner{
+    width:calc(100% - 32px)!important;
+    margin:0 auto!important;
+    padding:82px 0 calc(clamp(390px,112vw,560px) + 24px)!important;
+  }
+  html body main#top section.hero .hero-inner::before{left:0!important;top:53px!important;font-size:20px!important}
+  html body main#top section.hero .hero-copy,
+  html body main#top section.hero .hero-copy.reveal{width:100%!important;max-width:100%!important}
+  html body main#top section.hero .eyebrow{width:225px!important;min-height:68px!important;margin-bottom:20px!important}
+  html body main#top section.hero .eyebrow::before{font-size:37px!important}
+  html body main#top section.hero h1{max-width:100%!important;font-size:clamp(42px,11.6vw,56px)!important}
+  html body main#top section.hero h1 span,
+  html body main#top section.hero h1 em{width:auto!important;max-width:100%!important;white-space:nowrap!important}
+  html body main#top section.hero .hero-lead{max-width:100%!important;margin-top:20px!important;padding-bottom:82px!important;font-size:15px!important}
+  html body main#top section.hero .hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important;margin-top:8px!important}
+  html body main#top section.hero .hero-actions .button,
+  html body main#top section.hero .hero-actions .button.primary,
+  html body main#top section.hero .hero-actions .button.ghost{width:100%!important;min-width:0!important}
+}
+
+@media(max-width:390px){
+  html body main#top section.hero::after{height:400px!important}
+  html body main#top section.hero .hero-inner{padding-bottom:424px!important}
+  html body main#top section.hero h1{font-size:clamp(38px,10.9vw,47px)!important}
+  html body main#top section.hero .hero-lead::after{font-size:11.5px!important}
+}
