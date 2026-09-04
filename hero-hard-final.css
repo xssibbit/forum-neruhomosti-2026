@@ -86,8 +86,15 @@ html body main#top .ref-hero{
   border-bottom:1px solid rgba(49,211,162,.24)!important;
   border-radius:0 0 14px 14px!important;
 }
-html body main#top .ref-hero::before,
-html body main#top .ref-hero::after{content:none!important;display:none!important}
+html body main#top section.hero.ref-hero::before,
+html body main#top section.hero.ref-hero::after{
+  content:none!important;
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  background:none!important;
+  background-image:none!important;
+}
 html body main#top .ref-hero>.hero-artwork{display:none!important}
 
 .ref-hero-visual{
